@@ -213,6 +213,9 @@
     <Content Include="masterpages\dummy.txt" />
     <Content Include="media\dummy.txt" />
     <Content Include="scripts\dummy.txt" />
+    <None Include="scripts\jquery-2.1.0.intellisense.js" />
+    <Content Include="scripts\jquery-2.1.0.js" />
+    <Content Include="scripts\jquery-2.1.0.min.js" />
     <Content Include="usercontrols\dummy.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -241,6 +244,7 @@
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
     <None Include="Properties\PublishProfiles\FTP.pubxml" />
+    <Content Include="scripts\jquery-2.1.0.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

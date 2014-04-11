@@ -172,3 +172,9 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+
+# Logs
+NuthinButNet/NuthinButNet/App_Data/Logs/*
+
+# Temp files
+NuthinButNet/NuthinButNet/App_Data/TEMP/*
