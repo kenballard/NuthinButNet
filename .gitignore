@@ -178,3 +178,4 @@ NuthinButNet/NuthinButNet/App_Data/Logs/*
 
 # Temp files
 NuthinButNet/NuthinButNet/App_Data/TEMP/*
+NuthinButNet/NuthinButNet/App_Data/Logs/UmbracoTraceLog.txt
