@@ -1652,6 +1652,9 @@
     <Content Include="umbraco\Webservices\TreeDataService.ashx" />
     <Content Include="umbraco\Webservices\UltimatePickerAutoCompleteHandler.ashx" />
     <Content Include="umbraco\Xslt\Web.config" />
+    <Content Include="Views\About.cshtml" />
+    <Content Include="Views\GetInvolved.cshtml" />
+    <Content Include="Views\Programs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
