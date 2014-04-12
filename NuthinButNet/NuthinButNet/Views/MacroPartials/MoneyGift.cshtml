@@ -1,0 +1,18 @@
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+<div>
+    <h3>@Umbraco.Field("moneyTitle")</h3>
+    <ul>
+        @for (int i = 1; i <= 5; i++)
+        {
+            var fieldName = string.Concat("money", i);
+            var descName = string.Concat("description", i);
+            if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()) && Umbraco.Field(fieldName).ToString() != "0")
+            {
+                <li><label><input name="money" type="radio" value="@Umbraco.Field(fieldName)" />$@Umbraco.Field(fieldName) @Umbraco.Field(descName)</label></li>
+            }
+        }
+        <li><input name="money" type="radio" /><input /></li>
+    </ul>
+    <button id="addToCart">@Umbraco.Field("callToActionText")</button>
+</div>
