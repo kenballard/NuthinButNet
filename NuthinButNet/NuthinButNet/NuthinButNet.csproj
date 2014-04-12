@@ -1684,6 +1684,7 @@
     <Content Include="umbraco\Xslt\Web.config" />
     <Content Include="Views\umbHomePage.cshtml" />
     <Content Include="Views\umbLayout.cshtml" />
+    <Content Include="Views\MacroPartials\Call To Action.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

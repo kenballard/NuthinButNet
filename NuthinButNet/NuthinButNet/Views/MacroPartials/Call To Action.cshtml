@@ -1,0 +1,11 @@
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+@foreach (var page in Model.Content.Children)
+{
+    if (page.DocumentTypeAlias == "CallToAction")
+    {
+        <div><h2><a href="@umbraco.library.NiceUrl(int.Parse(page.GetPropertyValue<string>("url")))">@page.GetPropertyValue("name")</a></h2>
+            <img src="@Umbraco.TypedMedia(int.Parse(page.GetPropertyValue<string>("image"))).Url" width="240" height="240" />
+        </div>
+    }
+} 
