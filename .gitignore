@@ -29,6 +29,10 @@ TestResult.xml
 [Rr]eleasePS/
 dlldata.c
 
+NuthinButNet/NuthinButNet/App_Data/TEMP
+NuthinButNet/NuthinButNet/App_Data/Logs
+
+
 *_i.c
 *_p.c
 *_i.h
