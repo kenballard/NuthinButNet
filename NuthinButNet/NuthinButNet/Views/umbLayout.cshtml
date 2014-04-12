@@ -51,7 +51,10 @@
         <nav class="menu-bar">
             <div class="container">
                 <a href="#" class="tablet-menu"></a>
-                <ul class="menu">
+					
+					@Umbraco.RenderMacro("MainNavigation")
+					
+                <!--<ul class="menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="events.html">Events</a></li>
                     <li><a href="blog.html">Blog</a></li>
@@ -104,7 +107,7 @@
                             </li>
                         </ul>
                     </li>
-                </ul><!-- menu ends -->
+                </ul>--><!-- menu ends -->
                 <div class="user-controls">
                     <a href="#" class="user-login"></a>
                     <a href="#" class="user-search"></a>
