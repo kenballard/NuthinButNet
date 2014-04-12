@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Help Template Documenation</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Help &rdquo; Documentation by &ldquo;Themebazaar&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Help&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 03/08/2013<br>
+					By: ThemeBazaar<br>
+					Email: <a href="mailto:info@extracoding.com">info@extracoding.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing our template. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/themebazaar">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#htmlStructure">HTML Structure</a></li>
+			<li><a href="#cssFiles">CSS Files and Structure</a></li>
+			<li><a href="#javascript">JavaScript</a></li>
+			<li><a href="#credits">Sources and Credits</a></li>
+			
+		</ol>
+		
+		<hr>
+		
+		<h3 id="htmlStructure"><strong>A) HTML Structure</strong> - <a href="#toc">top</a></h3>
+		
+        <p>
+        	This template is a responsive layout with full width and more columns. Homepage is fullwidth page, main slider is wrapped in &lt;div class="fullwidthbanner-container"&gt;. Posts on listing pages and detail pages are wrapped in &lt;div class="container"&gt; and top banner on inner pages is wrapped in &lt;div class="banner"&gt;. 
+        </p>
+		
+		<img src="assets/images/htmlstructure.png" alt="HTML Structure" />
+		
+		<p>If you would like to edit the color any elements in one of these pages, you would do the following either in style.css</p>
+
+
+		<p>If you find that your new style is not overriding, it is most likely because of a specificity problem. Scroll down in your CSS file and make sure that there isn't a similar style that has more weight.</p>
+
+		<p>So, to ensure that your new styles are applied, make sure that they carry enough "weight" and that there isn't a style lower in the CSS file that is being applied after yours.</p> 
+
+		<hr>
+
+		<h3 id="cssFiles"><strong>B) CSS Files and Structure</strong> - <a href="#toc">top</a></h3>
+
+		<p>This template is using six CSS files in this template. </p>
+
+		<ol>
+			<li>common.css</li>
+            <li>prettyPhoto.css</li>
+            <li>responsive.css</li>
+            <li>slider.css</li>
+            <li>style.css</li>
+		</ol>
+		
+		<p>common.css, responsive.css and style.css are being used commonly in the template.
+        slider.css is used for homepage main slider. prettyphoto.css is being used for light box on gallery page.</p>
+        <p>If you would like to edit a specific section of the site, simply find the appropriate label in the CSS file, and then scroll down until you find the appropriate style that needs to be edited.</p>
+        
+		<hr>
+		
+		<h3 id="javascript"><strong>C) JavaScript</strong> - <a href="#toc">top</a></h3>
+		
+		<p>This template used four Javascript files.</p>
+		
+		<ol>
+			<li>jquery-1.10.2.min.js</li>
+			<li>jquery-ui-1.10.3.custom.min.js</li>
+			<li>jquery.themepunch.revolution.min</li>
+            <li>jquery.bxslider.js</li>
+            <li>jquery.countdown.js</li>
+            <li>jquery.prettyPhoto.js</li>
+            <li>script.js</li>
+		</ol>
+		  
+		<ol>
+			<li>jQuery and jquery ui is a Javascript library that greatly reduces the amount of code that you must write.</li>
+			<li>jQuery themepunch revolution is used for home page slider . </li>
+            <li>bxslider is used for testimonials scroll and twitter feeds scrolls</li>
+            <li>jQuery coundown is used for eventcoundow widget.</li>
+            <li>jQuery PrettyPhoto is used for light box</li>
+            <li>jquery dialog is inserted in script.js. Example of jquery dialog is as under </li>
+            <pre>
+            	/*** Dialog Script ***/
+                $("#dialog-login, #dialog-search").dialog({
+                    autoOpen: false,
+                    draggable: false,
+                    show: {effect:'drop', direction:'left'},
+                    hide: {effect:'drop', direction:'right'}
+                });
+            
+                /*** Trigger Dialog ***/
+                $('.user-login').on('click', this, function(e){
+                    $('.dialog-overlay').fadeIn();
+                    $( "#dialog-login" ).dialog('open');
+                    e.preventDefault();
+                });
+                $('.user-search').on('click', this, function(e){
+                    $('.dialog-overlay').fadeIn();
+                    $( "#dialog-search" ).dialog('open');
+                    e.preventDefault();
+                });
+                $('.ui-dialog .ui-dialog-titlebar-close').click( function(){
+                    $('.dialog-overlay').fadeOut();
+                });
+                /*** hide elements on ESCAPE ***/
+                $(document).bind('keydown', function(e) {
+                    if (e.keyCode === 27) {
+                        $(".dialog-overlay").fadeOut();
+                    }
+                });
+            
+                function dialogLogin_size (){
+                    var resolution = $(window).width();
+                    if(resolution <= 480){
+                        var winW = $(window).width();
+                        $("#dialog-login, #dialog-search").dialog( "option", "width", winW );
+                    }
+                    if(resolution > 480){
+                        $("#dialog-login, #dialog-search").dialog( "option", "width", 400 );
+                    }
+                } // dialogLogin_size function ends		
+            
+                $(window).resize( function() {
+                    menuTablet();
+                    dialogLogin_size();
+                });
+            </pre>
+		</ol>
+		
+		<hr>
+		
+		<h3 id="credits"><strong>D) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+		
+		<p>I have used all the images from shutterstock and are for preview purpose only.</p>
+		
+		<hr>
+		
+		<p>Once again, thank you so much for purchasing this template. As I said at the beginning, I'd be glad to help you if you have any questions relating to this template. No guarantees, but I'll do my best to assist. If you have a more general question relating to the templates on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+		
+		<p class="append-bottom alt large"><strong>Themebazaar</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
