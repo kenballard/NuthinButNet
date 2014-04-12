@@ -1,0 +1,36 @@
+/*!
+ * Help v.1.0.0
+ * Copyright 2013 
+ * 
+ */
+
+
+.tp-bar, .progress .bar, .event-countdown, .bottom, .btn, .footer .btn {
+	background-color:#96c052;
+}
+.progress .bar, .event-countdown, .bottom, .btn, .footer .btn {
+	background-color:#96c052;
+}
+.ui-dialog .ui-dialog-content .heading {
+	background:#96c052;
+}
+
+.tp-caption.large_yallow, .tp-caption.very_large_yallow, .banner h1 {
+	background-color:#96c052;
+}
+
+.blog-left a, .text-yallow {
+	color:#96c052;
+}
+
+a:hover, .footer a:hover, ul.contact-list li a:hover, .donate-detail h3 {
+  color:#96c052;
+}
+
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+  border-color:rgba(150, 192, 82, 0.8);
+
+  -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(150, 192, 82, 0.6);
+     -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(150, 192, 82, 0.6);
+          box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(150, 192, 82, 0.6);
+}

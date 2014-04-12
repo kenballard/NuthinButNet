@@ -1,67 +1,237 @@
-@inherits UmbracoTemplatePage
+﻿@inherits UmbracoTemplatePage
 @{
     Layout = null;
-}<!DOCTYPE html>
-<!--
-    TXT 2.0 by HTML5 UP
-    html5up.net | twitter.com/n33co
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+
+}
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <title>@Umbraco.Field("title", altFieldAlias: "pageName") | @Umbraco.Field("siteName", recursive: true)</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700" rel="stylesheet" />
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/config.js"></script>
-    <script src="/js/skel.min.js"></script>
-    <script src="/js/skel-panels.min.js"></script>
-    <noscript>
-        <link rel="stylesheet" href="/css/skel-noscript.css" />
-        <link rel="stylesheet" href="/css/style.css" />
-        <link rel="stylesheet" href="/css/style-desktop.css" />
-    </noscript>
-    <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
-    <!--[if lte IE 8]><script src="/js/html5shiv.js"></script><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
-    <!--[if lte IE 7]><link rel="stylesheet" href="/css/ie7.css" /><![endif]-->
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href="/css/common.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/color.css" rel="stylesheet">
+    <link href="/css/slider.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
 </head>
-<body class="homepage">
-    <!-- Header -->
-    <header id="header">
-        <div class="logo">
-            <div>
-                <h1><a href="/" id="logo">@Umbraco.Field("siteName", recursive: true)</a></h1>
-                <span class="byline">@Umbraco.Field("byline", recursive: true)</span>
-            </div>
-        </div>
-    </header>
-    <!-- /Header -->
-    @{ Html.RenderPartial("umbTopNavigation"); }
 
-    @RenderBody()
+<body>
+    <div class="wrap">
+        <div class="tp-bar">
+            <div class="container">
+                <div class="logo"> <a href="index.html"><img src="images/logo.png" alt="help"></a> <span class="slogan"> Helping Living Project </span> </div>
+                <!-- logo ends -->
+                <div class="tp-right">
+                    <div class="social-links">
+                        <ul>
+                            <li><a href="#" class="icon-yahoo tooltip" title="yahoo"></a></li>
+                            <li><a href="#" class="icon-facebook tooltip" title="facebook"></a></li>
+                            <li><a href="#" class="icon-rss tooltip" title="rss"></a></li>
+                            <li><a href="#" class="icon-flickr tooltip" title="flickr"></a></li>
+                            <li><a href="#" class="icon-msn tooltip" title="msn"></a></li>
+                            <li><a href="#" class="icon-stumbleupon tooltip" title="stumbleupon"></a></li>
+                        </ul>
+                    </div>
+                    <div class="tweets">
+                        <ul id="tweet">
+                            <li>Here are 10 quality, affordable Zen Cart Templates, perfect for a wide variety of eCommerce needs. <a href="#">http://enva.to/XiCf5F</a></li>
+                            <li>perfect for a wide variety of eCommerce needs. <a href="#">http://enva.to/XiCf5F</a></li>
+                            <li>affordable Zen Cart Templates, perfect for a wide variety of eCommerce needs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!-- tp-bar ends -->
+        <nav class="menu-bar">
+            <div class="container">
+                <a href="#" class="tablet-menu"></a>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li>
+                        <a href="gallery.html">Gallery</a>
+                        <ul>
+                            <li><a href="gallery-2col.html">Two Column</a></li>
+                            <li><a href="gallery.html">Three Column</a></li>
+                            <li><a href="gallery-4col.html">Four Column</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li>
+                        <a href="#">Pages</a>
+                        <ul>
+                            <li>
+                                <a href="events.html">Events</a>
+                                <ul>
+                                    <li><a href="events-detail.html">Event Detail</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="blog.html">Blog</a>
+                                <ul>
+                                    <li><a href="blog-detail.html">Blog Detail</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="gallery.html">Gallery</a>
+                                <ul>
+                                    <li><a href="gallery-2col.html">Two Column</a></li>
+                                    <li><a href="gallery.html">Three Column</a></li>
+                                    <li><a href="gallery-4col.html">Four Column</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li>
+                                <a href="#">Cursus Tempor</a>
+                                <ul>
+                                    <li><a href="#">Ultrices augue dolor</a></li>
+                                    <li>
+                                        <a href="#">Etiam risus et</a>
+                                        <ul>
+                                            <li><a href="#">Etiam risus et</a></li>
+                                            <li><a href="#">Ultrices augue dolor</a></li>
+                                            <li><a href="#">Cursus Tempor</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul><!-- menu ends -->
+                <div class="user-controls">
+                    <a href="#" class="user-login"></a>
+                    <a href="#" class="user-search"></a>
+                </div>
+            </div>
+        </nav><!-- menu-bar ends -->
+        @*<!DOCTYPE html>
+            <!--
+                TXT 2.0 by HTML5 UP
+                html5up.net | twitter.com/n33co
+                Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+            -->
+            <html>
+            <head>
+                <title>@Umbraco.Field("title", altFieldAlias: "pageName") | @Umbraco.Field("siteName", recursive: true)</title>
+                <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+                <meta name="description" content="" />
+                <meta name="keywords" content="" />
+                <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700" rel="stylesheet" />
+                <script src="/js/jquery.min.js"></script>
+                <script src="/js/config.js"></script>
+                <script src="/js/skel.min.js"></script>
+                <script src="/js/skel-panels.min.js"></script>
+                <noscript>
+                    <link rel="stylesheet" href="/css/skel-noscript.css" />
+                    <link rel="stylesheet" href="/css/style.css" />
+                    <link rel="stylesheet" href="/css/style-desktop.css" />
+                </noscript>
+                <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
+                <!--[if lte IE 8]><script src="/js/html5shiv.js"></script><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
+                <!--[if lte IE 7]><link rel="stylesheet" href="/css/ie7.css" /><![endif]-->
+            </head>
+            <body class="homepage">
+                <!-- Header -->
+                <header id="header">
+                    <div class="logo">
+                        <div>
+                            <h1><a href="/" id="logo">@Umbraco.Field("siteName", recursive: true)</a></h1>
+                            <span class="byline">@Umbraco.Field("byline", recursive: true)</span>
+                        </div>
+                    </div>
+                </header>
+                <!-- /Header -->
+                @{ Html.RenderPartial("umbTopNavigation"); }*@
 
-    <!-- Footer -->
-    <footer id="footer" class="container">
-        <div class="row">
-            <div class="12u">
-                @{ Html.RenderPartial("umbAbout"); }
+        @RenderBody()
+
+
+        <div class="bottom">
+            <div class="container">
+                <div class="bottom-left">
+                    <p>&copy;2013 H.E.L.P. All rights reserved. Theme Designed By <a href="#">Themebazaar</a></p>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Environment</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Site Map</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <ul>
+                        <li><a href="#" class="icon-yahoo tooltip" title="yahoo"></a></li>
+                        <li><a href="#" class="icon-facebook tooltip" title="facebook"></a></li>
+                        <li><a href="#" class="icon-rss tooltip" title="rss"></a></li>
+                        <li><a href="#" class="icon-flickr tooltip" title="flickr"></a></li>
+                        <li><a href="#" class="icon-msn tooltip" title="msn"></a></li>
+                        <li><a href="#" class="icon-stumbleupon tooltip" title="stumbleupon"></a></li>
+                    </ul>
+                </div>
             </div>
+        </div><!-- bottom ends -->
+    </div><!-- wrap ends -->
+
+    <div id="dialog-search">
+        <div class="heading">Search</div>
+        <div class="dialog-block">
+            <form method="get" action="index.html" class="user-search-form">
+                <input type="text" class="input-block-level" placeholder="Enter Any Keyword">
+                <input type="submit" class="btn" value="Search">
+            </form>
         </div>
-        <div class="row">
-            <div class="12u">
-                @{ Html.RenderPartial("umbSocial"); }
-            </div>
+        <!-- dialog-block ends -->
+    </div><!-- dialog ends -->
+    <div id="dialog-login">
+        <div class="heading">User Login</div>
+        <div class="dialog-block">
+            <form method="get" action="index.html" class="user-login-form">
+                <input type="text" class="input-block-level" placeholder="User Login">
+                <input type="password" class="input-block-level" placeholder="Password">
+                <div class="controls">
+                    <label class="help-inline"><input type="checkbox" class="checkbox">Remeber me</label>
+                    <input type="submit" class="btn pull-right" value="Sign In">
+                </div>
+            </form>
+        </div><!-- dialog-block ends -->
+        <div class="dialog-btm">
+            Don't have an account? <a href="#">Create one now!</a>
         </div>
-        <div class="row">
-            <!-- Copyright -->
-            <div id="copyright">
-                &copy; @DateTime.Now.Year @Umbraco.Field("copyright", recursive: true) | Images: <a href="http://fotogrph.com">fotogrph</a> + <a href="http://iconify.it">Iconify.it</a> | Design: <a href="http://html5up.net/">HTML5 UP</a>
-            </div>
-            <!-- /Copyright -->
-        </div>
-    </footer>
-    <!-- /Footer -->
+    </div><!-- dialog ends -->
+    <div class="dialog-overlay"></div>
+
+    <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="/js/jquery.countdown.js"></script>
+    <script src="/js/jquery.bxslider.js"></script>
+    <script src="/js/script.js"></script>
+
+        @*<!-- Footer -->
+            <footer id="footer" class="container">
+                <div class="row">
+                    <div class="12u">
+                        @{ Html.RenderPartial("umbAbout"); }
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="12u">
+                        @{ Html.RenderPartial("umbSocial"); }
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Copyright -->
+                    <div id="copyright">
+                        &copy; @DateTime.Now.Year @Umbraco.Field("copyright", recursive: true) | Images: <a href="http://fotogrph.com">fotogrph</a> + <a href="http://iconify.it">Iconify.it</a> | Design: <a href="http://html5up.net/">HTML5 UP</a>
+                    </div>
+                    <!-- /Copyright -->
+                </div>
+            </footer>
+            <!-- /Footer -->*@
 </body>
 </html>
