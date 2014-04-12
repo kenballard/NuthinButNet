@@ -129,7 +129,8 @@
 	display:inline-block;
 }
 .menu li:hover > a {
-	background: #78ABEC;
+	background: #61B0E4;
+	color: white;
 }
 
 .menu-bar li ul {
