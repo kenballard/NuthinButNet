@@ -4,63 +4,84 @@
 }
 <!-- Main -->
 <h2>Get Involved</h2>
-<div>
+@Umbraco.Field("headerBody")
+<div id="catalog">
+    @if (!string.IsNullOrEmpty(Request.QueryString["gift"]))
+    {
+        @Umbraco.RenderMacro("MoneyGift")
+    }
     <div>
-        <h3>@Umbraco.Field("moneyTitle")</h3>
-        <ul>
-            @for (int i = 1; i <= 5; i++)
-            {
-                var fieldName = string.Concat("money", i);
-                var descName = string.Concat("description", i);
-                if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()) && Umbraco.Field(fieldName).ToString() != "0")
+        <div>
+            <h3>@Umbraco.Field("timeTitle")</h3>
+            <ul>
+                @for (int i = 1; i <= 5; i++)
                 {
-                    <li><label><input name="money" type="radio" value="@Umbraco.Field(fieldName)" />$@Umbraco.Field(fieldName) @Umbraco.Field(descName)</label></li>
+                    var fieldName = string.Concat("time", i);
+                    if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()) && Umbraco.Field(fieldName).ToString() != "0")
+                    {
+                        <li><label><input name="time" type="radio" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName) hours</label></li>
+                    }
                 }
-            }
-            <li><input name="money" type="radio" /><input /></li>
-        </ul>
-    </div>
-    <div>
-        <h3>Time</h3>
-        <ul>
-            @for (int i = 1; i <= 5; i++)
-            {
-                var fieldName = string.Concat("time", i);
-                if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()) && Umbraco.Field(fieldName).ToString() != "0")
+                <li><input name="time" type="radio" value="-1" /><input /></li>
+            </ul>
+        </div>
+        <div>
+            <h3>@Umbraco.Field("talentTitle")</h3>
+            <ul>
+                @for (int i = 1; i <= 5; i++)
                 {
-                    <li><label><input name="time" type="radio" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName) hours</label></li>
+                    var fieldName = string.Concat("talent", i);
+                    if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()))
+                    {
+                        <li><label><input name="@fieldName" type="checkbox" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName)</label></li>
+                    }
                 }
-            }
-            <li><input name="time" type="radio" /><input /></li>
-        </ul>
-    </div>
-    <div>
-        <h3>Talent</h3>
-        <ul>
-            @for (int i = 1; i <= 5; i++)
-            {
-                var fieldName = string.Concat("talent", i);
-                if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()))
+                <li><input type="checkbox" /><input /></li>
+            </ul>
+        </div>
+        <div>
+            <h3>In-Kind</h3>
+            <ul>
+                @for (int i = 1; i <= 5; i++)
                 {
-                    <li><label><input name="@fieldName" type="checkbox" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName)</label></li>
+                    var fieldName = string.Concat("inKind", i);
+                    if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()))
+                    {
+                        <li><label><input name="@fieldName" type="checkbox" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName)</label></li>
+                    }
                 }
-            }
-            <li><input type="checkbox" /><input /></li>
-        </ul>
+                <li><input type="checkbox" /><input /></li>
+            </ul>
+        </div>
+        <input type="submit" value="@Umbraco.Field("callToActionText")" />
     </div>
-    <div>
-        <h3>In-Kind</h3>
-        <ul>
-            @for (int i = 1; i <= 5; i++)
-            {
-                var fieldName = string.Concat("inKind", i);
-                if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()))
-                {
-                    <li><label><input name="@fieldName" type="checkbox" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName)</label></li>
-                }
-            }
-            <li><input type="checkbox" /><input /></li>
-        </ul>
-    </div>
+    @if (string.IsNullOrEmpty(Request.QueryString["gift"]))
+    {
+        @Umbraco.RenderMacro("MoneyGift")
+    }
 </div>
+<div id="checkout">
+    <div id="cart">
+        <label id="moneySelected" />
+        <label id="timeSelected" />
+        <label id="talentSelected" />
+        <label id="inKindSelected" />
+    </div>
+    <form>
+        <label>Full Name</label><input id="Name" />
+        <label>Address</label><input id="Address1" />
+        <label>City</label><input id="City" />
+        <label>State</label><input id="State" />
+        <label>Zip Code</label><input id="Zip" />
+        <label>Credit Card</label><input id="CreditCard" autocomplete="off" />
+        <label>Verification Code (CVV)</label><input id="VerificationCode" />
+        <label>Expiration Month</label><input id="ExpyMonth" />
+        <label>Expiration Year</label><input id="ExpyYear" />
+        <input type="hidden" id="moneyProduct" />
+        <input type="hidden" id="timeProduct" />
+        <input type="hidden" id="talentProduct" />
+        <input type="hidden" id="inKindSelected" />
+    </form>
+</div>
+
 <!-- /Main -->

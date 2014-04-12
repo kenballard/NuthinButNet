@@ -1539,6 +1539,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\GetInvolvedController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1692,6 +1693,7 @@
     <Content Include="Views\MacroPartials\Call To Action.cshtml" />
     <Content Include="Views\MacroPartials\Carousel.cshtml" />
     <Content Include="Views\MacroPartials\MainNavigation.cshtml" />
+    <Content Include="Views\MacroPartials\MoneyGift.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
