@@ -106,7 +106,7 @@
 /*** Main Menu 
 /////////////////////////////// ***/
 .menu-bar {
-	background: #7f8c8d;
+	background: white;
 }
 .menu-bar .menu {
 	display:inline-block;
@@ -124,12 +124,12 @@
 .menu > li > a {
 	padding:15px 22px;
 	font-size:15px;
-	color:#fff;
+	color: black;
 	text-transform:uppercase;
 	display:inline-block;
 }
 .menu li:hover > a {
-	background:#000;
+	background: #78ABEC;
 }
 
 .menu-bar li ul {
@@ -254,7 +254,7 @@
 	padding:10px 0;
 	float:left;
 	display:inline-block;
-	background:#000 url(../images/sprites.png) 16px -344px no-repeat;
+	background: #61B0E4 url(../images/sprites.png) 16px -344px no-repeat;
 
 	transition:background-color 0.5s ease-in;
 }
