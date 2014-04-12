@@ -1,0 +1,11 @@
+﻿//Specific Styles 
+#programs-landing .program-tabs {
+    width: 200px;
+    float: left;
+    position: relative;
+}
+
+#programs-landing .program-tabs li {
+    float: none;
+    width: 100%;
+}
