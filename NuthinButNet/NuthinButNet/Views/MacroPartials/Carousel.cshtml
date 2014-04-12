@@ -1,0 +1,7 @@
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+<h2>Carousel</h2>
+@foreach (var image in Model.Content.GetPropertyValue<dynamic>("carousel"))
+{
+    <img src="@Umbraco.TypedMedia(int.Parse(image[string.Empty].ToString())).Url" width="64" height="64" />
+}

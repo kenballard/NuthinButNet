@@ -1688,6 +1688,7 @@
     <Content Include="Views\umbHomePage.cshtml" />
     <Content Include="Views\umbLayout.cshtml" />
     <Content Include="Views\MacroPartials\Call To Action.cshtml" />
+    <Content Include="Views\MacroPartials\Carousel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
