@@ -1,0 +1,19 @@
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+<ul class="menu">
+    @foreach (var document in Model.Content.AncestorOrSelf(1).Siblings().Where(x => x.IsVisible()))
+    {
+        <li>
+            <a href="@document.Url">@document.Name</a>
+            @if (document.Children.Any(x => x.IsVisible()))
+            {
+            <ul>
+                @foreach (var child in document.Children.Where(x => x.IsVisible()))
+                {
+                    <li><a href="@child.Url">@child.Name</a></li>
+                }              
+            </ul>
+        }
+        </li>        
+    }
+</ul>
