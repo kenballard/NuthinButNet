@@ -1687,6 +1687,8 @@
     <Content Include="Views\Programs.cshtml" />
     <Content Include="Views\umbHomePage.cshtml" />
     <Content Include="Views\umbLayout.cshtml" />
+    <Content Include="Views\Event.cshtml" />
+    <Content Include="Views\Venue.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
