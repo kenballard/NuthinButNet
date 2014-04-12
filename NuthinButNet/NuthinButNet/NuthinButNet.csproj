@@ -1694,6 +1694,7 @@
     <Content Include="Views\MacroPartials\MainNavigation.cshtml" />
     <Content Include="Views\EventLanding.cshtml" />
     <Content Include="Views\VenueLanding.cshtml" />
+    <Content Include="Views\MacroPartials\Events.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
