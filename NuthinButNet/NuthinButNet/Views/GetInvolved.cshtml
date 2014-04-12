@@ -3,5 +3,64 @@
     Layout = "umbLayout.cshtml";
 }
 <!-- Main -->
-<div>Get Involved</div>
+<h2>Get Involved</h2>
+<div>
+    <div>
+        <h3>@Umbraco.Field("moneyTitle")</h3>
+        <ul>
+            @for (int i = 1; i <= 5; i++)
+            {
+                var fieldName = string.Concat("money", i);
+                var descName = string.Concat("description", i);
+                if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()) && Umbraco.Field(fieldName).ToString() != "0")
+                {
+                    <li><label><input name="money" type="radio" value="@Umbraco.Field(fieldName)" />$@Umbraco.Field(fieldName) @Umbraco.Field(descName)</label></li>
+                }
+            }
+            <li><input name="money" type="radio" /><input /></li>
+        </ul>
+    </div>
+    <div>
+        <h3>Time</h3>
+        <ul>
+            @for (int i = 1; i <= 5; i++)
+            {
+                var fieldName = string.Concat("time", i);
+                if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()) && Umbraco.Field(fieldName).ToString() != "0")
+                {
+                    <li><label><input name="time" type="radio" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName) hours</label></li>
+                }
+            }
+            <li><input name="time" type="radio" /><input /></li>
+        </ul>
+    </div>
+    <div>
+        <h3>Talent</h3>
+        <ul>
+            @for (int i = 1; i <= 5; i++)
+            {
+                var fieldName = string.Concat("talent", i);
+                if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()))
+                {
+                    <li><label><input name="@fieldName" type="checkbox" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName)</label></li>
+                }
+            }
+            <li><input type="checkbox" /><input /></li>
+        </ul>
+    </div>
+    <div>
+        <h3>In-Kind</h3>
+        <ul>
+            @for (int i = 1; i <= 5; i++)
+            {
+                var fieldName = string.Concat("inKind", i);
+                if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()))
+                {
+                    <li><label><input name="@fieldName" type="checkbox" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName)</label></li>
+                }
+            }
+            <li><input type="checkbox" /><input /></li>
+        </ul>
+    </div>
+</div>
 <!-- /Main -->
