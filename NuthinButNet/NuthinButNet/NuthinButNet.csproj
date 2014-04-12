@@ -1689,6 +1689,7 @@
     <Content Include="Views\umbLayout.cshtml" />
     <Content Include="Views\Event.cshtml" />
     <Content Include="Views\Venue.cshtml" />
+    <Content Include="Views\MacroPartials\Call To Action.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
