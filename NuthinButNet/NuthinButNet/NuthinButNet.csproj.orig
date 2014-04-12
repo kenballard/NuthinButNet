@@ -1694,13 +1694,16 @@
     <Content Include="Views\MacroPartials\Call To Action.cshtml" />
     <Content Include="Views\MacroPartials\Carousel.cshtml" />
     <Content Include="Views\MacroPartials\MainNavigation.cshtml" />
+<<<<<<< Updated upstream
     <Content Include="Views\EventLanding.cshtml" />
     <Content Include="Views\VenueLanding.cshtml" />
     <Content Include="Views\MacroPartials\Events.cshtml" />
+=======
     <Content Include="Views\BlogDetail.cshtml" />
     <Content Include="Views\BlogLanding.cshtml" />
     <Content Include="Views\Partials\BlogListings.cshtml" />
     <Content Include="Views\MacroPartials\BlogListings.cshtml" />
+>>>>>>> Stashed changes
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
