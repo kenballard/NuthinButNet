@@ -1,0 +1,14 @@
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+<ul class="events">
+    @foreach (var childPage in Model.Content.Children.Where(x => x.IsVisible()))
+    {
+        <li>
+            <a href="childPage.Url">@childPage.GetPropertyValue("eventTitle")</a>
+            @childPage.GetPropertyValue("dateTime")
+            @childPage.GetPropertyValue("featured")
+            @childPage.GetPropertyValue("registrationURL")
+            <img src="@Umbraco.TypedMedia(int.Parse(childPage.GetPropertyValue<string>("thumbnailImage"))).Url" width="240" height="240" />
+        </li>
+    }
+</ul>

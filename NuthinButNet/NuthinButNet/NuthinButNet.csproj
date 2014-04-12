@@ -1692,8 +1692,9 @@
     <Content Include="Views\MacroPartials\Call To Action.cshtml" />
     <Content Include="Views\MacroPartials\Carousel.cshtml" />
     <Content Include="Views\MacroPartials\MainNavigation.cshtml" />
-    <Content Include="Views\BlogDetail.cshtml" />
-    <Content Include="Views\BlogLanding.cshtml" />
+    <Content Include="Views\EventLanding.cshtml" />
+    <Content Include="Views\VenueLanding.cshtml" />
+    <Content Include="Views\MacroPartials\Events.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
