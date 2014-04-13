@@ -211,6 +211,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\bullshit.css" />
     <Content Include="css\color.css" />
     <Content Include="css\common.css" />
     <Content Include="css\dummy.txt" />
@@ -222,6 +223,7 @@
     <Content Include="css\images\icons-meta.png" />
     <Content Include="css\images\icons-special.png" />
     <Content Include="css\images\overlay.png" />
+    <Content Include="css\normalize.css" />
     <Content Include="css\prettyPhoto.css" />
     <Content Include="css\responsive.css" />
     <Content Include="css\skel-noscript.css" />
@@ -1539,7 +1541,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Helpers\EventsHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\BlogLandingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -1695,6 +1700,12 @@
     <Content Include="Views\EventLanding.cshtml" />
     <Content Include="Views\VenueLanding.cshtml" />
     <Content Include="Views\MacroPartials\Events.cshtml" />
+    <Content Include="Views\BlogDetail.cshtml" />
+    <Content Include="Views\BlogLanding.cshtml" />
+    <Content Include="Views\Blog\BlogListings.cshtml" />
+    <Content Include="Views\MacroPartials\BlogListings.cshtml" />
+    <Content Include="Views\StaffLanding.cshtml" />
+    <Content Include="Views\MacroPartials\FeaturedEvents.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1702,6 +1713,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="xslt\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Partials\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

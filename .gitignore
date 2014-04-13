@@ -15,7 +15,7 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
-App_Data/
+App_data/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -30,8 +30,8 @@ TestResult.xml
 [Rr]eleasePS/
 dlldata.c
 
-NuthinButNet/NuthinButNet/App_Data/TEMP
-NuthinButNet/NuthinButNet/App_Data/Logs
+NuthinButNet/NuthinButNet/App_Data/TEMP/*
+NuthinButNet/NuthinButNet/App_Data/Logs/*
 
 
 *_i.c
