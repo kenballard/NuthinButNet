@@ -1702,7 +1702,6 @@
     <Content Include="umbraco\Xslt\Web.config" />
     <Content Include="Views\About.cshtml" />
     <Content Include="Views\GetInvolved.cshtml" />
-    <Content Include="Views\Programs.cshtml" />
     <Content Include="Views\umbHomePage.cshtml" />
     <Content Include="Views\umbLayout.cshtml" />
     <Content Include="Views\Event.cshtml" />

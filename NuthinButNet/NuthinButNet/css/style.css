@@ -1283,8 +1283,40 @@ width: 100% !important;
 	margin-bottom:25px;
 }
 
-.container {
-    padding-bottom: 38px;
+.logo h1 a svg {
+   width: 95px;
+   height: 95px;
+   float: left;
+   fill: #f1f1f1; 
+}
+
+.logo h1 a {
+    font-size: 24px;
+    font-color: #f1f1f1;
+}
+
+.logo h1 a:hover{
+    color: #f1f1f1;
+}
+
+.logo h1 a span {
+    display: block;
+}
+
+.logo h1 {
+    line-height: 71%;
+    color: #f1f1f1;
+}
+
+.logo h1 .logo-text {
+    position: relative;
+    padding-top: 14px;
+}
+
+.logo h1 .tag-line {
+    font-size: 18px;
+    font-weight: 200;
+    font-style: italic;
 }
 
 /*Programs*/
