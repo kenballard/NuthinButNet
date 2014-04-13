@@ -18,6 +18,7 @@ namespace NuthinButNet.Helpers
         private static readonly string DateTimeEndFieldName = "dateTimeEnd";
         private static readonly string FeaturedFieldName = "featured";
         private static readonly string ThumbnailFieldName = "thumbnailImage";
+        private static readonly string FullSizeFieldName = "fullSizeImage";
         private static readonly string VenueFieldName = "";
 
         public static IPublishedContent GetRootNode(this IPublishedContent currentNode)
@@ -59,10 +60,12 @@ namespace NuthinButNet.Helpers
 
         public static string GetEventThumbnailUrl(this UmbracoContext context, IPublishedContent eventNode)
         {
-            var helper = new UmbracoHelper(context);
-            var thumbnailId = eventNode.GetPropertyValue<int>(ThumbnailFieldName);
-            var typedMedia = helper.TypedMedia(thumbnailId);
-            return typedMedia.Url;
+            return GetImageUrl(context, eventNode, ThumbnailFieldName);
+        }
+
+        public static string GetEventFullSizeImageUrl(this UmbracoContext context, IPublishedContent eventNode)
+        {
+            return GetImageUrl(context, eventNode, FullSizeFieldName);
         }
 
         public static string GetFormattedEventDate(this IPublishedContent eventNode)
@@ -83,6 +86,14 @@ namespace NuthinButNet.Helpers
         {
             // TODO: Get venue address
             return MvcHtmlString.Create("Washington, United States");
+        }
+
+        private static string GetImageUrl(this UmbracoContext context, IPublishedContent eventNode, string propertyName)
+        {
+            var helper = new UmbracoHelper(context);
+            var imageId = eventNode.GetPropertyValue<int>(propertyName);
+            var typedMedia = helper.TypedMedia(imageId);
+            return typedMedia.Url;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿@inherits UmbracoTemplatePage
+﻿@using NuthinButNet.Helpers
+
+@inherits UmbracoTemplatePage
 @{
     Layout = "umbLayout.cshtml";
 }
@@ -8,8 +10,8 @@
         <h1>Upcoming Events</h1>
         <div class="bread-bar clearfix">
             <ul class="breadcrumb">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="events.html">Our Events</a></li>
+                <li><a href="">Home</a></li>
+                <li><a href="@Model.Content.Url">Our Events</a></li>
             </ul>
         </div>
     </div>
@@ -35,21 +37,29 @@
             <div class="events">
                 <div class="events-area">
                     <h2>Upcoming <strong>Events</strong></h2>
+                    
                     <ul class="events-list">
-                        <li>
-                            <div class="event-box event-box-featured">
-                                <figure class="image">
-                                    <a href="events-detail.html"><img src="images/resource/pic-1.jpg" alt="pic"></a>
-                                </figure>
-                                <div class="detail">
-                                    <h5><a href="events-detail.html">Et et odio aenean odio facilisis ac turpis urna porta et!</a></h5>
-                                    <ul>
-                                        <li><span><i class="icon-date"></i>25 - 02 - 2013</span><span>08:00am - 12:00pm</span></li>
-                                        <li><span><i class="icon-location"></i>Washington, United States</span></li>
-                                    </ul>
-                                </div>
-                            </div><!-- event-box ends -->
-                        </li>
+                        @{
+                            var featuredEvent = Model.Content.GetFeaturedEvents(1).FirstOrDefault();
+                        }
+
+                        @if (null != featuredEvent)
+                        {
+                            <li>
+                                <div class="event-box event-box-featured">
+                                    <figure class="image">
+                                        <a href="@featuredEvent.Url"><img src="@UmbracoContext.GetEventFullSizeImageUrl(featuredEvent)" alt="@featuredEvent.GetPropertyValue("summary")"></a>
+                                    </figure>
+                                    <div class="detail">
+                                        <h5><a href="@featuredEvent.Url">@featuredEvent.GetPropertyValue("summary")</a></h5>
+                                        <ul>
+                                            <li><span><i class="icon-date"></i>@featuredEvent.GetFormattedEventDate()</span><span>@featuredEvent.GetFormattedEventTime()</span></li>
+                                            <li><span><i class="icon-location"></i>@UmbracoContext.GetFormattedAddress(featuredEvent)</span></li>
+                                        </ul>
+                                    </div>
+                                </div><!-- event-box ends -->
+                            </li>
+                        }
 
                         @Umbraco.RenderMacro("Events")
                         
