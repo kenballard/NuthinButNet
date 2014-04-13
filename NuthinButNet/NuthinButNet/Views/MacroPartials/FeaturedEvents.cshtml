@@ -1,0 +1,24 @@
+@using NuthinButNet.Helpers
+
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+@{
+    var featuredEvents = Model.Content.GetFeaturedEvents(3);
+    <ul>
+        @foreach (var e in featuredEvents)
+        {
+            <li>
+                <div>
+                    <img src="@Umbraco.TypedMedia(int.Parse(e.GetPropertyValue<string>("thumbnailImage"))).Url" width="240" height="240" />
+                </div>
+                <div>
+                    <a href="@e.Url">@e.GetPropertyValue("eventTitle")</a>
+                </div>
+                <div>
+                    @e.GetPropertyValue("dateTime")
+                </div>
+                <div><a href="@e.GetPropertyValue("registrationURL")">Register</a></div>
+            </li>
+        }
+    </ul>
+}
