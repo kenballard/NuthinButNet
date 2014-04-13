@@ -2,19 +2,20 @@
     $('.addToCart').click(function () {
         var selMoney = getSingleProduct('money');
         var selTime = getSingleProduct('time');
-        var selTalent = getMultiProducts('input[name=talent]:checked', '#catalog');
-        var selInKind = getMultiProducts('input[name=inKind]:checked', '#catalog');
+        var selTalent = getMultiProducts('talent');
+        var selInKind = getMultiProducts('inKind');
 
         function getSingleProduct(selector, parentSelector, otherSelector)
         {
             var sel = $('input[name=' + selector + ']:checked', '#catalog').val();
-            sel = sel == '-1' ? $('#' + selector + 'Other').val() : selMoney;
+            sel = sel == '-1' ? $('#' + selector + 'Other').val() : sel;
+            return sel;
         }
 
         function getMultiProducts(selector)
         {
             var values = '';
-            $(selector).each(function () {
+            $('input[name=' + selector + ']:checked').each(function () {
                 if (values != '')
                     values += ', ';
                 values += $(this).val();
