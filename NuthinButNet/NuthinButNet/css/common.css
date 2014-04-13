@@ -318,6 +318,11 @@ hr {
   float:left;
 }
 
+div.quick_link{
+  height: 200px;
+  background: blue;
+}
+
 
 /*** Grid Style 
 ///////////////////////////////// ***/

@@ -35,7 +35,7 @@ html {
 
 body {
   margin:0;
-	font-family:'Droid Sans', sans-serif;
+	font-family:'Overlock', sans-serif;
   font-size:13px;
   line-height:20px;
   color:#333333;
@@ -693,6 +693,39 @@ span.require {
 	font-size:11px;
 	display:inline-block;
 }
+
+div.quick_links{
+  height:200px;
+  color: white;
+  border-radius: 4px;
+  background-image: url("../images/resource/kitten.jpg");
+  text-align: center;
+  vertical-align:middle;
+}
+
+div.quick_links a{
+  text-align: center;
+}
+
+div.quick_links:hover{
+  height:200px;
+  color: white;
+  border-radius: 4px;
+  background-image: url("../images/resource/kitten.jpg");
+}
+
+#quick_links_container{
+  padding-bottom: 20px;
+  border-bottom: 2px solid #61B0E4;
+}
+
+#events_container{
+  margin-top:50px;
+  /* background: rgb(236, 236, 236); */
+}
+
+
+
 select,
 textarea,
 input[type="text"],
