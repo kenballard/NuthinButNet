@@ -3,22 +3,36 @@
     Layout = "umbLayout.cshtml";
 }
 
-<ul>
-@foreach (var partner in Model.Content.Children)
-{
-    <li>
-        @if (partner.HasValue("link"))
+<div class="banner" style="background:url(/images/resource/banner-1.jpg);">
+    <div class="container">
+        <h1>Partners</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/partners">Partners</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- banner ends -->
+
+<div class="container">
+    <ul>
+        @foreach (var partner in Model.Content.Children)
         {
-            <a href="http://@(partner.GetPropertyValue<string>("link"))" target="_blank">@(partner.GetPropertyValue<string>("name"))</a>
+            <li class="span4">
+                @if (partner.HasValue("link"))
+                {
+                    <a href="http://@(partner.GetPropertyValue<string>("link"))" target="_blank">@(partner.GetPropertyValue<string>("name"))</a>
+                }
+                else
+                {
+                    @(partner.GetPropertyValue<string>("name"))
+                }
+                @if (partner.HasValue("logo"))
+                {
+                    <img src="@Umbraco.TypedMedia(int.Parse(partner.GetPropertyValue<string>("logo"))).Url" />
+                }
+            </li>
         }
-        else
-        {
-            @(partner.GetPropertyValue<string>("name"))
-        }
-        @if (partner.HasValue("logo"))
-        {
-            <img src="@Umbraco.TypedMedia(int.Parse(partner.GetPropertyValue<string>("logo"))).Url" />
-        }
-        </li>
-}
-</ul>
+    </ul>
+</div>
