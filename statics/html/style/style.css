@@ -129,7 +129,8 @@
 	display:inline-block;
 }
 .menu li:hover > a {
-	background: #78ABEC;
+	background: #61B0E4;
+	color: white;
 }
 
 .menu-bar li ul {
@@ -298,7 +299,8 @@
 .event-box .detail {
 	padding:11px 20px 8px 20px;
 	margin-left:110px;
-	color:#8d8c8c;
+	color: black;
+	background: white;
 	font-size:12px;
 }
 .event-box .detail li span {
