@@ -1281,3 +1281,34 @@ width: 100% !important;
 .ui-dialog-content .uneditable-input {
 	margin-bottom:25px;
 }
+
+
+/*Programs*/
+#programs-landing .program-tabs {
+    width: 200px;
+    float: left;
+    position: relative;
+}
+
+#programs-landing .program-tabs li {
+    float: none;
+    width: 100%;
+}
+
+/*Staff Template*/
+.staff-member {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.staff-member .staff-member-info {
+    position: absolute;
+    bottom: 6px;
+    padding: 4px;
+    background: rgba(220,220,220, .8);
+    width: 97%;
+}
+
+.staff-member .staff-member-info p {
+    display: none;
+}
