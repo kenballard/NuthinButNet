@@ -1,0 +1,14 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "umbLayout.cshtml";
+}
+
+@foreach (var post in Model.Content.Children.OrderByDescending(x => x.GetPropertyValue<DateTime>("date")))
+{
+    <div>
+        <span>@(post.GetPropertyValue<DateTime>("date").ToString("MM-dd-yyyy"))</span>
+        <h2><a href="@umbraco.library.NiceUrl(post.Id)">@(post.GetPropertyValue<string>("headline"))</a></h2>
+        <p>@post.GetPropertyValue("teaserText")</p>
+    </div>
+    <hr />
+}
