@@ -1281,19 +1281,3 @@ width: 100% !important;
 .ui-dialog-content .uneditable-input {
 	margin-bottom:25px;
 }
-
- #programs-landing {
-    border: 1px solid red;
-}
-
-#programs-landing .program-tabs {
-    width: 200px;
-    float: left;
-    position: relative;
-}
-
-#programs-landing .program-tabs li {
-    float: none;
-    width: 100%;
-}
-
