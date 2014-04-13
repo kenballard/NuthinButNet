@@ -22,7 +22,7 @@
                         <li><label><input name="time" type="radio" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName) hours</label></li>
                     }
                 }
-                <li><input name="time" type="radio" value="-1" /><input /></li>
+                <li><input name="time" type="radio" value="-1" /><input id="timeOther" /></li>
             </ul>
         </div>
         <div>
@@ -33,27 +33,27 @@
                     var fieldName = string.Concat("talent", i);
                     if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()))
                     {
-                        <li><label><input name="@fieldName" type="checkbox" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName)</label></li>
+                        <li><label><input name="talent" type="checkbox" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName)</label></li>
                     }
                 }
                 <li><input type="checkbox" /><input /></li>
             </ul>
         </div>
         <div>
-            <h3>In-Kind</h3>
+            <h3>@Umbraco.Field("inKindTitle")</h3>
             <ul>
                 @for (int i = 1; i <= 5; i++)
                 {
                     var fieldName = string.Concat("inKind", i);
                     if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()))
                     {
-                        <li><label><input name="@fieldName" type="checkbox" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName)</label></li>
+                        <li><label><input name="inKind" type="checkbox" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName)</label></li>
                     }
                 }
                 <li><input type="checkbox" /><input /></li>
             </ul>
         </div>
-        <input type="submit" value="@Umbraco.Field("callToActionText")" />
+        <button class="addToCart">@Umbraco.Field("callToActionText")</button>
     </div>
     @if (string.IsNullOrEmpty(Request.QueryString["gift"]))
     {

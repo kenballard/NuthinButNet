@@ -12,7 +12,7 @@
                 <li><label><input name="money" type="radio" value="@Umbraco.Field(fieldName)" />$@Umbraco.Field(fieldName) @Umbraco.Field(descName)</label></li>
             }
         }
-        <li><input name="money" type="radio" /><input /></li>
+        <li><input name="money" type="radio" value="-1"/><input id="moneyOther"/></li>
     </ul>
-    <button id="addToCart">@Umbraco.Field("callToActionText")</button>
+    <button class="addToCart">@Umbraco.Field("callToActionText")</button>
 </div>
