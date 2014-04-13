@@ -107,6 +107,7 @@
 /////////////////////////////// ***/
 .menu-bar {
 	background: white;
+    border-bottom: 2px solid #e5e5e5
 }
 .menu-bar .menu {
 	display:inline-block;
