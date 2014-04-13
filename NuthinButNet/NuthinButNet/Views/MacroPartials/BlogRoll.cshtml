@@ -1,0 +1,10 @@
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+    int blogId = Model.Content.AncestorOrSelf(1).Siblings().FirstOrDefault(x => x.DocumentTypeAlias == "BlogLanding").Id;
+    var relatedBlogs = Umbraco.TypedContent(blogId).Children.Where(x => x.HasValue("subProgram") && x.GetPropertyValue<int>("subProgram") == Model.Content.Id);
+}
+
+@foreach (var blog in relatedBlogs)
+{
+    <div>@(blog.GetPropertyValue<string>("headline"))</div>
+}
