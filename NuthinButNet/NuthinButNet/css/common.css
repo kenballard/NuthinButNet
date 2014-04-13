@@ -318,11 +318,6 @@ hr {
   float:left;
 }
 
-div.quick_link{
-  height: 200px;
-  background: blue;
-}
-
 
 /*** Grid Style 
 ///////////////////////////////// ***/
@@ -698,6 +693,39 @@ span.require {
 	font-size:11px;
 	display:inline-block;
 }
+
+div.quick_links{
+  height:200px;
+  color: white;
+  border-radius: 4px;
+  background-image: url("../images/resource/kitten.jpg");
+  text-align: center;
+  vertical-align:middle;
+}
+
+div.quick_links a{
+  text-align: center;
+}
+
+div.quick_links:hover{
+  height:200px;
+  color: white;
+  border-radius: 4px;
+  background-image: url("../images/resource/kitten.jpg");
+}
+
+#quick_links_container{
+  padding-bottom: 20px;
+  border-bottom: 2px solid #61B0E4;
+}
+
+#events_container{
+  margin-top:50px;
+  /* background: rgb(236, 236, 236); */
+}
+
+
+
 select,
 textarea,
 input[type="text"],
