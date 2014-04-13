@@ -15,6 +15,7 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+App_Data/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -177,13 +178,6 @@ UpgradeLog*.htm
 # Microsoft Fakes
 FakesAssemblies/
 
-# Logs
-NuthinButNet/NuthinButNet/App_Data/Logs/*
-
-# Temp files
-NuthinButNet/NuthinButNet/App_Data/TEMP/*
-
 #DS_Stores
 *.DS_Store
 
-NuthinButNet/NuthinButNet/App_Data/Logs/UmbracoTraceLog.txt

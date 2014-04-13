@@ -10,6 +10,7 @@
 }
 .progress .bar, .event-countdown, .bottom, .btn, .footer .btn {
 	background-color: #96c052;
+	color: white;
 }
 .ui-dialog .ui-dialog-content .heading {
 	background:#96c052;
@@ -17,7 +18,6 @@
 
 .tp-caption.large_yallow, .tp-caption.very_large_yallow, .banner h1 {
 	background-color: #96c052;
-	border-radius: 17px;
 }
 
 .blog-left a, .text-yallow {
