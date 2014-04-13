@@ -10,128 +10,15 @@
 </div>
 
 <div class="container" id="quick_links_container">
-
     <div class="row">
-
-        <div class="span3 quick_links" id="do_link">
-            <a href="#" class="text-center">Do</a>
-        </div>
-        <div class="span3 quick_links" id="grow_link">
-            <a href="#" class="text-center">Grow</a>
-        </div>
-        <div class="span3 quick_links" id="go_link">
-            <a href="#" class="text-center">Go</a>
-        </div>
-        <div class="span3 quick_links" id="hear_link">
-            <a href="#" class="text-center">Hear</a>
-        </div>
+        @Umbraco.RenderMacro("CallToAction")
     </div>
 </div>
 
 <div class="container" id="events_container">
-<div class="row">
-    <div class="span6">
-        <div class="events">
-            <h2>Upcoming <strong>Events</strong></h2>
-            <div class="events-area">
-                <ul class="events-list">
-                    <li>
-                        <div class="event-box event-box-featured">
-                            <figure class="image">
-                                <a href="events-detail.html"><img src="images/resource/pic-1.jpg" alt="pic"></a>
-                            </figure>
-                            <div class="detail">
-                                <h5><a href="events-detail.html">Et et odio aenean odio facilisis ac turpis urna porta et!</a></h5>
-                                <ul>
-                                    <li><span><i class="icon-date"></i>25 - 02 - 2013</span><span>08:00am - 12:00pm</span></li>
-                                    <li><span><i class="icon-location"></i>Washington, United States</span></li>
-                                </ul>
-                            </div>
-                        </div><!-- event-box ends -->
-                    </li>
-                </ul><!-- events-list ends -->
-                <div class="pagination pagination-centered">
-                    <ul>
-                        <li class="previous"><a href="#">Prev</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li class="active"><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
-                        <li><a href="#">...</a></li>
-                        <li><a href="#">22</a></li>
-                        <li class="next"><a href="#">Next</a></li>
-                    </ul>
-                </div><!-- pagination ends -->
-            </div><!-- events-area ends -->
-        </div><!-- events end -->
+    <div class="row">
+        @Umbraco.RenderMacro("FeaturedEvents")
     </div>
+</div><!-- /container --> 
 
-    <div class="span6">
-        <ul>
-            <li>
-                <div class="event-box">
-                    <figure class="image">
-                        <a href="events-detail.html"><img src="images/resource/pic-2.jpg" alt="pic"></a>
-                    </figure>
-                    <div class="detail">
-                        <h5><a href="events-detail.html">Et et odio aenean odio facilisis ac turpis urna porta et!</a></h5>
-                        <ul>
-                            <li><span><i class="icon-date"></i>25 - 02 - 2013</span><span>08:00am - 12:00pm</span></li>
-                            <li><span><i class="icon-location"></i>Washington, United States</span></li>
-                        </ul>
-                    </div>
-                </div><!-- event-box ends -->
-            </li>
-            <li>
-                <div class="event-box">
-                    <figure class="image">
-                        <a href="events-detail.html"><img src="images/resource/pic-3.jpg" alt="pic"></a>
-                    </figure>
-                    <div class="detail">
-                        <h5><a href="events-detail.html">Et et odio aenean odio facilisis ac turpis urna porta et!</a></h5>
-                        <ul>
-                            <li><span><i class="icon-date"></i>25 - 02 - 2013</span><span>08:00am - 12:00pm</span></li>
-                            <li><span><i class="icon-location"></i>Washington, United States</span></li>
-                        </ul>
-                    </div>
-                </div><!-- event-box ends -->
-            </li>
-            <li>
-                <div class="event-box">
-                    <figure class="image">
-                        <a href="events-detail.html"><img src="images/resource/pic-4.jpg" alt="pic"></a>
-                    </figure>
-                    <div class="detail">
-                        <h5><a href="events-detail.html">Et et odio aenean odio facilisis ac turpis urna porta et!</a></h5>
-                        <ul>
-                            <li><span><i class="icon-date"></i>25 - 02 - 2013</span><span>08:00am - 12:00pm</span></li>
-                            <li><span><i class="icon-location"></i>Washington, United States</span></li>
-                        </ul>
-                    </div>
-                </div><!-- event-box ends -->
-            </li>
-            <li>
-                <div class="event-box">
-                    <figure class="image">
-                        <a href="events-detail.html"><img src="images/resource/pic-2.jpg" alt="pic"></a>
-                    </figure>
-                    <div class="detail">
-                        <h5><a href="events-detail.html">Et et odio aenean odio facilisis ac turpis urna porta et!</a></h5>
-                        <ul>
-                            <li><span><i class="icon-date"></i>25 - 02 - 2013</span><span>08:00am - 12:00pm</span></li>
-                            <li><span><i class="icon-location"></i>Washington, United States</span></li>
-                        </ul>
-                    </div>
-                </div><!-- event-box ends -->
-            </li>
-        </ul>
-    </div>
-</div>
-  </div><!-- /container --> 
-
-@Umbraco.RenderMacro("CallToAction")
-
-@Umbraco.RenderMacro("FeaturedEvents")
 <!-- /Main -->

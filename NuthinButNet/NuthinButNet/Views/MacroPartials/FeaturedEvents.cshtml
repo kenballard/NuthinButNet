@@ -3,22 +3,53 @@
 @inherits Umbraco.Web.Macros.PartialViewMacroPage
 
 @{
-    var featuredEvents = Model.Content.GetFeaturedEvents(3);
+    var featuredEvents = Model.Content.GetFeaturedEvents(5);
+    var primaryEvent = featuredEvents.First();
+}
+
+<div class="events">
+    <div class="span6">
+        <h2>Featured <strong>Event</strong></h2>
+        <div class="events-area">
+            <ul class="events-list">
+                <li>
+                    <div class="event-box event-box-featured">
+                        <figure class="image">
+                            <a href="@primaryEvent.Url"><img src="@UmbracoContext.GetEventThumbnailUrl(primaryEvent)" alt="@primaryEvent.GetPropertyValue("summary")"></a>
+                        </figure>
+                        <div class="detail">
+                            <h5><a href="@primaryEvent.Url">@primaryEvent.GetPropertyValue("eventTitle")</a></h5>
+                            <ul>
+                                <li><span><i class="icon-date"></i>@primaryEvent.GetFormattedEventDate()</span><span>@primaryEvent.GetFormattedEventTime()</span></li>
+                                <li><span><i class="icon-location"></i>@UmbracoContext.GetFormattedAddress(primaryEvent)</span></li>
+                            </ul>
+                        </div>
+                    </div><!-- event-box ends -->
+                </li>
+            </ul><!-- events-list ends -->        
+        </div><!-- events-area ends -->
+    </div><!-- events end -->
+</div>
+
+<div class="span6">
+    <h3>Upcoming Events</h3>
     <ul>
-        @foreach (var e in featuredEvents)
+        @foreach (var e in featuredEvents.Skip(1))
         {
             <li>
-                <div>
-                    <img src="@Umbraco.TypedMedia(int.Parse(e.GetPropertyValue<string>("thumbnailImage"))).Url" width="240" height="240" />
-                </div>
-                <div>
-                    <a href="@e.Url">@e.GetPropertyValue("eventTitle")</a>
-                </div>
-                <div>
-                    @e.GetPropertyValue("dateTime")
-                </div>
-                <div><a href="@e.GetPropertyValue("registrationURL")">Register</a></div>
+                <div class="event-box">
+                    <figure class="image">
+                        <a href="@e.Url"><img src="@UmbracoContext.GetEventThumbnailUrl(e)" alt="@e.GetPropertyValue("summary")"></a>
+                    </figure>
+                    <div class="detail">
+                        <h5><a href="@e.Url">@e.GetPropertyValue("eventTitle")</a></h5>
+                        <ul>
+                            <li><span><i class="icon-date"></i>@e.GetFormattedEventDate()</span><span>@e.GetFormattedEventTime()</span></li>
+                            <li><span><i class="icon-location"></i>@UmbracoContext.GetFormattedAddress(e)</span></li>
+                        </ul>
+                    </div>
+                </div><!-- event-box ends -->
             </li>
         }
     </ul>
-}
+</div>

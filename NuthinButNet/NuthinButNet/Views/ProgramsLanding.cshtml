@@ -1,42 +1,44 @@
 ﻿@inherits UmbracoTemplatePage
 @{
     Layout = "umbLayout.cshtml";
-    var isFirst = true;
 }
 <!-- Main -->
-<h2>Programs</h2>
+<div class="banner" style="background:url(/images/resource/banner-1.jpg);">
+    <div class="container">
+        <h1>Programs</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/programs">Programs</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- banner ends -->
 
 <div class="container">
     <div id="programs-landing">
-        <div class="nav program-tabs nav-tabs">
-            @foreach (var program in Model.Content.Children())
-            {
-                <div class="span3">
-                    <a href="#@program.Id" data-toggle="tab">
-                        <img src="@Umbraco.TypedMedia(program.GetPropertyValue("thumbnailImage")).Url">
-                    </a>
-                    <div>
-                        @program.GetProperty("title2").Value
-                    </div>
-                </div>
-            }
-        </div>
+        <ul class="nav program-tabs nav-tabs">
+            <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+            <li><a href="#profile" data-toggle="tab">Profile</a></li>
+            <li><a href="#messages" data-toggle="tab">Messages</a></li>
+            <li><a href="#settings" data-toggle="tab">Settings</a></li>
+        </ul>
+
         <!-- Tab panes -->
         <div class="program-content tab-content">
-            @foreach (var program in Model.Content.Children())
-            {
-                <div class="tab-pane @(isFirst ? "active" : "")" id="@program.Id">
-                    <header>
-                        <img src="@Umbraco.TypedMedia(program.GetPropertyValue("image")).Url" />
-                        <h2 id="currentTitle">@program.GetPropertyValue("title2")</h2>
-                    </header>
-                    <p>
-                        @program.GetProperty("description").Value
-                    </p>
-                    <a href="@program.Url">Read More</a>
-                </div>
-                isFirst = false;
-            }
+            <div class="tab-pane active" id="home">
+                <header>
+                    <img src="http://placehold.it/800X400" />
+                    <h2>Program Name</h2>
+                </header>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt urna vel ipsum gravida malesuada. Morbi ac ipsum ac elit tincidunt vulputate et a mi. Sed venenatis dolor est, sit amet hendrerit diam lacinia id. Duis eu rutrum justo. Integer sagittis ullamcorper mauris quis feugiat. Ut et purus eget dolor molestie rhoncus. Proin vulputate urna eget mauris consequat tempus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                    Nullam vel nibh lacus. Nunc fermentum laoreet lacinia. Nunc ut consequat odio. Fusce pulvinar lobortis turpis, id posuere sapien rhoncus at. Integer ut mi in mi tincidunt bibendum mollis consequat mauris. Maecenas molestie ligula vel augue commodo, a hendrerit purus rutrum. Morbi ac tortor vestibulum, cursus dui vehicula, mattis ipsum. Morbi eu elementum turpis, a varius est. Sed auctor vitae eros quis interdum. Donec egestas ante elementum sem auctor, eget elementum odio porttitor. Quisque sem sapien, volutpat ut nulla in, dapibus blandit odio. Suspendisse potenti. Nullam ornare vehicula sapien eget convallis. Vivamus ut pellentesque erat. Nullam eu rhoncus turpis, non consectetur neque.
+                </p>
+            </div>
+            <div class="tab-pane" id="profile">Test 2</div>
+            <div class="tab-pane" id="messages">Test 3</div>
+            <div class="tab-pane" id="settings">Test 4</div>
         </div>
         <div class="clearfix"></div>
     </div>

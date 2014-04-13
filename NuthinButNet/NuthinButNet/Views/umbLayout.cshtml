@@ -42,13 +42,8 @@
         <nav class="menu-bar">
             <div class="container">
                 <a href="#" class="tablet-menu"></a>
-					
 					@Umbraco.RenderMacro("MainNavigation")
 					
-                <div class="user-controls">
-                    <a href="#" class="user-login"></a>
-                    <a href="#" class="user-search"></a>
-                </div>
             </div>
         </nav><!-- menu-bar ends -->
 
@@ -80,33 +75,6 @@
         </div><!-- bottom ends -->
     </div><!-- wrap ends -->
 
-    <div id="dialog-search">
-        <div class="heading">Search</div>
-        <div class="dialog-block">
-            <form method="get" action="index.html" class="user-search-form">
-                <input type="text" class="input-block-level" placeholder="Enter Any Keyword">
-                <input type="submit" class="btn" value="Search">
-            </form>
-        </div>
-        <!-- dialog-block ends -->
-    </div><!-- dialog ends -->
-    <div id="dialog-login">
-        <div class="heading">User Login</div>
-        <div class="dialog-block">
-            <form method="get" action="index.html" class="user-login-form">
-                <input type="text" class="input-block-level" placeholder="User Login">
-                <input type="password" class="input-block-level" placeholder="Password">
-                <div class="controls">
-                    <label class="help-inline"><input type="checkbox" class="checkbox">Remeber me</label>
-                    <input type="submit" class="btn pull-right" value="Sign In">
-                </div>
-            </form>
-        </div><!-- dialog-block ends -->
-        <div class="dialog-btm">
-            Don't have an account? <a href="#">Create one now!</a>
-        </div>
-    </div><!-- dialog ends -->
-    <div class="dialog-overlay"></div>
 
     <script src="/js/jquery-1.10.2.min.js"></script>
     <script src="/js/jquery-ui-1.10.3.custom.min.js"></script>

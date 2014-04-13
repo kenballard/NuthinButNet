@@ -2,23 +2,44 @@
 @{
     Layout = "umbLayout.cshtml";
     int index = 0;
+    var rows = Model.Content.Children.
+        Select((x, i) => new { Index = i, Value = x })
+        .GroupBy(x => x.Index / 3)
+        .Select(x => x.Select(v => v.Value).ToList())
+        .ToList();
 }
 
-<div class="container">
-    <div class="row">
-    @foreach (var child in Model.Content.Children)
-    {
-        <div class="span3 staff-member @(index % 3 == 0 ? "row" : string.Empty)">  
-          <!-- <img src="@Umbraco.TypedMedia(int.Parse(child.GetPropertyValue<string>("image"))).Url" />-->
-            <img src="http://placehold.it/500x500" />
-            <div class="staff-member-info">
-                <h3>@(child.GetPropertyValue<string>("name"))</h3>
-                <h4><strong>@(child.GetPropertyValue<string>("jobTitle"))</strong></h4>
-                <p>@(child.GetPropertyValue<string>("description"))</p>
-            </div>
+<div class="banner" style="background:url(/images/resource/banner-1.jpg);">
+    <div class="container">
+        <h1>Staff</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/staff">Staff</a></li>
+            </ul>
         </div>
-        index++;
-    }
     </div>
-    <div class="clearfix"></div>
+</div><!-- banner ends -->
+
+<div class="container">
+    @foreach (var row in rows)
+    {
+        <div class="row">
+        @foreach (var child in row)
+        {
+            <div class="span3 staff-member">  
+              <!-- <img src="@Umbraco.TypedMedia(int.Parse(child.GetPropertyValue<string>("image"))).Url" />-->
+                <img src="http://placehold.it/500x500" />
+                <div class="staff-member-info">
+                    <h3>@(child.GetPropertyValue<string>("name"))</h3>
+                    <h4><strong>@(child.GetPropertyValue<string>("jobTitle"))</strong></h4>
+                    <p>@(child.GetPropertyValue<string>("description"))</p>
+                </div>
+            </div>
+            index++;
+        }
+        </div>
+        <div class="clearfix"></div>
+    }
+    
 </div>
