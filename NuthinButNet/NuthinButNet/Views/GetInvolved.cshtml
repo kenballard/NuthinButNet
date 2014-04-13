@@ -2,9 +2,22 @@
 @{
     Layout = "umbLayout.cshtml";
 }
+
+
+<div class="banner" style="background:url(/images/resource/banner-1.jpg);">
+    <div class="container">
+        <h1>Get Involved</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/get-involved">Get Involved</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- banner ends -->
 <!-- Main -->
 <div class="container">
-<h2>Get Involved</h2>
+
 @Umbraco.Field("headerBody")
 <div id="catalog">
     <div class="row">
@@ -23,18 +36,19 @@
         <div class="span4">@Get("talent", "", "", false)</div>
         <div class="span4">
             @Get("inKind", "", "", false)
-        <button class="addToCart">@Umbraco.Field("callToActionText")</button>
+        </div>
+            <div class="clearfix"></div>
+        <button class="span3 addToCart">@Umbraco.Field("callToActionText")</button>
     </div>
   
-    
+    <div class="row">
+        <div class="span8">
             @if (string.IsNullOrEmpty(Request.QueryString["gift"]))
             {
-
                 @Get("money", "$", "", true, true)
                 <button class="addToCart">@Umbraco.Field("callToActionText")</button>
-
             }
-        
+        </div>
     </div>
 
 
@@ -88,7 +102,7 @@
 <!-- /Main -->
 @helper Get(string selector, string prepender, string postpender, bool isSelectOne, bool includeDesc = false)
 {
-    <div>
+    
         <h3>@Umbraco.Field(selector + "Title")</h3>
         <ul>
             @for (int i = 1; i <= 5; i++)
@@ -102,5 +116,5 @@
             }
             <li><input name="@selector" type="@(isSelectOne ? "radio" : "checkbox")" value="-1" /><input id="timeOther" /></li>
         </ul>
-    </div>
+ 
 }
