@@ -1,38 +1,47 @@
-@inherits Umbraco.Web.Macros.PartialViewMacroPage
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@using Archetype.Umbraco.PropertyConverters;
+@using Archetype.Umbraco.Models;
+@using Archetype.Umbraco.Extensions;
 
 <div class="fullwidthbanner-container">
     <div class="home-fullwidthbanner">
         <ul>
-        @foreach (var image in Model.Content.GetPropertyValue<dynamic>("carousel"))
-        {
-            <li data-transition="papercut" data-slotamount="15" data-masterspeed="2300" data-delay="9400">
-                <img src="@Umbraco.TypedMedia(int.Parse(image[string.Empty].ToString())).Url" width="64" height="64" />
-                <div class="caption large_yallow lfl stl"
-                     data-x="left"
-                     data-y="170"
-                     data-speed="500"
-                     data-start="500"
-                     data-easing="easeOutExpo">
-                    Sollicitudin a lacinia eufermentum etellus
-                </div>
-                <div class="caption medium_grey lfr"
-                     data-x="left"
-                     data-y="236"
-                     data-speed="500"
-                     data-start="800"
-                     data-easing="easeOutExpo">
-                    Sollicitudin a lacinia eufermentum etellus vestibulum libero
-                </div>
-                <div class="caption medium_grey lfb"
-                     data-x="left"
-                     data-y="290"
-                     data-speed="500"
-                     data-start="800"
-                     data-easing="easeOutExpo">
-                    nibh. eufermentum etellus vestibulum.
-                </div>
-            </li>
-        }
+            @foreach (var fieldset in Model.Content.GetPropertyValue<Archetype>("carousel").Fieldsets)
+            {
+                <li data-transition="papercut" data-slotamount="15" data-masterspeed="2300" data-delay="9400">
+                  <img src="@Umbraco.TypedMedia(fieldset.GetValue<int>("image")).Url" />
+                    <div class="caption large_yallow lfl stl"
+                         data-x="left"
+                         data-y="170"
+                         data-speed="500"
+                         data-start="500"
+                         data-easing="easeOutExpo">
+                        @fieldset.GetValue("headline")
+                    </div>
+                    <div class="caption medium_grey lfr"
+                         data-x="left"
+                         data-y="236"
+                         data-speed="500"
+                         data-start="800"
+                         data-easing="easeOutExpo">
+                        @fieldset.GetValue("subline")
+                    </div>
+                    @if (!string.IsNullOrEmpty(fieldset.GetValue("subline2")))
+                    {
+                        <div class="caption medium_grey lfb"
+                         data-x="left"
+                         data-y="290"
+                         data-speed="500"
+                         data-start="800"
+                         data-easing="easeOutExpo">
+                        @fieldset.GetValue("subline2")
+                    </div>
+                    }
+                    
+                </li>
+            }
         </ul>
-    </div>
-</div>
+        <div class="tp-bannertimer"></div>
+     </div>
+ </div><!-- slider ends -->
+            

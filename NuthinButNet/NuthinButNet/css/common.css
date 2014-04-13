@@ -13,6 +13,8 @@ footer,
 header,
 hgroup,
 nav,
+
+
 section {
   display:block;
 }
@@ -697,26 +699,46 @@ span.require {
 div.quick_links{
   height:200px;
   color: white;
-  border-radius: 4px;
-  background-image: url("../images/resource/kitten.jpg");
-  text-align: center;
+  text-align: right;
   vertical-align:middle;
 }
 
+#do_link{
+  background-image: url("../images/resource/outdoors-play.jpg");
+}
+
+
+
+#grow_link{
+  background-image: url("../images/resource/grow.jpg");
+}
+
+
+
+#go_link{
+  background-image: url("../images/resource/biking1.jpg");
+}
+
+
+
+#hear_link{
+  background-image: url("../images/resource/hear.jpg");
+}
+
+
+
 div.quick_links a{
-  text-align: center;
+  color: black;
+  font-size: 55px;
+  line-height: 190px;
+  background-color: rgb(230, 234, 236);
+  opacity: 0.7;
+  text-align: left;
 }
 
-div.quick_links:hover{
-  height:200px;
-  color: white;
-  border-radius: 4px;
-  background-image: url("../images/resource/kitten.jpg");
-}
-
-#quick_links_container{
-  padding-bottom: 20px;
-  border-bottom: 2px solid #61B0E4;
+div.quick_links a:hover{
+  opacity: 1;
+  background-color: white;
 }
 
 #events_container{

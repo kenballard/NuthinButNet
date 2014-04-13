@@ -1282,10 +1282,8 @@ width: 100% !important;
 	margin-bottom:25px;
 }
 
- #programs-landing {
-    border: 1px solid red;
-}
 
+/*Programs*/
 #programs-landing .program-tabs {
     width: 200px;
     float: left;
@@ -1297,6 +1295,23 @@ width: 100% !important;
     width: 100%;
 }
 
+/*Staff Template*/
+.staff-member {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.staff-member .staff-member-info {
+    position: absolute;
+    bottom: 6px;
+    padding: 4px;
+    background: rgba(220,220,220, .8);
+    width: 97%;
+}
+
+.staff-member .staff-member-info p {
+    display: none;
+}
 #checkout, #checkout-success, #checkout-error, #checkout-processing {
     display: none;
 }
