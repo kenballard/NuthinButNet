@@ -8,64 +8,31 @@
 <div id="catalog">
     @if (!string.IsNullOrEmpty(Request.QueryString["gift"]))
     {
-        @Umbraco.RenderMacro("MoneyGift")
+        @Get("money", "$", "", true, true)
+        <button class="addToCart">@Umbraco.Field("callToActionText")</button>
     }
     <div>
-        <div>
-            <h3>@Umbraco.Field("timeTitle")</h3>
-            <ul>
-                @for (int i = 1; i <= 5; i++)
-                {
-                    var fieldName = string.Concat("time", i);
-                    if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()) && Umbraco.Field(fieldName).ToString() != "0")
-                    {
-                        <li><label><input name="time" type="radio" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName) hours</label></li>
-                    }
-                }
-                <li><input name="time" type="radio" value="-1" /><input id="timeOther" /></li>
-            </ul>
-        </div>
-        <div>
-            <h3>@Umbraco.Field("talentTitle")</h3>
-            <ul>
-                @for (int i = 1; i <= 5; i++)
-                {
-                    var fieldName = string.Concat("talent", i);
-                    if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()))
-                    {
-                        <li><label><input name="talent" type="checkbox" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName)</label></li>
-                    }
-                }
-                <li><input type="checkbox" /><input /></li>
-            </ul>
-        </div>
-        <div>
-            <h3>@Umbraco.Field("inKindTitle")</h3>
-            <ul>
-                @for (int i = 1; i <= 5; i++)
-                {
-                    var fieldName = string.Concat("inKind", i);
-                    if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()))
-                    {
-                        <li><label><input name="inKind" type="checkbox" value="@Umbraco.Field(fieldName)" />@Umbraco.Field(fieldName)</label></li>
-                    }
-                }
-                <li><input type="checkbox" /><input /></li>
-            </ul>
-        </div>
+        @Get("time", "", " hours", true)
+        @Get("talent", "", "", false)
+        @Get("inKind", "", "", false)
         <button class="addToCart">@Umbraco.Field("callToActionText")</button>
     </div>
     @if (string.IsNullOrEmpty(Request.QueryString["gift"]))
     {
-        @Umbraco.RenderMacro("MoneyGift")
+        @Get("money", "$", "", true, true)
+        <button class="addToCart">@Umbraco.Field("callToActionText")</button>
     }
+    
 </div>
 <div id="checkout">
     <div id="cart">
-        <label id="moneySelected" />
-        <label id="timeSelected" />
-        <label id="talentSelected" />
-        <label id="inKindSelected" />
+        <h3>Your Gift Includes</h3>
+        <ul>
+            <li><span id="moneySelected" /></li>
+            <li><span id="timeSelected" /></li>
+            <li><span id="talentSelected" /></li>
+            <li><span id="inKindSelected" /></li>
+        </ul>
     </div>
     <form>
         <label>Full Name</label><input id="Name" />
@@ -80,8 +47,28 @@
         <input type="hidden" id="moneyProduct" />
         <input type="hidden" id="timeProduct" />
         <input type="hidden" id="talentProduct" />
-        <input type="hidden" id="inKindSelected" />
+        <input type="hidden" id="inKindProduct" />
+        <input type="submit" value="Submit" />
     </form>
 </div>
 
 <!-- /Main -->
+
+@helper Get(string selector, string prepender, string postpender, bool isSelectOne, bool includeDesc = false)
+{
+    <div>
+        <h3>@Umbraco.Field(selector + "Title")</h3>
+        <ul>
+            @for (int i = 1; i <= 5; i++)
+            {
+                var fieldName = string.Concat(selector, i);
+                var descName = string.Concat("description", i);
+                if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()) && Umbraco.Field(fieldName).ToString() != "0")
+                {
+                    <li><label><input name="@selector" type="@(isSelectOne ? "radio" : "checkbox")" value="@Umbraco.Field(fieldName)" />@prepender @Umbraco.Field(fieldName)@postpender @(includeDesc ? Umbraco.Field(descName).ToString() : "")</label></li>
+                }
+            }
+            <li><input name="@selector" type="@(isSelectOne ? "radio" : "checkbox")" value="-1" /><input id="timeOther" /></li>
+        </ul>
+    </div>
+}

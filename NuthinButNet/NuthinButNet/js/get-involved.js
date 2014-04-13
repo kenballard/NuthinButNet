@@ -1,9 +1,18 @@
 ﻿$(document).ready(function () {
     $('.addToCart').click(function () {
-        var selMoney = getSingleProduct('money');
-        var selTime = getSingleProduct('time');
-        var selTalent = getMultiProducts('talent');
-        var selInKind = getMultiProducts('inKind');
+        fillCartItem('money', getSingleProduct('money'), '$', '');
+        fillCartItem('time', getSingleProduct('time'), '', ' hours');
+        fillCartItem('talent', getMultiProducts('talent'), '', '');
+        fillCartItem('inKind', getMultiProducts('inKind'), '', '');
+
+        function fillCartItem(selector, value, prepender, postpender)
+        {
+            if (value != '0' && value != '')
+            {
+                $('#' + selector + 'Selected').text(prepender + value + postpender);
+                $('#' + selector + 'Product').text(value);
+            }
+        }
 
         function getSingleProduct(selector, parentSelector, otherSelector)
         {
