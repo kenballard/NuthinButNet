@@ -22,17 +22,12 @@
         <div class="span2">
             <h2>Filters</h2>
             <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-primary">
-                    <input type="checkbox"> Option 1
-                </label>
-                <label class="btn btn-primary">
-                    <input type="checkbox"> Option 2
-                </label>
-                <label class="btn btn-primary">
-                    <input type="checkbox"> Option 3
-                </label>
-
-                
+                @foreach (var subProgram in @Model.Content.GetAllSubPrograms())
+                {
+                    <label class="btn btn-primary">
+                        <input type="checkbox" /> @subProgram.GetSubProgramName()
+                    </label>
+                }
             </div>
         </div>
         <div class="span9 offset1">
