@@ -1282,6 +1282,20 @@ width: 100% !important;
 	margin-bottom:25px;
 }
 
+
+/*Programs*/
+#programs-landing .program-tabs {
+    width: 200px;
+    float: left;
+    position: relative;
+}
+
+#programs-landing .program-tabs li {
+    float: none;
+    width: 100%;
+}
+
+/*Staff Template*/
 .staff-member {
     position: relative;
     margin-bottom: 24px;
