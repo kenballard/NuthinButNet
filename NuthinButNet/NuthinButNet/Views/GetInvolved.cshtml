@@ -2,26 +2,55 @@
 @{
     Layout = "umbLayout.cshtml";
 }
+
+
+<div class="banner" style="background:url(/images/resource/banner-1.jpg);">
+    <div class="container">
+        <h1>Get Involved</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/get-involved">Get Involved</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- banner ends -->
 <!-- Main -->
-<h2>Get Involved</h2>
+<div class="container">
+
 @Umbraco.Field("headerBody")
 <div id="catalog">
-    @if (!string.IsNullOrEmpty(Request.QueryString["gift"]))
-    {
-        @Get("money", "$", "", true, true)
-        <button class="addToCart">@Umbraco.Field("callToActionText")</button>
-    }
-    <div>
-        @Get("time", "", " hours", true)
-        @Get("talent", "", "", false)
-        @Get("inKind", "", "", false)
-        <button class="addToCart">@Umbraco.Field("callToActionText")</button>
+    <div class="row">
+        
+        @if (!string.IsNullOrEmpty(Request.QueryString["gift"]))
+        {
+            <div class="span4">
+            @Get("money", "$", "", true, true)
+            <button class="addToCart">@Umbraco.Field("callToActionText")</button>
+            </div> <!-- end span-->     
+         }
+        
+    </div> <!-- end row-->
+    <div class="row">
+        <div class="span4">@Get("time", "", " hours", true)</div>
+        <div class="span4">@Get("talent", "", "", false)</div>
+        <div class="span4">
+            @Get("inKind", "", "", false)
+        </div>
+            <div class="clearfix"></div>
+        <button class="span3 addToCart">@Umbraco.Field("callToActionText")</button>
     </div>
-    @if (string.IsNullOrEmpty(Request.QueryString["gift"]))
-    {
-        @Get("money", "$", "", true, true)
-        <button class="addToCart">@Umbraco.Field("callToActionText")</button>
-    }
+  
+    <div class="row">
+        <div class="span8">
+            @if (string.IsNullOrEmpty(Request.QueryString["gift"]))
+            {
+                @Get("money", "$", "", true, true)
+                <button class="addToCart">@Umbraco.Field("callToActionText")</button>
+            }
+        </div>
+    </div>
+
 
 </div>
 <div id="checkout">
@@ -69,10 +98,11 @@
     </ul>
     @Umbraco.Field("confirmationBody")
 </div>
+</div> <!--end container-->
 <!-- /Main -->
 @helper Get(string selector, string prepender, string postpender, bool isSelectOne, bool includeDesc = false)
 {
-    <div>
+    
         <h3>@Umbraco.Field(selector + "Title")</h3>
         <ul>
             @for (int i = 1; i <= 5; i++)
@@ -86,5 +116,5 @@
             }
             <li><input name="@selector" type="@(isSelectOne ? "radio" : "checkbox")" value="-1" /><input id="timeOther" /></li>
         </ul>
-    </div>
+ 
 }
