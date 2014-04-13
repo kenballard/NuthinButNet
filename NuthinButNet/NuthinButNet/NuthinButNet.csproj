@@ -1699,7 +1699,7 @@
     <Content Include="Views\MacroPartials\Events.cshtml" />
     <Content Include="Views\BlogDetail.cshtml" />
     <Content Include="Views\BlogLanding.cshtml" />
-    <Content Include="Views\Partials\BlogListings.cshtml" />
+    <Content Include="Views\Blog\BlogListings.cshtml" />
     <Content Include="Views\MacroPartials\BlogListings.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1708,6 +1708,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="xslt\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Partials\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
