@@ -1553,6 +1553,7 @@
     <Compile Include="Controllers\GetInvolvedController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Helpers\EventsHelpers.cs" />
+    <Compile Include="Helpers\SubProgramHelpers.cs" />
     <Compile Include="Helpers\VenueHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BlogLandingViewModel.cs" />
