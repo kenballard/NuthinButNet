@@ -15,7 +15,7 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
-App_Data/
+App_data/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/

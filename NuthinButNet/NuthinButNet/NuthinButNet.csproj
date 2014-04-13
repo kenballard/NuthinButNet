@@ -1542,6 +1542,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Helpers\EventsHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BlogLandingViewModel.cs" />
   </ItemGroup>
