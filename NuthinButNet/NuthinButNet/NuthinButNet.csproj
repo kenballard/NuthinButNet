@@ -1703,6 +1703,7 @@
     <Content Include="Views\BlogLanding.cshtml" />
     <Content Include="Views\Blog\BlogListings.cshtml" />
     <Content Include="Views\MacroPartials\BlogListings.cshtml" />
+    <Content Include="Views\StaffLanding.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
