@@ -1539,6 +1539,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\EventsHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1695,6 +1696,7 @@
     <Content Include="Views\EventLanding.cshtml" />
     <Content Include="Views\VenueLanding.cshtml" />
     <Content Include="Views\MacroPartials\Events.cshtml" />
+    <Content Include="Views\MacroPartials\FeaturedEvents.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1702,6 +1704,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="xslt\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
