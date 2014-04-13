@@ -211,6 +211,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\bullshit.css" />
     <Content Include="css\color.css" />
     <Content Include="css\common.css" />
     <Content Include="css\dummy.txt" />
@@ -222,6 +223,7 @@
     <Content Include="css\images\icons-meta.png" />
     <Content Include="css\images\icons-special.png" />
     <Content Include="css\images\overlay.png" />
+    <Content Include="css\normalize.css" />
     <Content Include="css\prettyPhoto.css" />
     <Content Include="css\responsive.css" />
     <Content Include="css\skel-noscript.css" />

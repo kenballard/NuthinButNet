@@ -24,7 +24,12 @@ jQuery(document).ready(function ($) {
 			});
 		});
 		
-		
+    //Program Page Tabs
+	//$('#myTab a').click(function (e) {
+	//    e.preventDefault()
+	//    $(this).tab('show')
+	//})
+
 	//countdown timer //////////////////////////// 
 	if ($('.count-down').length !== 0){
 		$('.count-down').countdown({
