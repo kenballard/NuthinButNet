@@ -1,14 +1,24 @@
+@using NuthinButNet.Helpers;
+
 @inherits Umbraco.Web.Macros.PartialViewMacroPage
 
-<ul class="events">
+<ul class="events-list">
     @foreach (var childPage in Model.Content.Children.Where(x => x.IsVisible()))
     {
         <li>
-            <a href="childPage.Url">@childPage.GetPropertyValue("eventTitle")</a>
-            @childPage.GetPropertyValue("dateTime")
-            @childPage.GetPropertyValue("featured")
-            @childPage.GetPropertyValue("registrationURL")
-            <img src="@Umbraco.TypedMedia(int.Parse(childPage.GetPropertyValue<string>("thumbnailImage"))).Url" width="240" height="240" />
+            <div class="event-box">
+                <figure class="image">
+                    <a href="@childPage.Url"><img src="@UmbracoContext.GetEventThumbnailUrl(childPage)" alt="@childPage.GetPropertyValue("summary")"></a>
+                </figure>
+                <div class="detail">
+                    <h5><a href="@childPage.Url">@childPage.GetPropertyValue("summary")</a></h5>
+                    <ul>
+                        <li><span><i class="icon-date"></i>@childPage.GetFormattedEventDate()</span><span>@childPage.GetFormattedEventTime()</span></li>
+                        <li><span><i class="icon-location"></i>@UmbracoContext.GetFormattedAddress(childPage)</span></li>
+                    </ul>
+                </div>
+            
+            </div><!-- event-box ends -->
         </li>
     }
 </ul>
