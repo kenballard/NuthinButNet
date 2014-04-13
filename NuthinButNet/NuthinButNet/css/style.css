@@ -1281,3 +1281,20 @@ width: 100% !important;
 .ui-dialog-content .uneditable-input {
 	margin-bottom:25px;
 }
+
+.staff-member {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.staff-member .staff-member-info {
+    position: absolute;
+    bottom: 6px;
+    padding: 4px;
+    background: rgba(220,220,220, .8);
+    width: 97%;
+}
+
+.staff-member .staff-member-info p {
+    display: none;
+}
