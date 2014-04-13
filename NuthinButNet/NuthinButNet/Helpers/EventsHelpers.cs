@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using Umbraco.Core;
 using Umbraco.Core.Models;
 using Umbraco.Web;
+using Umbraco.Web.Media;
 
 namespace NuthinButNet.Helpers
 {
@@ -12,8 +14,11 @@ namespace NuthinButNet.Helpers
     {
         private static readonly string EventRootAlias = "EventLanding";
         private static readonly string EventAlias = "Event";
-        private static readonly string DateTimeFieldName = "dateTime";
+        private static readonly string DateTimeStartFieldName = "dateTime";
+        private static readonly string DateTimeEndFieldName = "dateTimeEnd";
         private static readonly string FeaturedFieldName = "featured";
+        private static readonly string ThumbnailFieldName = "thumbnailImage";
+        private static readonly string VenueFieldName = "";
 
         public static IPublishedContent GetRootNode(this IPublishedContent currentNode)
         {
@@ -35,8 +40,8 @@ namespace NuthinButNet.Helpers
         public static IEnumerable<IPublishedContent> GetUpcomingEvents(this IPublishedContent currentNode)
         {
             var results = GetAllEvents(currentNode)
-                .Where(x => x.GetPropertyValue<DateTime>(DateTimeFieldName) >= DateTime.Today)
-                .OrderBy(x => x.GetPropertyValue<DateTime>(DateTimeFieldName));
+                .Where(x => x.GetPropertyValue<DateTime>(DateTimeStartFieldName) >= DateTime.Today)
+                .OrderBy(x => x.GetPropertyValue<DateTime>(DateTimeStartFieldName));
 
             return results;
         }
@@ -44,12 +49,40 @@ namespace NuthinButNet.Helpers
         public static IEnumerable<IPublishedContent> GetFeaturedEvents(this IPublishedContent currentNode, int maximum)
         {
             var results = GetAllEvents(currentNode)
-                .Where(x => x.GetPropertyValue<DateTime>(DateTimeFieldName) >= DateTime.Today)
+                .Where(x => x.GetPropertyValue<DateTime>(DateTimeStartFieldName) >= DateTime.Today)
                 .OrderBy(x => x.GetPropertyValue<bool>(FeaturedFieldName))
-                .OrderBy(x => x.GetPropertyValue<DateTime>(DateTimeFieldName))
+                .OrderBy(x => x.GetPropertyValue<DateTime>(DateTimeStartFieldName))
                 .Take(maximum);
 
             return results;
+        }
+
+        public static string GetEventThumbnailUrl(this UmbracoContext context, IPublishedContent eventNode)
+        {
+            var helper = new UmbracoHelper(context);
+            var thumbnailId = eventNode.GetPropertyValue<int>(ThumbnailFieldName);
+            var typedMedia = helper.TypedMedia(thumbnailId);
+            return typedMedia.Url;
+        }
+
+        public static string GetFormattedEventDate(this IPublishedContent eventNode)
+        {
+            //25 - 02 - 2013
+            var start = eventNode.GetPropertyValue<DateTime>(DateTimeStartFieldName);
+            return start.ToShortDateString();
+        }
+
+        public static string GetFormattedEventTime(this IPublishedContent eventNode)
+        {
+            //08:00am - 12:00pm
+            var start = eventNode.GetPropertyValue<DateTime>(DateTimeStartFieldName);
+            return start.ToShortTimeString();
+        }
+
+        public static MvcHtmlString GetFormattedAddress(this UmbracoContext context, IPublishedContent eventNode)
+        {
+            // TODO: Get venue address
+            return MvcHtmlString.Create("Washington, United States");
         }
     }
 }

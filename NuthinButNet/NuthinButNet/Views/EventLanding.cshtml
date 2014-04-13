@@ -2,8 +2,77 @@
 @{
     Layout = "umbLayout.cshtml";
 }
-<!-- Main -->
-<div>Events</div>
 
-@Umbraco.RenderMacro("Events")
+<div class="banner" style="background:url(images/resource/event_banner.jpg);">
+    <div class="container">
+        <h1>Upcoming Events</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Our Events</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- banner ends -->
+
+<div class="container">
+    <div class="row">
+        <div class="span2">
+            <h2>Filters</h2>
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary">
+                    <input type="checkbox"> Option 1
+                </label>
+                <label class="btn btn-primary">
+                    <input type="checkbox"> Option 2
+                </label>
+                <label class="btn btn-primary">
+                    <input type="checkbox"> Option 3
+                </label>
+            </div>
+        </div>
+        <div class="span9 offset1">
+            <div class="events">
+                <div class="events-area">
+                    <h2>Upcoming <strong>Events</strong></h2>
+                    <ul class="events-list">
+                        <li>
+                            <div class="event-box event-box-featured">
+                                <figure class="image">
+                                    <a href="events-detail.html"><img src="images/resource/pic-1.jpg" alt="pic"></a>
+                                </figure>
+                                <div class="detail">
+                                    <h5><a href="events-detail.html">Et et odio aenean odio facilisis ac turpis urna porta et!</a></h5>
+                                    <ul>
+                                        <li><span><i class="icon-date"></i>25 - 02 - 2013</span><span>08:00am - 12:00pm</span></li>
+                                        <li><span><i class="icon-location"></i>Washington, United States</span></li>
+                                    </ul>
+                                </div>
+                            </div><!-- event-box ends -->
+                        </li>
+
+                        @Umbraco.RenderMacro("Events")
+                        
+                    </ul><!-- events-list ends -->
+                    
+                    @*<div class="pagination">
+                        <ul>
+                            <li class="previous"><a href="#">Prev</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li class="active"><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">...</a></li>
+                            <li><a href="#">22</a></li>
+                            <li class="next"><a href="#">Next</a></li>
+                        </ul>
+                    </div><!-- pagination ends -->*@
+                </div><!-- events-area ends -->
+            </div><!-- events end -->
+        </div>
+    </div>
+</div><!-- /container -->
+
 <!-- /Main -->
