@@ -121,6 +121,11 @@
 .menu > li {
 	display:inline-block;
 }
+
+.menu > li:hover{
+	background:#61B0E4;
+}
+
 .menu > li > a {
 	padding:15px 22px;
 	font-size:15px;
@@ -1070,6 +1075,9 @@ iframe {
 	top:0px;
 	
 }
+
+
+
 .gallery .image .imageMirror img {
 	transform:scale(2);
 	-moz-transform:scale(2);

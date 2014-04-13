@@ -1,0 +1,10 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "umbLayout.cshtml";
+}
+
+<div>
+    <span>@(Model.Content.GetPropertyValue<DateTime>("date").ToString("MM-dd-yyyy"))</span>
+    <h2><a href="@umbraco.library.NiceUrl(Model.Content.Id)">@(Model.Content.GetPropertyValue<string>("headline"))</a></h2>
+    @Model.Content.GetPropertyValue("bodyText")
+</div>
