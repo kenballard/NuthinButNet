@@ -2,22 +2,26 @@
 
 @foreach (var post in Model.BlogPosts)
 {
+    <div class="container">
     <div>
         <span>@(post.GetPropertyValue<DateTime>("date").ToString("MM-dd-yyyy"))</span>
         <h2><a href="@umbraco.library.NiceUrl(post.Id)">@(post.GetPropertyValue<string>("headline"))</a></h2>
         <p>@post.GetPropertyValue("teaserText")</p>
     </div>
     <hr />
+    </div> <!-- container ends -->
 }
 
-<div>
-    @if (!string.IsNullOrEmpty(Model.PreviousButtonUrl))
-    {
-        <span><a href="@Model.PreviousButtonUrl">Previous</a></span>
-    }
-    @if (!string.IsNullOrEmpty(Model.NextButtonUrl))
-    {
-        <span><a href="@Model.NextButtonUrl">Next</a></span>
-    }
-</div>
+<div class="pagination">
+    <ul>
+        @if (!string.IsNullOrEmpty(Model.PreviousButtonUrl))
+        {
+           <li class="previous"> <a href="@Model.PreviousButtonUrl">Prev</a></li>
+        }
+        @if (!string.IsNullOrEmpty(Model.NextButtonUrl))
+        {
+            <li class="next"><a href="@Model.NextButtonUrl">Next</a></li>
+        }
+    </ul>
+</div> <!-- pagination ends-->
 
