@@ -1,5 +1,4 @@
-﻿@inherits UmbracoViewPage<NuthinButNet.ViewModels.BlogLandingViewModel>
-
+﻿@inherits UmbracoViewPage<NuthinButNet.ViewModels.BlogLandingViewModel
 
 <div class="container">
     <div class="row">
@@ -16,9 +15,11 @@
                             <a href="blog-detail.html">Dan Clark</a>
                             <p><span class="text-yallow">Ngo</span>, Annual Funding, People</p>
                         </div>
-                        <span>@(post.GetPropertyValue<DateTime>("date").ToString("MM-dd-yyyy"))</span>
-                        <h2><a href="@umbraco.library.NiceUrl(post.Id)">@(post.GetPropertyValue<string>("headline"))</a></h2>
-                        <p>@post.GetPropertyValue("teaserText")</p>
+                        <div class="blog-details">
+                            <span>@(post.GetPropertyValue<DateTime>("date").ToString("MM-dd-yyyy"))</span>
+                            <h2><a href="@umbraco.library.NiceUrl(post.Id)">@(post.GetPropertyValue<string>("headline"))</a></h2>
+                            <p>@post.GetPropertyValue("teaserText")</p>
+                        </div>
                     </div>
                     <hr />
                 </section>
@@ -48,14 +49,16 @@
 </section><!-- blog-box ends -->
 
 
-<div>
-    @if (!string.IsNullOrEmpty(Model.PreviousButtonUrl))
-    {
-        <span><a href="@Model.PreviousButtonUrl">Previous</a></span>
-    }
-    @if (!string.IsNullOrEmpty(Model.NextButtonUrl))
-    {
-        <span><a href="@Model.NextButtonUrl">Next</a></span>
-    }
-</div>
+<div class="pagination">
+    <ul>
+        @if (!string.IsNullOrEmpty(Model.PreviousButtonUrl))
+        {
+           <li class="previous"> <a href="@Model.PreviousButtonUrl">Prev</a></li>
+        }
+        @if (!string.IsNullOrEmpty(Model.NextButtonUrl))
+        {
+            <li class="next"><a href="@Model.NextButtonUrl">Next</a></li>
+        }
+    </ul>
+</div> <!-- pagination ends-->
 
