@@ -1722,6 +1722,9 @@
     <Content Include="Views\BoardLanding.cshtml" />
     <Content Include="Views\PartnersLanding.cshtml" />
     <Content Include="Views\ProgramsLanding.cshtml" />
+    <Content Include="Views\MacroPartials\BlogRoll.cshtml" />
+    <Content Include="Views\Program.cshtml" />
+    <Content Include="Views\SubProgram.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
