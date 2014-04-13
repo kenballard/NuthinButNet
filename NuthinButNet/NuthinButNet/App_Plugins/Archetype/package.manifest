@@ -1,0 +1,30 @@
+﻿{
+    propertyEditors: [    
+		{ 
+			alias: "Imulus.Archetype",
+			name:  "Archetype",
+			editor: {
+				view: "~/App_Plugins/Archetype/views/archetype.html",
+				valueType: "JSON"
+			}, 
+			prevalues: {
+				fields: [	
+                    {					
+						label: "Config",
+						description: "(Required) Describe your Archetype.",
+						key: "archetypeConfig",
+						view: "/App_Plugins/Archetype/views/archetype.config.html",
+						validation: [
+			 				{
+								type: "Required"         
+							}   
+						]
+					}
+				]
+			}
+        }
+    ],
+    javascript: [
+		'~/App_Plugins/Archetype/js/archetype.js'
+    ]
+} 
