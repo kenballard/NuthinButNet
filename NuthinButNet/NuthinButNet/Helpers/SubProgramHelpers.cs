@@ -12,20 +12,28 @@ namespace NuthinButNet.Helpers
 {
     public static class SubProgramHelpers
     {
-        private static readonly string NameField = "";
+        private static readonly string ProgramAlias = "Program";
+        private static readonly string SubProgramAlias = "SubProgram";
+        private static readonly string NameField = "name";
 
-        public static MvcHtmlString GetName(this IPublishedContent subProgramNode)
+        public static MvcHtmlString GetSubProgramName(this IPublishedContent subProgramNode)
         {
-            // TODO: Get sub program name
-            return MvcHtmlString.Create("Sub Program Name");
+            var name = subProgramNode.GetPropertyValue<string>(NameField);
+            return MvcHtmlString.Create(name);
         }
 
         public static IEnumerable<IPublishedContent> GetAllSubPrograms(this IPublishedContent currentNode)
         {
             var root = currentNode.AncestorOrSelf(1);
+            var programs = root.Siblings().Where(x => x.DocumentTypeAlias == ProgramAlias);
+            var subPrograms = new List<IPublishedContent>();
 
-            //return root.
-            throw new NotImplementedException();
+            foreach (var p in programs)
+            {
+                subPrograms.AddRange(p.Descendants());
+            }
+
+            return subPrograms;
         }
     }
 }
