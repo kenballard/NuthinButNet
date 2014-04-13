@@ -15,11 +15,11 @@
     </div>
 </div><!-- banner ends -->
 
-<div class="container">
+<div class="container partner-links">
     <ul>
         @foreach (var partner in Model.Content.Children)
         {
-            <li class="span4">
+            <li class="span2">
                 @if (partner.HasValue("link"))
                 {
                     <a href="http://@(partner.GetPropertyValue<string>("link"))" target="_blank">@(partner.GetPropertyValue<string>("name"))</a>
