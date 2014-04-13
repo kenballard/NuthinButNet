@@ -22,38 +22,54 @@
         @Get("money", "$", "", true, true)
         <button class="addToCart">@Umbraco.Field("callToActionText")</button>
     }
-    
+
 </div>
 <div id="checkout">
     <div id="cart">
         <h3>Your Gift Includes</h3>
         <ul>
-            <li><span id="moneySelected" /></li>
-            <li><span id="timeSelected" /></li>
-            <li><span id="talentSelected" /></li>
-            <li><span id="inKindSelected" /></li>
+            <li><span class="moneySelected" /></li>
+            <li><span class="timeSelected" /></li>
+            <li><span class="talentSelected" /></li>
+            <li><span class="inKindSelected" /></li>
         </ul>
     </div>
-    <form>
-        <label>Full Name</label><input id="Name" />
-        <label>Address</label><input id="Address1" />
-        <label>City</label><input id="City" />
-        <label>State</label><input id="State" />
-        <label>Zip Code</label><input id="Zip" />
-        <label>Credit Card</label><input id="CreditCard" autocomplete="off" />
-        <label>Verification Code (CVV)</label><input id="VerificationCode" />
-        <label>Expiration Month</label><input id="ExpyMonth" />
-        <label>Expiration Year</label><input id="ExpyYear" />
+    <div id="checkout-error" class="alert"><strong>Attention:</strong> @Umbraco.Field("error")</div>
+    <form id="checkout-form">
+        <label>First Name</label><input id="FirstName" required />
+        <label>Last Name</label><input id="LastName" required />
+        <label>Address</label><input id="Address" required />
+        <label>City</label><input id="City" required />
+        <label>State</label><input id="State" required />
+        <label>Zip Code</label><input id="Zip" required />
+        <label>Phone</label><input id="Phone" required />
+        <label>Email</label><input id="Email" required />
+        <div id="payment">
+            <label>Credit Card</label><input id="CreditCard" autocomplete="off" required />
+            <label>Verification Code (CVV)</label><input id="VerificationCode" required />
+            <label>Expiration Month</label><input id="ExpyMonth" required />
+            <label>Expiration Year</label><input id="ExpyYear" required />
+        </div>
         <input type="hidden" id="moneyProduct" />
         <input type="hidden" id="timeProduct" />
         <input type="hidden" id="talentProduct" />
         <input type="hidden" id="inKindProduct" />
-        <input type="submit" value="Submit" />
+        <br />
+        <input type="submit" value="Submit" id="checkout-submit" />
+        <span id="checkout-processing">Processing...</span>
     </form>
 </div>
-
+<div id="checkout-success">
+    <h3>@Umbraco.Field("confirmationTitle")</h3>
+    <ul>
+        <li><span class="moneySelected" /></li>
+        <li><span class="timeSelected" /></li>
+        <li><span class="talentSelected" /></li>
+        <li><span class="inKindSelected" /></li>
+    </ul>
+    @Umbraco.Field("confirmationBody")
+</div>
 <!-- /Main -->
-
 @helper Get(string selector, string prepender, string postpender, bool isSelectOne, bool includeDesc = false)
 {
     <div>

@@ -1297,3 +1297,6 @@ width: 100% !important;
     width: 100%;
 }
 
+#checkout, #checkout-success, #checkout-error, #checkout-processing {
+    display: none;
+}

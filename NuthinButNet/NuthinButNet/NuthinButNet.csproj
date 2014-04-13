@@ -45,6 +45,9 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
+    <Reference Include="Braintree-2.30.0">
+      <HintPath>..\packages\Braintree.2.30.0\lib\Braintree-2.30.0.dll</HintPath>
+    </Reference>
     <Reference Include="businesslogic">
       <HintPath>..\packages\UmbracoCms.Core.7.1.0\lib\businesslogic.dll</HintPath>
     </Reference>
@@ -235,6 +238,7 @@
     <Content Include="default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="js\bootstrap.js" />
     <Content Include="js\config.js" />
     <Content Include="js\get-involved.js" />
     <Content Include="js\html5shiv.js" />
@@ -1546,6 +1550,7 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BlogLandingViewModel.cs" />
+    <Compile Include="ViewModels\CheckoutViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -1707,6 +1712,7 @@
     <Content Include="Views\Blog\BlogListings.cshtml" />
     <Content Include="Views\MacroPartials\BlogListings.cshtml" />
     <Content Include="Views\StaffLanding.cshtml" />
+    <Content Include="Views\MacroPartials\FeaturedEvents.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
