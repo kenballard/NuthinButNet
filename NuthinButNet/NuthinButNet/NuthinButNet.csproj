@@ -223,6 +223,7 @@
     <Content Include="css\images\icons-meta.png" />
     <Content Include="css\images\icons-special.png" />
     <Content Include="css\images\overlay.png" />
+    <Content Include="css\normalize.css" />
     <Content Include="css\prettyPhoto.css" />
     <Content Include="css\responsive.css" />
     <Content Include="css\skel-noscript.css" />
