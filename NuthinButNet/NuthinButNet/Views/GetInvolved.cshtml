@@ -3,25 +3,40 @@
     Layout = "umbLayout.cshtml";
 }
 <!-- Main -->
+<div class="container">
 <h2>Get Involved</h2>
 @Umbraco.Field("headerBody")
 <div id="catalog">
-    @if (!string.IsNullOrEmpty(Request.QueryString["gift"]))
-    {
-        @Get("money", "$", "", true, true)
-        <button class="addToCart">@Umbraco.Field("callToActionText")</button>
-    }
-    <div>
-        @Get("time", "", " hours", true)
-        @Get("talent", "", "", false)
-        @Get("inKind", "", "", false)
+    <div class="row">
+        
+        @if (!string.IsNullOrEmpty(Request.QueryString["gift"]))
+        {
+            <div class="span4">
+            @Get("money", "$", "", true, true)
+            <button class="addToCart">@Umbraco.Field("callToActionText")</button>
+            </div> <!-- end span-->     
+         }
+        
+    </div> <!-- end row-->
+    <div class="row">
+        <div class="span4">@Get("time", "", " hours", true)</div>
+        <div class="span4">@Get("talent", "", "", false)</div>
+        <div class="span4">
+            @Get("inKind", "", "", false)
         <button class="addToCart">@Umbraco.Field("callToActionText")</button>
     </div>
-    @if (string.IsNullOrEmpty(Request.QueryString["gift"]))
-    {
-        @Get("money", "$", "", true, true)
-        <button class="addToCart">@Umbraco.Field("callToActionText")</button>
-    }
+  
+    
+            @if (string.IsNullOrEmpty(Request.QueryString["gift"]))
+            {
+
+                @Get("money", "$", "", true, true)
+                <button class="addToCart">@Umbraco.Field("callToActionText")</button>
+
+            }
+        
+    </div>
+
 
 </div>
 <div id="checkout">
@@ -69,6 +84,7 @@
     </ul>
     @Umbraco.Field("confirmationBody")
 </div>
+</div> <!--end container-->
 <!-- /Main -->
 @helper Get(string selector, string prepender, string postpender, bool isSelectOne, bool includeDesc = false)
 {
