@@ -1,22 +1,32 @@
 ﻿@inherits UmbracoViewPage<NuthinButNet.ViewModels.BlogLandingViewModel>
+
 <div class="container">
-    @foreach (var post in Model.BlogPosts)
-    {
-        <div class="row">
-            <div class="span9">
+    <div class="row">
+        <div class="span9">
+            @foreach (var post in Model.BlogPosts)
+            {
                 <section class="blog-box">
-                    <div class="blog-details">
-          
-                        <h4><a href="@umbraco.library.NiceUrl(post.Id)">@(post.GetPropertyValue<string>("headline"))</a></h4>
-                        <p class="date">@(post.GetPropertyValue<DateTime>("date").ToString("MM-dd-yyyy"))</p>
-                        <p>@post.GetPropertyValue("teaserText")</p>
+                    <div class="image">
+                        <a href="@post.Url"><img src="@Umbraco.TypedMedia(int.Parse(post.GetPropertyValue<string>("postBanner"))).Url" /></a>
                     </div>
-                 </section>
-            </div> <!-- span ends-->
+                    <div class="blog-info clearfix">
+                        <div class="blog-left">
+                            <p><span class="text-yallow">Ngo</span>, Annual Funding, People</p>
+                        </div>
+                        <div class="blog-details">                            
+                            <h2><a href="@umbraco.library.NiceUrl(post.Id)">@(post.GetPropertyValue<string>("headline"))</a></h2>
+                            <p class="date">@(post.GetPropertyValue<DateTime>("date").ToString("MM-dd-yyyy"))</p>
+                            <p>@post.GetPropertyValue("teaserText")</p>
+                            <a href="@post.Url">Read More</a>
+                        </div>
+                    </div>
                     <hr />
-        </div> <!--row ends-->
-    }
-</div> <!-- container ends -->
+                </section>
+            }
+        </div>
+    </div>
+</div>
+
 
 <div class="pagination">
     <ul>
