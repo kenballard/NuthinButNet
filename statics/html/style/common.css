@@ -693,6 +693,27 @@ span.require {
 	font-size:11px;
 	display:inline-block;
 }
+
+div.quick_links{
+  height:200px;
+  color: white;
+  border-radius: 4px;
+  background-color: rgb(204, 204, 204);
+  /* margin: 10px; */
+}
+
+#quick_links_container{
+  padding-bottom: 20px;
+  border-bottom: 2px solid #61B0E4;
+}
+
+#events_container{
+  margin-top:50px;
+  /* background: rgb(236, 236, 236); */
+}
+
+
+
 select,
 textarea,
 input[type="text"],
