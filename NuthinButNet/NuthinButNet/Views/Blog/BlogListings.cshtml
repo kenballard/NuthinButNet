@@ -1,16 +1,22 @@
 ﻿@inherits UmbracoViewPage<NuthinButNet.ViewModels.BlogLandingViewModel>
-
-@foreach (var post in Model.BlogPosts)
-{
-    <div class="container">
-    <div>
-        <span>@(post.GetPropertyValue<DateTime>("date").ToString("MM-dd-yyyy"))</span>
-        <h2><a href="@umbraco.library.NiceUrl(post.Id)">@(post.GetPropertyValue<string>("headline"))</a></h2>
-        <p>@post.GetPropertyValue("teaserText")</p>
-    </div>
-    <hr />
-    </div> <!-- container ends -->
-}
+<div class="container">
+    @foreach (var post in Model.BlogPosts)
+    {
+        <div class="row">
+            <div class="span9">
+                <section class="blog-box">
+                    <div class="blog-details">
+          
+                        <h4><a href="@umbraco.library.NiceUrl(post.Id)">@(post.GetPropertyValue<string>("headline"))</a></h4>
+                        <p class="date">@(post.GetPropertyValue<DateTime>("date").ToString("MM-dd-yyyy"))</p>
+                        <p>@post.GetPropertyValue("teaserText")</p>
+                    </div>
+                 </section>
+            </div> <!-- span ends-->
+                    <hr />
+        </div> <!--row ends-->
+    }
+</div> <!-- container ends -->
 
 <div class="pagination">
     <ul>
