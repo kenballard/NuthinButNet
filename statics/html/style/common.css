@@ -698,8 +698,20 @@ div.quick_links{
   height:200px;
   color: white;
   border-radius: 4px;
-  background-color: rgb(204, 204, 204);
-  /* margin: 10px; */
+  background-image: url("../images/resource/kitten.jpg");
+  text-align: center;
+  vertical-align:middle;
+}
+
+div.quick_links a{
+  text-align: center;
+}
+
+div.quick_links:hover{
+  height:200px;
+  color: white;
+  border-radius: 4px;
+  background-image: url("../images/resource/kitten.jpg");
 }
 
 #quick_links_container{
