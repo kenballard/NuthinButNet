@@ -8,11 +8,14 @@
     <div class="row">
     @foreach (var child in Model.Content.Children)
     {
-        <div class="span3 @(index % 3 == 0 ? "row" : string.Empty)">
-            <h2>@(child.GetPropertyValue<string>("name"))</h2>
-            <h3><strong>@(child.GetPropertyValue<string>("jobTitle"))</strong></h3>
-            <img src="@Umbraco.TypedMedia(int.Parse(child.GetPropertyValue<string>("image"))).Url" />
-            <p>@(child.GetPropertyValue<string>("description"))</p>
+        <div class="span3 staff-member @(index % 3 == 0 ? "row" : string.Empty)">  
+          <!-- <img src="@Umbraco.TypedMedia(int.Parse(child.GetPropertyValue<string>("image"))).Url" />-->
+            <img src="http://placehold.it/500x500" />
+            <div class="staff-member-info">
+                <h3>@(child.GetPropertyValue<string>("name"))</h3>
+                <h4><strong>@(child.GetPropertyValue<string>("jobTitle"))</strong></h4>
+                <p>@(child.GetPropertyValue<string>("description"))</p>
+            </div>
         </div>
         index++;
     }
