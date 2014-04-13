@@ -995,3 +995,220 @@
    at Umbraco.Web.Macros.PartialViewMacroEngine.Execute(MacroModel macro, INode node)
    at umbraco.macro.LoadPartialViewMacro(MacroModel macro)
    at umbraco.macro.renderMacro(Hashtable pageElements, Int32 pageId)
+2014-04-12 19:50:54,641 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Determining hash of code files on disk
+2014-04-12 19:50:54,687 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Hash determined (took 26ms)
+2014-04-12 19:50:54,699 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.IApplicationStartupHandler
+2014-04-12 19:50:56,266 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 34 (took 1043ms)
+2014-04-12 19:50:56,549 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+2014-04-12 19:50:56,654 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 69ms)
+2014-04-12 19:50:56,654 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyValueConverter
+2014-04-12 19:50:56,664 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyValueConverter, found 14 (took 6ms)
+2014-04-12 19:50:56,877 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Web.Mvc.SurfaceController
+2014-04-12 19:50:56,965 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 5 (took 58ms)
+2014-04-12 19:50:56,965 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Web.WebApi.UmbracoApiController
+2014-04-12 19:50:56,976 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.WebApi.UmbracoApiController, found 29 (took 7ms)
+2014-04-12 19:50:56,991 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.Media.IThumbnailProvider
+2014-04-12 19:50:57,066 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 49ms)
+2014-04-12 19:50:57,067 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.Media.IImageUrlProvider
+2014-04-12 19:50:57,074 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 4ms)
+2014-04-12 19:50:59,896 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.IApplication
+2014-04-12 19:50:59,910 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 9ms)
+2014-04-12 19:50:59,978 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Web.Trees.TreeController
+2014-04-12 19:50:59,988 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Trees.TreeController, found 4 (took 6ms)
+2014-04-12 19:50:59,998 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.ITree
+2014-04-12 19:51:00,010 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.ITree, found 19 (took 7ms)
+2014-04-12 19:51:00,042 [8] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 1] Initializing Examine and binding to business logic events
+2014-04-12 19:51:00,499 [8] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 1] Adding examine event handlers for index providers: 3
+2014-04-12 19:51:02,910 [8] INFO  umbraco.BusinessLogic.Log - [Thread 6] Log scrubbed.  Removed all items older than 2014-02-11 19:51:02
+2014-04-12 19:51:02,915 [8] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 6] Application shutdown. Reason: BuildManagerChange
+2014-04-12 19:51:17,469 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Determining hash of code files on disk
+2014-04-12 19:51:17,519 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Hash determined (took 27ms)
+2014-04-12 19:51:17,526 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.IApplicationStartupHandler
+2014-04-12 19:51:17,551 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 34 (took 15ms)
+2014-04-12 19:51:17,929 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+2014-04-12 19:51:18,059 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 86ms)
+2014-04-12 19:51:18,059 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyValueConverter
+2014-04-12 19:51:18,062 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyValueConverter, found 14 (took 1ms)
+2014-04-12 19:51:18,091 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Web.Mvc.SurfaceController
+2014-04-12 19:51:18,093 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 5 (took 1ms)
+2014-04-12 19:51:18,094 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Web.WebApi.UmbracoApiController
+2014-04-12 19:51:18,100 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.WebApi.UmbracoApiController, found 29 (took 4ms)
+2014-04-12 19:51:18,109 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.Media.IThumbnailProvider
+2014-04-12 19:51:18,112 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 1ms)
+2014-04-12 19:51:18,112 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.Media.IImageUrlProvider
+2014-04-12 19:51:18,113 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 0ms)
+2014-04-12 19:51:20,287 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.IApplication
+2014-04-12 19:51:20,289 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 0ms)
+2014-04-12 19:51:20,375 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Web.Trees.TreeController
+2014-04-12 19:51:20,379 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Trees.TreeController, found 4 (took 2ms)
+2014-04-12 19:51:20,397 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.ITree
+2014-04-12 19:51:20,398 [10] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.ITree, found 19 (took 0ms)
+2014-04-12 19:51:20,434 [10] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 1] Initializing Examine and binding to business logic events
+2014-04-12 19:51:20,831 [10] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 1] Adding examine event handlers for index providers: 3
+2014-04-12 19:51:23,283 [10] INFO  umbraco.content - [Thread 9] Loading content from disk cache...
+2014-04-12 19:51:25,717 [10] INFO  Umbraco.Core.PluginManager - [Thread 6] Starting resolution types of Umbraco.Core.Persistence.Mappers.BaseMapper
+2014-04-12 19:51:25,719 [10] INFO  Umbraco.Core.PluginManager - [Thread 6] Completed resolution of types of Umbraco.Core.Persistence.Mappers.BaseMapper, found 22 (took 0ms)
+2014-04-12 19:51:26,662 [10] INFO  Umbraco.Core.PluginManager - [Thread 6] Starting resolution types of Umbraco.Core.PropertyEditors.IParameterEditor
+2014-04-12 19:51:26,665 [10] INFO  Umbraco.Core.PluginManager - [Thread 6] Completed resolution of types of Umbraco.Core.PropertyEditors.IParameterEditor, found 43 (took 1ms)
+2014-04-12 19:51:31,100 [10] INFO  Umbraco.Core.PluginManager - [Thread 6] Starting resolution types of umbraco.cms.businesslogic.macro.IMacroEngine
+2014-04-12 19:51:31,102 [10] INFO  Umbraco.Core.PluginManager - [Thread 6] Completed resolution of types of umbraco.cms.businesslogic.macro.IMacroEngine, found 2 (took 0ms)
+2014-04-12 19:58:52,234 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Determining hash of code files on disk
+2014-04-12 19:58:52,255 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Hash determined (took 26ms)
+2014-04-12 19:58:52,265 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.IApplicationStartupHandler
+2014-04-12 19:58:52,279 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 34 (took 20ms)
+2014-04-12 19:58:52,497 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+2014-04-12 19:58:52,499 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 1ms)
+2014-04-12 19:58:52,499 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyValueConverter
+2014-04-12 19:58:52,501 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyValueConverter, found 14 (took 3ms)
+2014-04-12 19:58:52,516 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Web.Mvc.SurfaceController
+2014-04-12 19:58:52,546 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 5 (took 46ms)
+2014-04-12 19:58:52,547 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Web.WebApi.UmbracoApiController
+2014-04-12 19:58:52,548 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.WebApi.UmbracoApiController, found 29 (took 2ms)
+2014-04-12 19:58:52,554 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.Media.IThumbnailProvider
+2014-04-12 19:58:52,554 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 0ms)
+2014-04-12 19:58:52,554 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.Media.IImageUrlProvider
+2014-04-12 19:58:52,555 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 0ms)
+2014-04-12 19:58:53,749 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.IApplication
+2014-04-12 19:58:53,751 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 1ms)
+2014-04-12 19:58:53,796 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Web.Trees.TreeController
+2014-04-12 19:58:53,797 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Trees.TreeController, found 4 (took 1ms)
+2014-04-12 19:58:53,808 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.ITree
+2014-04-12 19:58:53,809 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.ITree, found 19 (took 0ms)
+2014-04-12 19:58:53,822 [6] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 1] Initializing Examine and binding to business logic events
+2014-04-12 19:58:54,183 [6] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 1] Adding examine event handlers for index providers: 3
+2014-04-12 19:58:55,926 [6] INFO  umbraco.content - [Thread 8] Loading content from disk cache...
+2014-04-12 19:58:56,040 [6] INFO  Umbraco.Core.PluginManager - [Thread 8] Starting resolution types of Umbraco.Core.Persistence.Mappers.BaseMapper
+2014-04-12 19:58:56,041 [6] INFO  Umbraco.Core.PluginManager - [Thread 8] Completed resolution of types of Umbraco.Core.Persistence.Mappers.BaseMapper, found 22 (took 0ms)
+2014-04-12 19:58:56,600 [6] INFO  Umbraco.Core.PluginManager - [Thread 8] Starting resolution types of Umbraco.Core.PropertyEditors.IParameterEditor
+2014-04-12 19:58:56,603 [6] INFO  Umbraco.Core.PluginManager - [Thread 8] Completed resolution of types of Umbraco.Core.PropertyEditors.IParameterEditor, found 43 (took 0ms)
+2014-04-12 19:58:58,689 [6] INFO  Umbraco.Core.PluginManager - [Thread 8] Starting resolution types of umbraco.cms.businesslogic.macro.IMacroEngine
+2014-04-12 19:58:58,690 [6] INFO  Umbraco.Core.PluginManager - [Thread 8] Completed resolution of types of umbraco.cms.businesslogic.macro.IMacroEngine, found 2 (took 1ms)
+2014-04-12 20:05:22,070 [6] WARN  umbraco.macro - [Thread 8] Error loading Partial View (file: ~/Views/MacroPartials/Carousel.cshtml). Exception: System.ApplicationException: Could not create an index searcher with the supplied lucene directory ---> System.IO.FileNotFoundException: Could not find file 'C:\Users\ows\Documents\Projects\NuthinButNet\NuthinButNet\NuthinButNet\App_Data\TEMP\ExamineIndexes\Internal\Index\segments_1k'.
+   at Lucene.Net.Index.SegmentInfos.FindSegmentsFile.Run(IndexCommit commit)
+   at Lucene.Net.Index.DirectoryReader.Open(Directory directory, IndexDeletionPolicy deletionPolicy, IndexCommit commit, Boolean readOnly, Int32 termInfosIndexDivisor)
+   at Lucene.Net.Index.IndexReader.Open(Directory directory, IndexDeletionPolicy deletionPolicy, IndexCommit commit, Boolean readOnly, Int32 termInfosIndexDivisor)
+   at Lucene.Net.Index.IndexReader.Open(Directory directory, Boolean readOnly)
+   at Examine.LuceneEngine.Providers.LuceneSearcher.ValidateSearcher(Boolean forceReopen)
+   --- End of inner exception stack trace ---
+   at Examine.LuceneEngine.Providers.LuceneSearcher.ValidateSearcher(Boolean forceReopen)
+   at Examine.LuceneEngine.Providers.LuceneSearcher.GetSearchFields()
+   at UmbracoExamine.UmbracoExamineSearcher.GetSearchFields()
+   at Examine.LuceneEngine.Providers.BaseLuceneSearcher.CreateSearchCriteria(String type, BooleanOperation defaultOperation)
+   at UmbracoExamine.UmbracoExamineSearcher.CreateSearchCriteria(String type, BooleanOperation defaultOperation)
+   at Examine.LuceneEngine.Providers.BaseLuceneSearcher.CreateSearchCriteria(String type)
+   at Umbraco.Web.PublishedCache.XmlPublishedCache.PublishedMediaCache.GetUmbracoMedia(Int32 id)
+   at Umbraco.Web.PublishedCache.XmlPublishedCache.PublishedMediaCache.GetById(UmbracoContext umbracoContext, Boolean preview, Int32 nodeId)
+   at Umbraco.Web.PublishedCache.ContextualPublishedCache`1.GetById(Boolean preview, Int32 contentId)
+   at Umbraco.Web.PublishedCache.ContextualPublishedCache.GetById(Int32 contentId)
+   at Umbraco.Web.PublishedContentQuery.TypedDocumentById(Int32 id, ContextualPublishedCache cache)
+   at Umbraco.Web.PublishedContentQuery.TypedMedia(Int32 id)
+   at Umbraco.Web.UmbracoHelper.TypedMedia(Int32 id)
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at ASP._Page_Views_MacroPartials_Carousel_cshtml.Execute() in c:\Users\ows\Documents\Projects\NuthinButNet\NuthinButNet\NuthinButNet\Views\MacroPartials\Carousel.cshtml:line 5
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at Umbraco.Core.Profiling.ProfilingView.Render(ViewContext viewContext, TextWriter writer)
+   at Umbraco.Web.Mvc.ControllerExtensions.RenderViewResultAsString(ControllerBase controller, ViewResultBase viewResult)
+   at Umbraco.Web.Macros.PartialViewMacroEngine.Execute(MacroModel macro, IPublishedContent content)
+   at Umbraco.Web.Macros.PartialViewMacroEngine.Execute(MacroModel macro, INode node)
+   at umbraco.macro.LoadPartialViewMacro(MacroModel macro)
+   at umbraco.macro.renderMacro(Hashtable pageElements, Int32 pageId)
+2014-04-12 20:06:21,262 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Determining hash of code files on disk
+2014-04-12 20:06:21,283 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Hash determined (took 18ms)
+2014-04-12 20:06:21,291 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.IApplicationStartupHandler
+2014-04-12 20:06:21,309 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 34 (took 16ms)
+2014-04-12 20:06:21,523 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+2014-04-12 20:06:21,524 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 1ms)
+2014-04-12 20:06:21,524 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyValueConverter
+2014-04-12 20:06:21,525 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyValueConverter, found 14 (took 1ms)
+2014-04-12 20:06:21,591 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Web.Mvc.SurfaceController
+2014-04-12 20:06:21,593 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 5 (took 1ms)
+2014-04-12 20:06:21,594 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Web.WebApi.UmbracoApiController
+2014-04-12 20:06:21,598 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.WebApi.UmbracoApiController, found 29 (took 4ms)
+2014-04-12 20:06:21,607 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.Media.IThumbnailProvider
+2014-04-12 20:06:21,608 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 0ms)
+2014-04-12 20:06:21,608 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.Media.IImageUrlProvider
+2014-04-12 20:06:21,610 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 0ms)
+2014-04-12 20:06:23,162 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.IApplication
+2014-04-12 20:06:23,163 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 0ms)
+2014-04-12 20:06:23,208 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Web.Trees.TreeController
+2014-04-12 20:06:23,209 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Trees.TreeController, found 4 (took 1ms)
+2014-04-12 20:06:23,222 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.ITree
+2014-04-12 20:06:23,225 [7] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.ITree, found 19 (took 1ms)
+2014-04-12 20:06:23,235 [7] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 1] Initializing Examine and binding to business logic events
+2014-04-12 20:06:23,519 [7] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 1] Adding examine event handlers for index providers: 3
+2014-04-12 20:06:25,657 [7] INFO  umbraco.content - [Thread 5] Loading content from disk cache...
+2014-04-12 20:06:25,764 [7] INFO  Umbraco.Core.PluginManager - [Thread 5] Starting resolution types of Umbraco.Core.Persistence.Mappers.BaseMapper
+2014-04-12 20:06:25,765 [7] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of Umbraco.Core.Persistence.Mappers.BaseMapper, found 22 (took 0ms)
+2014-04-12 20:06:26,411 [7] INFO  Umbraco.Core.PluginManager - [Thread 5] Starting resolution types of Umbraco.Core.PropertyEditors.IParameterEditor
+2014-04-12 20:06:26,412 [7] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of Umbraco.Core.PropertyEditors.IParameterEditor, found 43 (took 0ms)
+2014-04-12 20:06:27,659 [7] INFO  Umbraco.Core.PluginManager - [Thread 5] Starting resolution types of umbraco.cms.businesslogic.macro.IMacroEngine
+2014-04-12 20:06:27,660 [7] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of umbraco.cms.businesslogic.macro.IMacroEngine, found 2 (took 1ms)
+2014-04-12 20:07:54,520 [7] WARN  umbraco.macro - [Thread 5] Error loading Partial View (file: ~/Views/MacroPartials/Carousel.cshtml). Exception: System.ApplicationException: Could not create an index searcher with the supplied lucene directory ---> System.IO.FileNotFoundException: Could not find file 'C:\Users\ows\Documents\Projects\NuthinButNet\NuthinButNet\NuthinButNet\App_Data\TEMP\ExamineIndexes\Internal\Index\segments_1k'.
+   at Lucene.Net.Index.SegmentInfos.FindSegmentsFile.Run(IndexCommit commit)
+   at Lucene.Net.Index.DirectoryReader.Open(Directory directory, IndexDeletionPolicy deletionPolicy, IndexCommit commit, Boolean readOnly, Int32 termInfosIndexDivisor)
+   at Lucene.Net.Index.IndexReader.Open(Directory directory, IndexDeletionPolicy deletionPolicy, IndexCommit commit, Boolean readOnly, Int32 termInfosIndexDivisor)
+   at Lucene.Net.Index.IndexReader.Open(Directory directory, Boolean readOnly)
+   at Examine.LuceneEngine.Providers.LuceneSearcher.ValidateSearcher(Boolean forceReopen)
+   --- End of inner exception stack trace ---
+   at Examine.LuceneEngine.Providers.LuceneSearcher.ValidateSearcher(Boolean forceReopen)
+   at Examine.LuceneEngine.Providers.LuceneSearcher.GetSearchFields()
+   at UmbracoExamine.UmbracoExamineSearcher.GetSearchFields()
+   at Examine.LuceneEngine.Providers.BaseLuceneSearcher.CreateSearchCriteria(String type, BooleanOperation defaultOperation)
+   at UmbracoExamine.UmbracoExamineSearcher.CreateSearchCriteria(String type, BooleanOperation defaultOperation)
+   at Examine.LuceneEngine.Providers.BaseLuceneSearcher.CreateSearchCriteria(String type)
+   at Umbraco.Web.PublishedCache.XmlPublishedCache.PublishedMediaCache.GetUmbracoMedia(Int32 id)
+   at Umbraco.Web.PublishedCache.XmlPublishedCache.PublishedMediaCache.GetById(UmbracoContext umbracoContext, Boolean preview, Int32 nodeId)
+   at Umbraco.Web.PublishedCache.ContextualPublishedCache`1.GetById(Boolean preview, Int32 contentId)
+   at Umbraco.Web.PublishedCache.ContextualPublishedCache.GetById(Int32 contentId)
+   at Umbraco.Web.PublishedContentQuery.TypedDocumentById(Int32 id, ContextualPublishedCache cache)
+   at Umbraco.Web.PublishedContentQuery.TypedMedia(Int32 id)
+   at Umbraco.Web.UmbracoHelper.TypedMedia(Int32 id)
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at ASP._Page_Views_MacroPartials_Carousel_cshtml.Execute() in c:\Users\ows\Documents\Projects\NuthinButNet\NuthinButNet\NuthinButNet\Views\MacroPartials\Carousel.cshtml:line 5
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at Umbraco.Core.Profiling.ProfilingView.Render(ViewContext viewContext, TextWriter writer)
+   at Umbraco.Web.Mvc.ControllerExtensions.RenderViewResultAsString(ControllerBase controller, ViewResultBase viewResult)
+   at Umbraco.Web.Macros.PartialViewMacroEngine.Execute(MacroModel macro, IPublishedContent content)
+   at Umbraco.Web.Macros.PartialViewMacroEngine.Execute(MacroModel macro, INode node)
+   at umbraco.macro.LoadPartialViewMacro(MacroModel macro)
+   at umbraco.macro.renderMacro(Hashtable pageElements, Int32 pageId)
+2014-04-12 20:08:16,909 [7] WARN  umbraco.macro - [Thread 9] Error loading Partial View (file: ~/Views/MacroPartials/Carousel.cshtml). Exception: System.ApplicationException: Could not create an index searcher with the supplied lucene directory ---> System.IO.FileNotFoundException: Could not find file 'C:\Users\ows\Documents\Projects\NuthinButNet\NuthinButNet\NuthinButNet\App_Data\TEMP\ExamineIndexes\Internal\Index\segments_1k'.
+   at Lucene.Net.Index.SegmentInfos.FindSegmentsFile.Run(IndexCommit commit)
+   at Lucene.Net.Index.DirectoryReader.Open(Directory directory, IndexDeletionPolicy deletionPolicy, IndexCommit commit, Boolean readOnly, Int32 termInfosIndexDivisor)
+   at Lucene.Net.Index.IndexReader.Open(Directory directory, IndexDeletionPolicy deletionPolicy, IndexCommit commit, Boolean readOnly, Int32 termInfosIndexDivisor)
+   at Lucene.Net.Index.IndexReader.Open(Directory directory, Boolean readOnly)
+   at Examine.LuceneEngine.Providers.LuceneSearcher.ValidateSearcher(Boolean forceReopen)
+   --- End of inner exception stack trace ---
+   at Examine.LuceneEngine.Providers.LuceneSearcher.ValidateSearcher(Boolean forceReopen)
+   at Examine.LuceneEngine.Providers.LuceneSearcher.GetSearchFields()
+   at UmbracoExamine.UmbracoExamineSearcher.GetSearchFields()
+   at Examine.LuceneEngine.Providers.BaseLuceneSearcher.CreateSearchCriteria(String type, BooleanOperation defaultOperation)
+   at UmbracoExamine.UmbracoExamineSearcher.CreateSearchCriteria(String type, BooleanOperation defaultOperation)
+   at Examine.LuceneEngine.Providers.BaseLuceneSearcher.CreateSearchCriteria(String type)
+   at Umbraco.Web.PublishedCache.XmlPublishedCache.PublishedMediaCache.GetUmbracoMedia(Int32 id)
+   at Umbraco.Web.PublishedCache.XmlPublishedCache.PublishedMediaCache.GetById(UmbracoContext umbracoContext, Boolean preview, Int32 nodeId)
+   at Umbraco.Web.PublishedCache.ContextualPublishedCache`1.GetById(Boolean preview, Int32 contentId)
+   at Umbraco.Web.PublishedCache.ContextualPublishedCache.GetById(Int32 contentId)
+   at Umbraco.Web.PublishedContentQuery.TypedDocumentById(Int32 id, ContextualPublishedCache cache)
+   at Umbraco.Web.PublishedContentQuery.TypedMedia(Int32 id)
+   at Umbraco.Web.UmbracoHelper.TypedMedia(Int32 id)
+   at ASP._Page_Views_MacroPartials_Carousel_cshtml.Execute() in c:\Users\ows\Documents\Projects\NuthinButNet\NuthinButNet\NuthinButNet\Views\MacroPartials\Carousel.cshtml:line 5
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at Umbraco.Core.Profiling.ProfilingView.Render(ViewContext viewContext, TextWriter writer)
+   at Umbraco.Web.Mvc.ControllerExtensions.RenderViewResultAsString(ControllerBase controller, ViewResultBase viewResult)
+   at Umbraco.Web.Macros.PartialViewMacroEngine.Execute(MacroModel macro, IPublishedContent content)
+   at Umbraco.Web.Macros.PartialViewMacroEngine.Execute(MacroModel macro, INode node)
+   at umbraco.macro.LoadPartialViewMacro(MacroModel macro)
+   at umbraco.macro.renderMacro(Hashtable pageElements, Int32 pageId)
