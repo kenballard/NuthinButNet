@@ -1312,3 +1312,6 @@ width: 100% !important;
 .staff-member .staff-member-info p {
     display: none;
 }
+#checkout, #checkout-success, #checkout-error, #checkout-processing {
+    display: none;
+}
