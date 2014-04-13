@@ -12,6 +12,7 @@ namespace NuthinButNet.Helpers
 {
     public static class SubProgramHelpers
     {
+        private static readonly string ProgramsAlias = "ProgramsLanding";
         private static readonly string ProgramAlias = "Program";
         private static readonly string SubProgramAlias = "SubProgram";
         private static readonly string NameField = "name";
@@ -24,16 +25,9 @@ namespace NuthinButNet.Helpers
 
         public static IEnumerable<IPublishedContent> GetAllSubPrograms(this IPublishedContent currentNode)
         {
-            var root = currentNode.AncestorOrSelf(1);
-            var programs = root.Siblings().Where(x => x.DocumentTypeAlias == ProgramAlias);
-            var subPrograms = new List<IPublishedContent>();
-
-            foreach (var p in programs)
-            {
-                subPrograms.AddRange(p.Descendants());
-            }
-
-            return subPrograms;
+            var programsRoot = currentNode.Siblings().Single(x => x.DocumentTypeAlias == ProgramsAlias);
+            var programs = programsRoot.Children(x => x.IsVisible() && x.DocumentTypeAlias == ProgramAlias);
+            return programs.SelectMany(x => x.Children(y => y.DocumentTypeAlias == SubProgramAlias && y.IsVisible()));
         }
     }
 }
