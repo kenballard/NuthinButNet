@@ -1283,6 +1283,9 @@ width: 100% !important;
 	margin-bottom:25px;
 }
 
+.container {
+    padding-bottom: 38px;
+}
 
 /*Programs*/
 #programs-landing .program-tabs {
@@ -1315,4 +1318,22 @@ width: 100% !important;
 }
 #checkout, #checkout-success, #checkout-error, #checkout-processing {
     display: none;
+}
+
+/*Partner Links*/
+.partner-links li {
+    margin-bottom: 8px;
+    line-height: 140%;
+    padding: 5px;
+    background: #e5e5e5;
+    font-size: 16px;
+    text-align: center;
+}
+
+.partner-links ul {
+    padding-left: 24px;
+}
+
+.partner-links li a{
+    text-decoration: underline;
 }
