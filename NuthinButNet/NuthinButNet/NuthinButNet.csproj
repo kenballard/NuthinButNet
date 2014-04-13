@@ -1543,6 +1543,7 @@
   <ItemGroup>
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Helpers\EventsHelpers.cs" />
+    <Compile Include="Helpers\VenueHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BlogLandingViewModel.cs" />
   </ItemGroup>
@@ -1706,6 +1707,8 @@
     <Content Include="Views\MacroPartials\BlogListings.cshtml" />
     <Content Include="Views\StaffLanding.cshtml" />
     <Content Include="Views\MacroPartials\FeaturedEvents.cshtml" />
+    <Content Include="Views\BoardLanding.cshtml" />
+    <Content Include="Views\PartnersLanding.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

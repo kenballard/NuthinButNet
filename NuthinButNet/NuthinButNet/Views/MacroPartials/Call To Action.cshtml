@@ -1,6 +1,10 @@
+@using Archetype.Umbraco.Models
 @inherits Umbraco.Web.Macros.PartialViewMacroPage
+@using Archetype.Umbraco.PropertyConverters;
+@using Archetype.Umbraco.Models;
+@using Archetype.Umbraco.Extensions;
 
-@foreach (var page in Model.Content.Children)
+@*foreach (var page in Model.Content.Children)
 {
     if (page.DocumentTypeAlias == "CallToAction")
     {
@@ -8,4 +12,11 @@
             <img src="@Umbraco.TypedMedia(int.Parse(page.GetPropertyValue<string>("image"))).Url" width="240" height="240" />
         </div>
     }
-} 
+} *@
+
+@foreach (var fieldset in Model.Content.GetPropertyValue<Archetype>("callToActions").Fieldsets)
+{
+    <div><h2><a href="@umbraco.library.NiceUrl(int.Parse(fieldset.GetValue("link")))">@fieldset.GetValue("name")</a></h2>
+            <img src="@Umbraco.TypedMedia(int.Parse(fieldset.GetValue("image"))).Url" />
+        </div>
+}
