@@ -10,21 +10,8 @@
 </div>
 
 <div class="container" id="quick_links_container">
-
     <div class="row">
-
-        <div class="span3 quick_links" id="do_link">
-            <a href="#" class="text-center">Do</a>
-        </div>
-        <div class="span3 quick_links" id="grow_link">
-            <a href="#" class="text-center">Grow</a>
-        </div>
-        <div class="span3 quick_links" id="go_link">
-            <a href="#" class="text-center">Go</a>
-        </div>
-        <div class="span3 quick_links" id="hear_link">
-            <a href="#" class="text-center">Hear</a>
-        </div>
+        @Umbraco.RenderMacro("CallToAction")
     </div>
 </div>
 
@@ -33,7 +20,5 @@
         @Umbraco.RenderMacro("FeaturedEvents")
     </div>
 </div><!-- /container --> 
-
-@Umbraco.RenderMacro("CallToAction")
 
 <!-- /Main -->
