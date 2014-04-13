@@ -1,0 +1,14 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "umbLayout.cshtml";
+}
+
+@foreach (var child in Model.Content.Children)
+{
+    <div>
+        <h2>@(child.GetPropertyValue<string>("name"))</h2>
+        <p><strong>@(child.GetPropertyValue<string>("jobTitle"))</strong></p>
+        <img src="@Umbraco.TypedMedia(int.Parse(child.GetPropertyValue<string>("image"))).Url" />
+        <p>@(child.GetPropertyValue<string>("description"))</p>
+    </div>
+}

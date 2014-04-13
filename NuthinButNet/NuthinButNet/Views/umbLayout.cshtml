@@ -12,13 +12,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link href="/css/common.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/color.css" rel="stylesheet">
-    <link href="/css/slider.css" rel="stylesheet">
-    <link href="/css/responsive.css" rel="stylesheet">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css" />
+    <link href="/css/common.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/color.css" rel="stylesheet" />
+    <link href="/css/slider.css" rel="stylesheet" />
+    <link href="/css/responsive.css" rel="stylesheet" />
     <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
 </head>
 
 <body>
@@ -54,104 +54,12 @@
 					
 					@Umbraco.RenderMacro("MainNavigation")
 					
-                <!--<ul class="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li>
-                        <a href="gallery.html">Gallery</a>
-                        <ul>
-                            <li><a href="gallery-2col.html">Two Column</a></li>
-                            <li><a href="gallery.html">Three Column</a></li>
-                            <li><a href="gallery-4col.html">Four Column</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li>
-                        <a href="#">Pages</a>
-                        <ul>
-                            <li>
-                                <a href="events.html">Events</a>
-                                <ul>
-                                    <li><a href="events-detail.html">Event Detail</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="blog.html">Blog</a>
-                                <ul>
-                                    <li><a href="blog-detail.html">Blog Detail</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="gallery.html">Gallery</a>
-                                <ul>
-                                    <li><a href="gallery-2col.html">Two Column</a></li>
-                                    <li><a href="gallery.html">Three Column</a></li>
-                                    <li><a href="gallery-4col.html">Four Column</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li>
-                                <a href="#">Cursus Tempor</a>
-                                <ul>
-                                    <li><a href="#">Ultrices augue dolor</a></li>
-                                    <li>
-                                        <a href="#">Etiam risus et</a>
-                                        <ul>
-                                            <li><a href="#">Etiam risus et</a></li>
-                                            <li><a href="#">Ultrices augue dolor</a></li>
-                                            <li><a href="#">Cursus Tempor</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>--><!-- menu ends -->
                 <div class="user-controls">
                     <a href="#" class="user-login"></a>
                     <a href="#" class="user-search"></a>
                 </div>
             </div>
         </nav><!-- menu-bar ends -->
-        @*<!DOCTYPE html>
-            <!--
-                TXT 2.0 by HTML5 UP
-                html5up.net | twitter.com/n33co
-                Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-            -->
-            <html>
-            <head>
-                <title>@Umbraco.Field("title", altFieldAlias: "pageName") | @Umbraco.Field("siteName", recursive: true)</title>
-                <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-                <meta name="description" content="" />
-                <meta name="keywords" content="" />
-                <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700" rel="stylesheet" />
-                <script src="/js/jquery.min.js"></script>
-                <script src="/js/config.js"></script>
-                <script src="/js/skel.min.js"></script>
-                <script src="/js/skel-panels.min.js"></script>
-                <noscript>
-                    <link rel="stylesheet" href="/css/skel-noscript.css" />
-                    <link rel="stylesheet" href="/css/style.css" />
-                    <link rel="stylesheet" href="/css/style-desktop.css" />
-                </noscript>
-                <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
-                <!--[if lte IE 8]><script src="/js/html5shiv.js"></script><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
-                <!--[if lte IE 7]><link rel="stylesheet" href="/css/ie7.css" /><![endif]-->
-            </head>
-            <body class="homepage">
-                <!-- Header -->
-                <header id="header">
-                    <div class="logo">
-                        <div>
-                            <h1><a href="/" id="logo">@Umbraco.Field("siteName", recursive: true)</a></h1>
-                            <span class="byline">@Umbraco.Field("byline", recursive: true)</span>
-                        </div>
-                    </div>
-                </header>
-                <!-- /Header -->
-                @{ Html.RenderPartial("umbTopNavigation"); }*@
 
         @RenderBody()
 
@@ -211,31 +119,13 @@
 
     <script src="/js/jquery-1.10.2.min.js"></script>
     <script src="/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
     <script src="/js/jquery.countdown.js"></script>
     <script src="/js/jquery.bxslider.js"></script>
+    <script src="/js/bootstrap.js"></script>
     <script src="/js/script.js"></script>
     <script src="/js/get-involved.js"></script>
+ 
 
-        @*<!-- Footer -->
-            <footer id="footer" class="container">
-                <div class="row">
-                    <div class="12u">
-                        @{ Html.RenderPartial("umbAbout"); }
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="12u">
-                        @{ Html.RenderPartial("umbSocial"); }
-                    </div>
-                </div>
-                <div class="row">
-                    <!-- Copyright -->
-                    <div id="copyright">
-                        &copy; @DateTime.Now.Year @Umbraco.Field("copyright", recursive: true) | Images: <a href="http://fotogrph.com">fotogrph</a> + <a href="http://iconify.it">Iconify.it</a> | Design: <a href="http://html5up.net/">HTML5 UP</a>
-                    </div>
-                    <!-- /Copyright -->
-                </div>
-            </footer>
-            <!-- /Footer -->*@
 </body>
 </html>

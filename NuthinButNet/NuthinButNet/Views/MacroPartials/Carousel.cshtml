@@ -1,7 +1,38 @@
 @inherits Umbraco.Web.Macros.PartialViewMacroPage
 
-<h2>Carousel</h2>
-@foreach (var image in Model.Content.GetPropertyValue<dynamic>("carousel"))
-{
-    <img src="@Umbraco.TypedMedia(int.Parse(image[string.Empty].ToString())).Url" width="64" height="64" />
-}
+<div class="fullwidthbanner-container">
+    <div class="home-fullwidthbanner">
+        <ul>
+        @foreach (var image in Model.Content.GetPropertyValue<dynamic>("carousel"))
+        {
+            <li data-transition="papercut" data-slotamount="15" data-masterspeed="2300" data-delay="9400">
+                <img src="@Umbraco.TypedMedia(int.Parse(image[string.Empty].ToString())).Url" width="64" height="64" />
+                <div class="caption large_yallow lfl stl"
+                     data-x="left"
+                     data-y="170"
+                     data-speed="500"
+                     data-start="500"
+                     data-easing="easeOutExpo">
+                    Sollicitudin a lacinia eufermentum etellus
+                </div>
+                <div class="caption medium_grey lfr"
+                     data-x="left"
+                     data-y="236"
+                     data-speed="500"
+                     data-start="800"
+                     data-easing="easeOutExpo">
+                    Sollicitudin a lacinia eufermentum etellus vestibulum libero
+                </div>
+                <div class="caption medium_grey lfb"
+                     data-x="left"
+                     data-y="290"
+                     data-speed="500"
+                     data-start="800"
+                     data-easing="easeOutExpo">
+                    nibh. eufermentum etellus vestibulum.
+                </div>
+            </li>
+        }
+        </ul>
+    </div>
+</div>

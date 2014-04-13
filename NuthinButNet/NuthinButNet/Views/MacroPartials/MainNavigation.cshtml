@@ -5,7 +5,7 @@
     {
         <li>
             <a href="@document.Url">@document.Name</a>
-            @if (document.Children.Any(x => x.IsVisible()))
+            @if (!document.GetPropertyValue<bool>("hideChildrenFromNavigation") && document.Children.Any(x => x.IsVisible()))
             {
             <ul>
                 @foreach (var child in document.Children.Where(x => x.IsVisible()))
