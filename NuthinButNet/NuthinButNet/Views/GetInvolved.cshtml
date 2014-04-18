@@ -4,6 +4,7 @@
 }
 
 
+
 <div class="banner" style="background:url(/images/resource/banner-1.jpg);">
     <div class="container">
         <h1>Get Involved</h1>
@@ -19,40 +20,40 @@
 <div class="container">
 
 @Umbraco.Field("headerBody")
-<div id="catalog">
-    <div class="row">
-        
-        @if (!string.IsNullOrEmpty(Request.QueryString["gift"]))
-        {
-            <div class="span4">
-            @Get("money", "$", "", true, true)
-            <button class="addToCart">@Umbraco.Field("callToActionText")</button>
-            </div> <!-- end span-->     
-         }
-        
-    </div> <!-- end row-->
-    <div class="row">
-        <div class="span4">@Get("time", "", " hours", true)</div>
-        <div class="span4">@Get("talent", "", "", false)</div>
-        <div class="span4">
-            @Get("inKind", "", "", false)
-        </div>
-            <div class="clearfix"></div>
-        <button class="span3 addToCart">@Umbraco.Field("callToActionText")</button>
-    </div>
-  
-    <div class="row">
-        <div class="span8">
-            @if (string.IsNullOrEmpty(Request.QueryString["gift"]))
+    <div id="catalog">
+        <div class="row">
+
+            @if (!string.IsNullOrEmpty(Request.QueryString["gift"]))
             {
-                @Get("money", "$", "", true, true)
-                <button class="addToCart">@Umbraco.Field("callToActionText")</button>
+                <div class="span4">
+                    @Get("money", "$", "", true, true)
+                    <button class="add-to-cart">@Umbraco.Field("callToActionText")</button>
+                </div> <!-- end span-->
             }
+
+        </div> <!-- end row-->
+        <div class="row">
+            <div class="span4">@Get("time", "", " hours", true)</div>
+            <div class="span4">@Get("talent", "", "", false)</div>
+            <div class="span4">
+                @Get("inKind", "", "", false)
+            </div>
+            <div class="clearfix"></div>
+            <button class="add-to-cart">@Umbraco.Field("callToActionText")</button>
         </div>
-    </div>
+
+        <div class="row">
+            <div class="span8">
+                @if (string.IsNullOrEmpty(Request.QueryString["gift"]))
+                {
+                    @Get("money", "$", "", true, true)
+    <button class="add-to-cart">@Umbraco.Field("callToActionText")</button>
+                }
+            </div>
+        </div>
 
 
-</div>
+    </div>   
 <div id="checkout">
     <div id="cart">
         <h3>Your Gift Includes</h3>
@@ -102,19 +103,35 @@
 <!-- /Main -->
 @helper Get(string selector, string prepender, string postpender, bool isSelectOne, bool includeDesc = false)
 {
-    
-        <h3>@Umbraco.Field(selector + "Title")</h3>
-        <ul>
-            @for (int i = 1; i <= 5; i++)
-            {
-                var fieldName = string.Concat(selector, i);
-                var descName = string.Concat("description", i);
-                if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()) && Umbraco.Field(fieldName).ToString() != "0")
+    var otherSelector = string.Concat(selector, "Other");
+    var extendedValidation = isSelectOne ? "number" : "";
+    var control = isSelectOne ? "radio" : "checkbox";
+    var icon = string.Format("/images/support-{0}.png", selector);
+    var title = Umbraco.Field(selector + "Title").ToString();
+    <div id="catalog-@selector" class="catalog-item">
+        <h3>@title</h3>
+        <div class="cover">
+            <span class="coverglyph coverglyph-@selector"></span>
+            <div class="actions">
+                <button class="open">Yes, I'd like to give @title.ToLower()</button><br />
+                <a href="#" class="discard">Not now</a>
+            </div>
+        </div>
+        <form id="catalog-form-@selector" class="catalog-form">
+            <ul>
+                @for (int i = 1; i <= 5; i++)
                 {
-                    <li><label><input name="@selector" type="@(isSelectOne ? "radio" : "checkbox")" value="@Umbraco.Field(fieldName)" />@prepender @Umbraco.Field(fieldName)@postpender @(includeDesc ? Umbraco.Field(descName).ToString() : "")</label></li>
+                    var fieldName = string.Concat(selector, i);
+                    var descName = string.Concat("description", i);
+                    if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()) && Umbraco.Field(fieldName).ToString() != "0")
+                    {
+                        <li><label><input name="@selector" class="not-other-@control" data-other="@otherSelector" type="@control" value="@Umbraco.Field(fieldName)" />@prepender @Umbraco.Field(fieldName)@postpender @(includeDesc ? Umbraco.Field(descName).ToString() : "")</label></li>
+                    }
                 }
-            }
-            <li><input name="@selector" type="@(isSelectOne ? "radio" : "checkbox")" value="-1" /><input id="timeOther" /></li>
-        </ul>
- 
+                <li><input name="@selector" class="other-@control" data-other="@otherSelector" type="@(isSelectOne ? "radio" : "checkbox")" value="-1" /><input id="@otherSelector" name="@otherSelector" placeholder="Other" class="@extendedValidation" disabled /></li>
+            </ul>
+        </form>
+    </div>
+
+
 }

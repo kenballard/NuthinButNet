@@ -1,0 +1,59 @@
+﻿@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../fonts/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
+.coverglyph {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  color: #fff;
+  -moz-osx-font-smoothing: grayscale;
+    font-size: 6em;
+}
+
+.coverglyph-money:before {
+  content: "\e005";
+}
+
+.coverglyph-time:before {
+  content: "\e023";
+}
+
+.coverglyph-talent:before {
+  content: "\e008";
+}
+
+.coverglyph-inKind:before {
+  content: "\e102";
+}
+
+.catalog-item {
+    border: 2px solid #a9a9a9;
+    background: #a9a9a9;
+}
+
+#checkout, #checkout-success, #checkout-error, #checkout-processing, .catalog-form {
+    display: none;
+}
+
+.catalog-item {
+    height: 250px;
+}
+
+.catalog-item > h3 {
+    padding-top: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 3em;
+}
+
+.catalog-item > .cover{
+    text-align: center;
+}

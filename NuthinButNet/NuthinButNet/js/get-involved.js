@@ -1,19 +1,54 @@
 ﻿jQuery(document).ready(function ($) {
-    $('.addToCart').click(function () {
-        fillCartItem('money', getSingleProduct('money'), '$', '');
-        fillCartItem('time', getSingleProduct('time'), '', ' hours');
-        fillCartItem('talent', getMultiProducts('talent'), '', '');
-        fillCartItem('inKind', getMultiProducts('inKind'), '', '');
+    $('.other-radio').click(function (e) {
+        var otherInput = $('#' + $(e.target).attr('data-other'));
+        var isActive = true;
+        toggleOtherInput(otherInput, isActive);
+    });
 
-        $('#catalog').hide();
-        $('#checkout').show();
-        $('#checkout-error').hide();
+    $('.not-other-radio').click(function (e) {
+        var otherInput = $('#' + $(e.target).attr('data-other'));
+        var isActive = false;
+        toggleOtherInput(otherInput, isActive);
+    });
+
+    $('.other-checkbox').click(function (e) {
+        var otherInput = $('#' + $(e.target).attr('data-other'));
+        var isActive = $(e.target).prop('checked');
+        toggleOtherInput(otherInput, isActive);
+    });
+
+    function toggleOtherInput(otherInput, isActive) {
+        if (isActive) {
+            otherInput.removeAttr('disabled');
+            otherInput.addClass('required');
+        } else {
+            otherInput.attr('disabled', 'disabled');
+            otherInput.val('');
+            otherInput.removeClass('required');
+        }
+    }
+
+    $('.add-to-cart').click(function () {
+        var isValid = true;
+        $('.catalog-form').each(function() {
+            $(this).validate();
+            isValid = $(this).valid() && isValid;
+        });
+        if (isValid) {
+            fillCartItem('money', getSingleProduct('money'), '$', '');
+            fillCartItem('time', getSingleProduct('time'), '', ' hours');
+            fillCartItem('talent', getMultiProducts('talent'), '', '');
+            fillCartItem('inKind', getMultiProducts('inKind'), '', '');
+
+            $('#catalog').hide();
+            $('#checkout').show();
+            $('#checkout-error').hide();
+
+            togglePayment($('#moneyProduct').text() != '');
+        }
 
         window.scrollTo(0, 0);
 
-        togglePayment($('#moneyProduct').text() != '');
-
-        
         function togglePayment(show) {
             if (show) {
                 $('#payment').show();
@@ -50,10 +85,14 @@
             $('input[name=' + selector + ']:checked').each(function () {
                 if (values != '')
                     values += ', ';
-                values += $(this).val();
+                var sel = $(this).val();
+                sel = sel == '-1' ? $('#' + selector + 'Other').val() : sel;
+                values += sel;
             });
             return values;
         }
+
+        return false;
     });
 
     $('#checkout-form').submit(function (e) {
