@@ -1,8 +1,19 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
-<<<<<<< HEAD
-    Layout = null;
-=======
     Layout = "umbLayout.cshtml";
->>>>>>> 7afce299a4f23c690d873b5f1f3ce949a43638f4
+}
+
+<div>
+    <img src="@Umbraco.TypedMedia(Model.Content.GetPropertyValue("image")).Url" />
+    <div>@Model.Content.GetPropertyValue("title2")</div>
+</div>
+@foreach (var subProgram in Model.Content.Children())
+{
+    var imgProperty = subProgram.GetProperty("thumbnailImage");
+    <div>
+        <a href="@subProgram.Url">
+            <img src="@(imgProperty.HasValue ? Umbraco.TypedMedia(imgProperty.Value).Url : "")" />
+        </a>
+        <div>@subProgram.GetPropertyValue("name")</div>
+    </div>
 }
