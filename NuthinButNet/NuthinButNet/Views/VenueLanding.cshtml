@@ -1,9 +1,11 @@
-﻿@inherits UmbracoTemplatePage
+﻿@using NuthinButNet.Helpers
+
+@inherits UmbracoTemplatePage
 @{
     Layout = "umbLayout.cshtml";
 }
 <!-- Main -->
-<div class="banner" style="background:url(/images/resource/event_banner.jpg);">
+<div class="banner" style="background: url(@Umbraco.Media(Umbraco.Field("headerImage").ToString()).Url) #E5E5E5 no-repeat center; background-size: cover;">
     <div class="container">
         <h1>Parks</h1>
         <div class="bread-bar clearfix">
