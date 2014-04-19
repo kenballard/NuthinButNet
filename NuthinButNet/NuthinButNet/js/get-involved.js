@@ -5,6 +5,35 @@
         toggleOtherInput(otherInput, isActive);
     });
 
+    $('.open').click(function () {
+        var catalogItem = $(this).parents('.catalog-item');
+        catalogItem.children('.cover').hide();
+       catalogItem.children('.catalog-form').show();
+    });
+
+    $('.confirm-catalog-item').click(function () {
+        var catalogItem = $(this).parents('.catalog-item');
+        var form = catalogItem.children('.catalog-form');
+        var selectedItem = catalogItem.children('.selected-catalog-items');
+        var open = catalogItem.children('.open');
+        var edit = catalogItem.children('.edit-catalog-item');
+        form.validate();
+        if (form.valid()) {
+            catalogItem.children('.cover').show();
+            form.hide();
+            if ($(this).attr('data-single')) {
+                selectedItem = getSingleProduct($(this).attr('data-product-type'));
+            } else {
+                selectedItem = getMultiProducts($(this).attr('data-product-type'));
+            }
+            selectedItem.show();
+            open.hide();
+            edit.show();
+        }
+        return false;
+    });
+
+
     $('.not-other-radio').click(function (e) {
         var otherInput = $('#' + $(e.target).attr('data-other'));
         var isActive = false;
@@ -67,7 +96,8 @@
         {
             if (value != null && value != '0' && value != '')
             {
-                $('.' + selector + 'Selected').text(prepender + value + postpender);
+                var formattedValue = prepender + value + postpender;
+                $('.' + selector + 'Selected').text(formattedValue);
                 $('#' + selector + 'Product').text(value);
             }
         }
