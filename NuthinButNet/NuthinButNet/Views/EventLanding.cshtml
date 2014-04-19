@@ -5,7 +5,7 @@
     Layout = "umbLayout.cshtml";
 }
 
-<div class="banner" style="background:url(images/resource/event_banner.jpg);">
+<div class="banner" style="background:url(/images/resource/event_banner.jpg);">
     <div class="container">
         <h1>Upcoming Events</h1>
         <div class="bread-bar clearfix">
@@ -22,15 +22,12 @@
         <div class="span2">
             <h2>Filters</h2>
             <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-primary">
-                    <input type="checkbox"> Option 1
-                </label>
-                <label class="btn btn-primary">
-                    <input type="checkbox"> Option 2
-                </label>
-                <label class="btn btn-primary">
-                    <input type="checkbox"> Option 3
-                </label>
+                @foreach (var subProgram in @Model.Content.GetAllSubPrograms())
+                {
+                    <label class="btn btn-primary">
+                        <input type="checkbox" /> @subProgram.GetSubProgramName()
+                    </label>
+                }
             </div>
         </div>
         <div class="span9 offset1">

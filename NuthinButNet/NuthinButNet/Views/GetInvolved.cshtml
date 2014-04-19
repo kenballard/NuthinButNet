@@ -2,6 +2,119 @@
 @{
     Layout = "umbLayout.cshtml";
 }
+
+
+<div class="banner" style="background:url(/images/resource/banner-1.jpg);">
+    <div class="container">
+        <h1>Get Involved</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/get-involved">Get Involved</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- banner ends -->
 <!-- Main -->
-<div>Get Involved</div>
+<div class="container">
+
+@Umbraco.Field("headerBody")
+<div id="catalog">
+    <div class="row">
+        
+        @if (!string.IsNullOrEmpty(Request.QueryString["gift"]))
+        {
+            <div class="span4">
+            @Get("money", "$", "", true, true, true)
+            <button class="addToCart">@Umbraco.Field("callToActionText")</button>
+            </div> <!-- end span-->     
+         }
+        
+    </div> <!-- end row-->
+    <div class="row">
+        <div class="span4">@Get("time", "", " hours", true, true)</div>
+        <div class="span4">@Get("talent", "", "", false, false)</div>
+        <div class="span4">
+            @Get("inKind", "", "", false, false)
+        </div>
+            <div class="clearfix"></div>
+        <button class="span3 addToCart">@Umbraco.Field("callToActionText")</button>
+    </div>
+  
+    <div class="row">
+        <div class="span8">
+            @if (string.IsNullOrEmpty(Request.QueryString["gift"]))
+            {
+                @Get("money", "$", "", true, true, true)
+                <button class="addToCart">@Umbraco.Field("callToActionText")</button>
+            }
+        </div>
+    </div>
+
+
+</div>
+<div id="checkout">
+    <div id="cart">
+        <h3>Your Gift Includes</h3>
+        <ul>
+            <li><span class="moneySelected" /></li>
+            <li><span class="timeSelected" /></li>
+            <li><span class="talentSelected" /></li>
+            <li><span class="inKindSelected" /></li>
+        </ul>
+    </div>
+    <div id="checkout-error" class="alert"><strong>Attention:</strong> @Umbraco.Field("error")</div>
+    <form id="checkout-form">
+        <label>First Name</label><input id="FirstName" required />
+        <label>Last Name</label><input id="LastName" required />
+        <label>Address</label><input id="Address" required />
+        <label>City</label><input id="City" required />
+        <label>State</label><input id="State" required pattern="[A-Za-z]{2}" />
+        <label>Zip Code</label><input id="Zip" required />
+        <label>Phone</label><input id="Phone" required type="tel"/>
+        <label>Email</label><input id="Email" required type="email" />
+        <div id="payment">
+            <label>Credit Card</label><input id="CreditCard" autocomplete="off" required />
+            <label>Verification Code (CVV)</label><input id="VerificationCode" required  />
+            <label>Expiration Month</label><input id="ExpyMonth" required/>
+            <label>Expiration Year</label><input id="ExpyYear" required  />
+        </div>
+        <input type="hidden" id="moneyProduct" />
+        <input type="hidden" id="timeProduct" />
+        <input type="hidden" id="talentProduct" />
+        <input type="hidden" id="inKindProduct" />
+        <br />
+        <input type="submit" value="Submit" id="checkout-submit" />
+        <span id="checkout-processing">Processing...</span>
+    </form>
+</div>
+<div id="checkout-success">
+    <h3>@Umbraco.Field("confirmationTitle")</h3>
+    <ul>
+        <li><span class="moneySelected" /></li>
+        <li><span class="timeSelected" /></li>
+        <li><span class="talentSelected" /></li>
+        <li><span class="inKindSelected" /></li>
+    </ul>
+    @Umbraco.Field("confirmationBody")
+</div>
+</div> <!--end container-->
 <!-- /Main -->
+@helper Get(string selector, string prepender, string postpender, bool isSelectOne, bool isNumeric, bool includeDesc = false)
+{
+    var numericInputPattern = isNumeric ? @"\d*\.?" : "";
+        <h3>@Umbraco.Field(selector + "Title")</h3>
+        <ul>
+            @for (int i = 1; i <= 5; i++)
+            {
+                var fieldName = string.Concat(selector, i);
+                var descName = string.Concat("description", i);
+                if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()) && Umbraco.Field(fieldName).ToString() != "0")
+                {
+                    <li><label><input name="@selector" pattern="@numericInputPattern" type="@(isSelectOne ? "radio" : "checkbox")" value="@Umbraco.Field(fieldName)" />@prepender @Umbraco.Field(fieldName)@postpender @(includeDesc ? Umbraco.Field(descName).ToString() : "")</label></li>
+                }
+            }
+            <li><input name="@selector" type="@(isSelectOne ? "radio" : "checkbox")" value="-1" /><input id="timeOther" /></li>
+        </ul>
+ 
+}

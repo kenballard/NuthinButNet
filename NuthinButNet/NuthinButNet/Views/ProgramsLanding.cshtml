@@ -1,0 +1,54 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    Layout = "umbLayout.cshtml";
+    var isFirst = true;
+}
+<!-- Main -->
+<div class="banner" style="background:url(/images/resource/banner-1.jpg);">
+    <div class="container">
+        <h1>Programs</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/programs">Programs</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- banner ends -->
+
+<div class="container">
+    <div id="programs-landing" class="row">
+        <div class="nav program-tabs nav-tabs">
+            @foreach (var program in Model.Content.Children())
+            {
+                <div class="span3">
+                    <a href="#@program.Id" data-toggle="tab">
+                        <img src="@Umbraco.TypedMedia(program.GetPropertyValue("thumbnailImage")).Url">
+                    </a>
+                    <div>
+                        @program.GetProperty("title2").Value
+                    </div>
+                </div>
+            }
+        </div>
+        <!-- Tab panes -->
+        <div class="program-content tab-content">
+            @foreach (var program in Model.Content.Children())
+            {
+                <div class="tab-pane @(isFirst ? "active" : "")" id="@program.Id">
+                    <header>
+                        <img src="@Umbraco.TypedMedia(program.GetPropertyValue("image")).Url" />
+                        <h2 id="currentTitle">@program.GetPropertyValue("title2")</h2>
+                    </header>
+                    <p>
+                        @program.GetProperty("description").Value
+                    </p>
+                    <a href="@program.Url">Read More</a>
+                </div>
+                isFirst = false;
+            }
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- /Main -->

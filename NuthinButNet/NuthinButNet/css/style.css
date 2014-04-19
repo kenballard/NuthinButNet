@@ -107,6 +107,7 @@
 /////////////////////////////// ***/
 .menu-bar {
 	background: white;
+    border-bottom: 2px solid #e5e5e5
 }
 .menu-bar .menu {
 	display:inline-block;
@@ -130,6 +131,10 @@
 }
 .menu li:hover > a {
 	background: #61B0E4;
+    -webkit-transition:width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+	transition:all 0.4s ease;
+	-moz-transition:all 0.4s ease;
+	-webkit-transition:all 0.4s ease;
 	color: white;
 }
 
@@ -137,7 +142,7 @@
 	width:172px;
 	height:0px;
 	padding:0;
-	background:#000;
+	background:#284152;
 	z-index:201;
 	overflow:hidden;
 	display:block;
@@ -1282,6 +1287,41 @@ width: 100% !important;
 	margin-bottom:25px;
 }
 
+.logo h1 a svg {
+   width: 95px;
+   height: 95px;
+   float: left;
+   fill: #f1f1f1; 
+}
+
+.logo h1 a {
+    font-size: 24px;
+    font-color: #f1f1f1;
+}
+
+.logo h1 a:hover{
+    color: #f1f1f1;
+}
+
+.logo h1 a span {
+    display: block;
+}
+
+.logo h1 {
+    line-height: 71%;
+    color: #f1f1f1;
+}
+
+.logo h1 .logo-text {
+    position: relative;
+    padding-top: 14px;
+}
+
+.logo h1 .tag-line {
+    font-size: 18px;
+    font-weight: 200;
+    font-style: italic;
+}
 
 /*Programs*/
 #programs-landing .program-tabs {
@@ -1311,4 +1351,25 @@ width: 100% !important;
 
 .staff-member .staff-member-info p {
     display: none;
+}
+#checkout, #checkout-success, #checkout-error, #checkout-processing {
+    display: none;
+}
+
+/*Partner Links*/
+.partner-links li {
+    margin-bottom: 8px;
+    line-height: 140%;
+    padding: 5px;
+    background: #e5e5e5;
+    font-size: 16px;
+    text-align: center;
+}
+
+.partner-links ul {
+    padding-left: 24px;
+}
+
+.partner-links li a{
+    text-decoration: underline;
 }
