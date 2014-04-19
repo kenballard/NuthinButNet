@@ -60,12 +60,12 @@ namespace NuthinButNet.Helpers
 
         public static string GetEventThumbnailUrl(this UmbracoContext context, IPublishedContent eventNode)
         {
-            return GetImageUrl(context, eventNode, ThumbnailFieldName);
+            return ImageHelpers.GetImageUrl(context, eventNode, ThumbnailFieldName);
         }
 
         public static string GetEventFullSizeImageUrl(this UmbracoContext context, IPublishedContent eventNode)
         {
-            return GetImageUrl(context, eventNode, FullSizeFieldName);
+            return ImageHelpers.GetImageUrl(context, eventNode, FullSizeFieldName);
         }
 
         public static string GetFormattedEventDate(this IPublishedContent eventNode)
@@ -100,14 +100,6 @@ namespace NuthinButNet.Helpers
         {
             // TODO: Get venue address
             return MvcHtmlString.Create("Washington, United States");
-        }
-
-        private static string GetImageUrl(this UmbracoContext context, IPublishedContent eventNode, string propertyName)
-        {
-            var helper = new UmbracoHelper(context);
-            var imageId = eventNode.GetPropertyValue<int>(propertyName);
-            var typedMedia = helper.TypedMedia(imageId);
-            return typedMedia.Url;
         }
     }
 }

@@ -1553,6 +1553,7 @@
     <Compile Include="Controllers\GetInvolvedController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Helpers\EventsHelpers.cs" />
+    <Compile Include="Helpers\ImageHelpers.cs" />
     <Compile Include="Helpers\SubProgramHelpers.cs" />
     <Compile Include="Helpers\VenueHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1725,6 +1726,7 @@
     <Content Include="Views\MacroPartials\BlogRoll.cshtml" />
     <Content Include="Views\Program.cshtml" />
     <Content Include="Views\SubProgram.cshtml" />
+    <Content Include="Views\MacroPartials\Venues.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
