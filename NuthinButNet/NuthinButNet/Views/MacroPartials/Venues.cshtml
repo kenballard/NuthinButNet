@@ -1,0 +1,22 @@
+@using NuthinButNet.Helpers;
+
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+<ul class="venues-list">
+    @foreach (var childPage in Model.Content.Children.Where(x => x.IsVisible()))
+    {
+        <li>
+            <div class="venue-box">
+                <figure class="image">
+                    <a href="@childPage.Url"><img src="@UmbracoContext.GetVenueThumbnailImageUrl(childPage)" alt="@childPage.GetPropertyValue("name")" /></a>
+                </figure>
+                <div class="detail">
+                    <h5><a href="@childPage.Url">@childPage.GetPropertyValue("name")</a></h5>
+                    <ul>
+                        <li><span><i class="icon-location"></i>@childPage.GetPropertyValue("address")</span></li>
+                    </ul>
+                </div>
+            </div><!-- venue-box ends -->
+        </li>
+    }
+</ul>

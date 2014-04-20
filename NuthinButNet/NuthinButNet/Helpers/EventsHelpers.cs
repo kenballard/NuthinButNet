@@ -60,18 +60,25 @@ namespace NuthinButNet.Helpers
 
         public static string GetEventThumbnailUrl(this UmbracoContext context, IPublishedContent eventNode)
         {
-            return GetImageUrl(context, eventNode, ThumbnailFieldName);
+            return ImageHelpers.GetImageUrl(context, eventNode, ThumbnailFieldName);
         }
 
         public static string GetEventFullSizeImageUrl(this UmbracoContext context, IPublishedContent eventNode)
         {
-            return GetImageUrl(context, eventNode, FullSizeFieldName);
+            return ImageHelpers.GetImageUrl(context, eventNode, FullSizeFieldName);
         }
 
         public static string GetFormattedEventDate(this IPublishedContent eventNode)
         {
             //25 - 02 - 2013
             var start = eventNode.GetPropertyValue<DateTime>(DateTimeStartFieldName);
+            var end = eventNode.GetPropertyValue<DateTime>(DateTimeEndFieldName);
+
+            if (DateTime.MinValue < end)
+            {
+                return string.Format("{0} - {1}", start.ToShortDateString(), end.ToShortDateString());
+            }
+
             return start.ToShortDateString();
         }
 
@@ -79,6 +86,13 @@ namespace NuthinButNet.Helpers
         {
             //08:00am - 12:00pm
             var start = eventNode.GetPropertyValue<DateTime>(DateTimeStartFieldName);
+            var end = eventNode.GetPropertyValue<DateTime>(DateTimeEndFieldName);
+
+            if (DateTime.MinValue < end)
+            {
+                return string.Format("{0} - {1}", start.ToShortTimeString(), end.ToShortTimeString());
+            }
+
             return start.ToShortTimeString();
         }
 
@@ -86,14 +100,6 @@ namespace NuthinButNet.Helpers
         {
             // TODO: Get venue address
             return MvcHtmlString.Create("Washington, United States");
-        }
-
-        private static string GetImageUrl(this UmbracoContext context, IPublishedContent eventNode, string propertyName)
-        {
-            var helper = new UmbracoHelper(context);
-            var imageId = eventNode.GetPropertyValue<int>(propertyName);
-            var typedMedia = helper.TypedMedia(imageId);
-            return typedMedia.Url;
         }
     }
 }
