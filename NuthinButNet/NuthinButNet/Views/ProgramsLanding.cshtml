@@ -22,7 +22,7 @@
             @foreach (var program in Model.Content.Children())
             {
                 <div class="span3">
-                    <a href="#@program.Id" data-toggle="tab">
+                    <a href="@Umbraco.TypedContent(program.Id).Url" data-toggle="tab">
                         <img src="@Umbraco.TypedMedia(program.GetPropertyValue("thumbnailImage")).Url">
                     </a>
                     <div>
