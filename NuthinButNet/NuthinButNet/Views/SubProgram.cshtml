@@ -30,22 +30,14 @@
     </div>
 }
 
-@if (Model.Content.GetProperty("resources") != null)
+@if (!string.IsNullOrEmpty(Model.Content.GetPropertyValue<Archetype>("resources").Fieldsets.FirstOrDefault().GetValue("link")))
 {
     <h2>Resources</h2>
     <ul>
         @foreach (var resource in Model.Content.GetPropertyValue<Archetype>("resources").Fieldsets)
         {
             <li>
-                @* These are most likely external links *@
-                @if (resource.GetValue("link").ToLower().StartsWith("http://") || resource.GetValue("link").ToLower().StartsWith("https://"))
-                {
-                    <a href="@resource.GetValue("link")" target="_blank">@resource.GetValue("title")</a>
-                }
-                else
-                {
-                    <a href="@resource.GetValue("link")">@resource.GetValue("title")</a>
-                }
+                <a href="@resource.GetValue("link")" target="_blank">@resource.GetValue("title")</a>
             </li>
         }
 
