@@ -131,6 +131,10 @@
 }
 .menu li:hover > a {
 	background: #61B0E4;
+    -webkit-transition:width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+	transition:all 0.4s ease;
+	-moz-transition:all 0.4s ease;
+	-webkit-transition:all 0.4s ease;
 	color: white;
 }
 
@@ -138,7 +142,7 @@
 	width:172px;
 	height:0px;
 	padding:0;
-	background:#000;
+	background:#284152;
 	z-index:201;
 	overflow:hidden;
 	display:block;
@@ -710,7 +714,7 @@ span.points {
 	margin-bottom:30px;
 	position:relative;
 	
-	background-position:0 0;
+    background-position:0 0;
 	background-repeat:no-repeat;
 	background-size:cover;
 	-moz-background-size:cover;

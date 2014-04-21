@@ -7,13 +7,13 @@
     <img src="@Umbraco.TypedMedia(Model.Content.GetPropertyValue("image")).Url" />
     <div>@Model.Content.GetPropertyValue("title2")</div>
 </div>
-@foreach (var subProgram in Model.Content.Children())
+@foreach (var subProgram in Model.Content.Children().Where(x => x.DocumentTypeAlias == "SubProgram"))
 {
     var imgProperty = subProgram.GetProperty("thumbnailImage");
     <div>
         <a href="@subProgram.Url">
             <img src="@(imgProperty.HasValue ? Umbraco.TypedMedia(imgProperty.Value).Url : "")" />
         </a>
-        <div>@subProgram.GetPropertyValue("name")</div>
+        <div><a href="@subProgram.Url">@subProgram.GetPropertyValue("name")</a></div>
     </div>
 }

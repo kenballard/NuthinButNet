@@ -4,7 +4,7 @@
     var isFirst = true;
 }
 <!-- Main -->
-<div class="banner" style="background:url(/images/resource/banner-1.jpg);">
+<div class="banner" style="background: url(@Umbraco.Media(Umbraco.Field("headerImage").ToString()).Url) #E5E5E5 no-repeat center; background-size: cover;">
     <div class="container">
         <h1>Programs</h1>
         <div class="bread-bar clearfix">
@@ -22,7 +22,7 @@
             @foreach (var program in Model.Content.Children())
             {
                 <div class="span3">
-                    <a href="#@program.Id" data-toggle="tab">
+                    <a href="@Umbraco.TypedContent(program.Id).Url" data-toggle="tab">
                         <img src="@Umbraco.TypedMedia(program.GetPropertyValue("thumbnailImage")).Url">
                     </a>
                     <div>
