@@ -1,0 +1,132 @@
+﻿@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
+.coverglyph {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    color: #3F3F3F;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 6em;
+}
+
+.coverglyph-money:before {
+    content: "\e005";
+}
+
+.coverglyph-time:before {
+    content: "\e023";
+}
+
+.coverglyph-talent:before {
+    content: "\e008";
+}
+
+.coverglyph-inKind:before {
+    content: "\e102";
+}
+
+.catalog-item {
+    background: #E5E5E5;
+    padding-top: 1px;
+}
+
+#checkout, #checkout-success, #checkout-error, #checkout-processing, .catalog-form, .selected-catalog-items, .edit-catalog-item, .cancel-catalog-item {
+    display: none;
+}
+
+.catalog-item {
+    height: 310px;
+}
+
+    .catalog-item > h3 {
+        padding-top: 10px;
+        width: 100%;
+        text-align: center;
+        font-size: 3em;
+    }
+
+    .catalog-item > .cover {
+        text-align: center;
+    }
+
+    .catalog-item > * {
+        margin: 20px 0;
+    }
+
+.open {
+    margin: 10px 0 5px 0;
+}
+
+.add-to-cart {
+    width: 100%;
+    font-size: 2.5em;
+    padding: 30px 0;
+    margin: 10px 0;
+}
+
+    .add-to-cart:disabled {
+        background-color: #8f8f8f;
+    }
+
+.catalog-form {
+    margin: 0 30px;
+}
+
+.confirm-row {
+    width: 100%;
+    text-align: center;
+}
+
+.selected-catalog-items {
+    font-size: 2em;
+    margin: 10px 5px 5px 5px;
+    line-height: 1.2em;
+    max-height: 76px;
+    overflow: hidden;
+}
+
+.confirm-catalog-item {
+    margin-top: 5px;
+}
+
+#checkout, #checkout-success {
+    background: #E5E5E5;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 20px;
+}
+
+#checkout-success {
+    padding: 30px;
+}
+
+    #checkout .span3 {
+        padding: 20px;
+    }
+
+.your-information {
+    border-left: #8f8f8f 1px solid;
+    border-right: #8f8f8f 1px solid;
+}
+
+.cart-item {
+    color: #8C8C8C;
+    font-size: 1.25em;
+    font-weight: normal;
+    padding: 10px 0;
+    padding-left: 60px;
+    text-indent: -60px;
+}
+
+#checkout-form label {
+    margin-top: 10px;
+}

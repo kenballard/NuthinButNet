@@ -218,10 +218,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="css\bullshit.css" />
     <Content Include="css\color.css" />
     <Content Include="css\common.css" />
     <Content Include="css\dummy.txt" />
+    <Content Include="css\get-involved.css" />
     <Content Include="css\ie7.css" />
     <Content Include="css\ie8.css" />
     <Content Include="css\ie9.css" />
@@ -253,6 +253,8 @@
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.prettyPhoto.js" />
     <Content Include="js\jquery.themepunch.revolution.min.js" />
+    <Content Include="js\jquery.validate.js" />
+    <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\script.js" />
     <Content Include="js\skel-panels.min.js" />
     <Content Include="js\skel.min.js" />
