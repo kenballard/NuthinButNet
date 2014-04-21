@@ -1,0 +1,45 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "umbLayout.cshtml";
+    int index = 0;
+    var rows = Model.Content.Children.
+        Select((x, i) => new { Index = i, Value = x })
+        .GroupBy(x => x.Index / 3)
+        .Select(x => x.Select(v => v.Value).ToList())
+        .ToList();
+}
+
+<div class="banner" style="background: url(@Umbraco.Media(Umbraco.Field("headerImage").ToString()).Url) #E5E5E5 no-repeat center; background-size: cover;">
+    <div class="container">
+        <h1>Staff</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/staff">Staff</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- banner ends -->
+
+<div class="container">
+    @foreach (var row in rows)
+    {
+        <div class="row">
+        @foreach (var child in row)
+        {
+            <div class="span4 staff-member">  
+              <!-- <img src="@Umbraco.TypedMedia(int.Parse(child.GetPropertyValue<string>("image"))).Url" />-->
+                <img src="http://placehold.it/500x500" />
+                <div class="staff-member-info">
+                    <h3>@(child.GetPropertyValue<string>("name"))</h3>
+                    <h4><strong>@(child.GetPropertyValue<string>("jobTitle"))</strong></h4>
+                    <p>@(child.GetPropertyValue<string>("description"))</p>
+                </div>
+            </div>
+            index++;
+        }
+        </div>
+        <div class="clearfix"></div>
+    }
+    
+</div>

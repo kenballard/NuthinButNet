@@ -15,6 +15,7 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+App_data/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -28,6 +29,10 @@ TestResult.xml
 [Dd]ebugPS/
 [Rr]eleasePS/
 dlldata.c
+
+NuthinButNet/NuthinButNet/App_Data/TEMP/*
+NuthinButNet/NuthinButNet/App_Data/Logs/*
+
 
 *_i.c
 *_p.c
@@ -173,8 +178,6 @@ UpgradeLog*.htm
 # Microsoft Fakes
 FakesAssemblies/
 
-# Logs
-NuthinButNet/NuthinButNet/App_Data/Logs/*
+#DS_Stores
+*.DS_Store
 
-# Temp files
-NuthinButNet/NuthinButNet/App_Data/TEMP/*

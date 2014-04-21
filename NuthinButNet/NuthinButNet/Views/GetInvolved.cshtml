@@ -1,0 +1,179 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    Layout = "umbLayout.cshtml";
+}
+
+
+
+<div class="banner" style="background: url(@Umbraco.Media(Umbraco.Field("headerImage").ToString()).Url) #E5E5E5 no-repeat center; background-size: cover;">
+    <div class="container">
+        <h1>Get Involved</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/get-involved">Get Involved</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- banner ends -->
+<!-- Main -->
+<div class="container">
+
+    @Umbraco.Field("headerBody")
+    <div id="catalog">
+        @if (!string.IsNullOrEmpty(Request.QueryString["gift"]))
+        {
+            @GetMoneyItem();
+        }
+        <div class="row">
+            <div class="span4">@GetCatalogItem("time", "", " hours", true)</div>
+            <div class="span4">@GetCatalogItem("talent", "", "", false)</div>
+            <div class="span4">
+                @GetCatalogItem("inKind", "", "", false)
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        @GetCallToAction()
+        @if (string.IsNullOrEmpty(Request.QueryString["gift"]))
+        {
+            @GetMoneyItem();
+        }
+    </div>
+    <div id="checkout">
+        <form id="checkout-form">
+            <div class="row">
+                <div id="cart" class="span3">
+                    <h3>Your Gift Includes</h3>
+                    <ul>
+                        <li><div class="moneySelected cart-item" /></li>
+                        <li><div class="timeSelected cart-item" /></li>
+                        <li><div class="talentSelected cart-item" /></li>
+                        <li><div class="inKindSelected cart-item" /></li>
+                    </ul>
+                    <button id="editCart" class="btn">Edit</button>
+                </div>
+                <div class="span3 your-information">
+                    <h3>Your Information</h3>
+                    <label>First Name</label><input id="FirstName" name="FirstName" class="required" />
+                    <label>Last Name</label><input id="LastName" name="LastName" class="required" />
+                    <label>Address</label><input id="Address" name="Address" class="required" />
+                    <label>City</label><input id="City" name="City" class="required" />
+                    <label>State</label><input id="State" name="State" class="required" />
+                    <label>Zip Code</label><input id="Zip" name="Zip" class="required" />
+                    <label>Phone</label><input id="Phone" name="Phone" class="required phoneUS" />
+                    <label>Email</label><input id="Email" name="Email" class="required email" />
+                </div>
+                <div id="payment" class="span3">
+                    <h3>Payment Information</h3>
+                    <label>Credit Card</label><input id="CreditCard" name="CreditCard" autocomplete="off" class="creditcard" />
+                    <label>Verification Code (CVV)</label><input id="VerificationCode" name="VerificationCode" class="" />
+                    <label>Expiration Month</label><input id="ExpyMonth" name="ExpyMonth" class="number" />
+                    <label>Expiration Year</label><input id="ExpyYear" name="ExpyYear" class="number" />
+                    <div id="checkout-error" class="alert"><strong>Attention:</strong> @Umbraco.Field("error")</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <input type="hidden" id="moneyProduct" />
+                    <input type="hidden" id="timeProduct" />
+                </div>
+                <div class="span3">
+                    <input type="hidden" id="talentProduct" />
+                    <input type="hidden" id="inKindProduct" />
+                </div>
+                <div class="span3">
+                    <input type="submit" value="Submit" id="checkout-submit" class="btn" />
+                    <span id="checkout-processing">Processing...</span>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div id="checkout-success">
+        <h3>@Umbraco.Field("confirmationTitle")</h3>
+        <ul>
+            <li><span class="moneySelected" /></li>
+            <li><span class="timeSelected" /></li>
+            <li><span class="talentSelected" /></li>
+            <li><span class="inKindSelected" /></li>
+        </ul>
+        @Umbraco.Field("confirmationBody")
+    </div>
+</div> <!--end container-->
+<!-- /Main -->
+@helper GetCatalogItem(string selector, string prepender, string postpender, bool isSelectOne, bool includeDesc = false)
+{
+    var otherSelector = string.Concat(selector, "Other");
+    var extendedValidation = isSelectOne ? "number" : "";
+    var control = isSelectOne ? "radio" : "checkbox";
+    var icon = string.Format("/images/support-{0}.png", selector);
+    var title = Umbraco.Field(selector + "Title").ToString();
+    <div id="catalog-@selector" class="catalog-item">
+        <h3>@title</h3>
+        <div class="cover">
+            <span class="coverglyph coverglyph-@selector"></span>
+            <div class="actions">
+                <div class="selected-catalog-items" data-prepender="@prepender" data-postpender="@postpender"></div>
+                <div><button class="open btn">Yes, I'd like to give @title.ToLower()</button></div>
+                <a href="#" class="discard">Not now</a>
+                <a href="#" class="edit-catalog-item open">Edit</a>
+                <a href="#" class="cancel-catalog-item">Cancel</a>
+            </div>
+        </div>
+        <form id="catalog-form-@selector" class="catalog-form">
+            <div class="row-fluid">
+                <div class="@(selector == "money" ? "span4" : "")">
+                    <ul>
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            var fieldName = string.Concat(selector, i);
+                            var descName = string.Concat("description", i);
+                            if (!string.IsNullOrEmpty(Umbraco.Field(fieldName).ToString()) && Umbraco.Field(fieldName).ToString() != "0")
+                            {
+                                <li><label><input name="@selector" class="not-other-@control" data-other="@otherSelector" type="@control" value="@Umbraco.Field(fieldName)" />@prepender @Umbraco.Field(fieldName)@postpender @(includeDesc ? Umbraco.Field(descName).ToString() : "")</label></li>
+                            }
+                        }
+                        <li><input name="@selector" class="other-@control" data-other="@otherSelector" type="@(isSelectOne ? "radio" : "checkbox")" value="-1" /><input id="@otherSelector" name="@otherSelector" placeholder="Other" class="@extendedValidation" disabled /></li>
+                    </ul>
+                    <div class="confirm-row">
+                        <button class="confirm-catalog-item btn" data-product-type="@selector" data-single="@isSelectOne">OK</button>
+                    </div>
+                </div>
+                @if (selector == "money")
+                {
+
+                    <div class="span8">
+                        @Umbraco.Field("moneyDescription")
+                    </div>
+
+                }
+            </div>
+
+        </form>
+    </div>
+
+
+}
+
+@helper GetMoneyItem()
+{
+    <div class="row">
+
+        <div class="span12">
+            @GetCatalogItem("money", "$", "", true, true)
+        </div> <!-- end span-->
+    </div> <!-- end row-->
+
+    @GetCallToAction()
+
+}
+
+
+@helper GetCallToAction()
+{
+    <div class="row">
+        <div class="span12">
+            <button class="add-to-cart btn" disabled>@Umbraco.Field("callToActionText")</button>
+        </div>
+    </div>
+}

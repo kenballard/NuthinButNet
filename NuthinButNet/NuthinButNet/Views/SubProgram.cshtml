@@ -1,0 +1,45 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Archetype.Umbraco.PropertyConverters;
+@using Archetype.Umbraco.Models;
+@using Archetype.Umbraco.Extensions;
+@{
+    Layout = "umbLayout.cshtml";
+}
+
+<h1>@Model.Content.GetPropertyValue("name")</h1>
+<div>
+    <img src="@Umbraco.TypedMedia(Model.Content.GetPropertyValue<int>("bannerImage")).Url" />
+    
+    @if (@Model.Content.GetProperty("owner") != null)
+    {
+        var owner = Umbraco.TypedContent(Model.Content.GetPropertyValue<int>("owner"));
+        <h2>@owner.Name</h2>
+        <p>@Model.Content.GetPropertyValue("ownerDescription")</p>
+    }
+</div>
+
+@Umbraco.RenderMacro("BlogRoll")
+
+@if (Model.Content.GetProperty("mediaReel") != null)
+{
+    <div>
+        @foreach (var imageId in Model.Content.GetPropertyValue<string>("mediaReel").Split(','))
+        {
+            <img src="@Umbraco.TypedMedia(int.Parse(imageId)).Url" />
+        }
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.Content.GetPropertyValue<Archetype>("resources").Fieldsets.FirstOrDefault().GetValue("link")))
+{
+    <h2>Resources</h2>
+    <ul>
+        @foreach (var resource in Model.Content.GetPropertyValue<Archetype>("resources").Fieldsets)
+        {
+            <li>
+                <a href="@resource.GetValue("link")" target="_blank">@resource.GetValue("title")</a>
+            </li>
+        }
+
+    </ul>
+}

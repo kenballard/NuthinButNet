@@ -1,0 +1,38 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "umbLayout.cshtml";
+}
+
+<div class="banner" style="background: url(@Umbraco.Media(Umbraco.Field("headerImage").ToString()).Url) #E5E5E5 no-repeat center; background-size: cover;">
+    <div class="container">
+        <h1>Partners</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/partners">Partners</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- banner ends -->
+
+<div class="container partner-links">
+    <ul>
+        @foreach (var partner in Model.Content.Children)
+        {
+            <li class="span2">
+                @if (partner.HasValue("link"))
+                {
+                    <a href="http://@(partner.GetPropertyValue<string>("link"))" target="_blank">@(partner.GetPropertyValue<string>("name"))</a>
+                }
+                else
+                {
+                    @(partner.GetPropertyValue<string>("name"))
+                }
+                @if (partner.HasValue("logo"))
+                {
+                    <img src="@Umbraco.TypedMedia(int.Parse(partner.GetPropertyValue<string>("logo"))).Url" />
+                }
+            </li>
+        }
+    </ul>
+</div>

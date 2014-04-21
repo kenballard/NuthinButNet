@@ -1,0 +1,44 @@
+﻿@using NuthinButNet.Helpers
+
+@inherits UmbracoTemplatePage
+@{
+    Layout = "umbLayout.cshtml";
+}
+<!-- Main -->
+
+<div class="banner" style="background: url(@Umbraco.Media(Umbraco.Field("headerImage").ToString()).Url) #E5E5E5 no-repeat center; background-size: cover;">
+    <div class="container">
+        <h1>@Model.Content.GetPropertyValue("eventTitle")</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="">Home</a></li>
+                <li><a href="@Model.Content.Parent.Url">Our Events</a></li>
+                <li><a href="@Model.Content.Url">@Model.Content.GetPropertyValue("eventTitle")</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- banner ends -->
+
+<div class="container">
+    <div class="row">
+        <div class="span9">
+            <section class="blog-box">
+                <div class="details">
+                    <div class="location-map">
+                        <iframe src="http://maps.google.com/?ie=UTF8&amp;ll=32.7688,-74.355469&amp;spn=41.328535,86.572266&amp;t=m&amp;z=4&amp;output=embed"></iframe>
+                    </div><!-- location-map ends -->
+                    <h4>@Model.Content.GetPropertyValue("summary")</h4>
+                    <ul class="list">
+                        <li><span><i class="icon-date"></i>@Model.Content.GetFormattedEventDate()</span><span>@Model.Content.GetFormattedEventTime()</span></li>
+                        <li><span><i class="icon-location"></i>@UmbracoContext.GetFormattedAddress(Model.Content)</span></li>
+                    </ul>
+                    @Model.Content.GetPropertyValue("description")
+                </div><!-- details end -->
+            </section><!-- blog-box ends -->
+        </div>
+        <div class="span3">
+        </div>
+    </div>
+</div><!-- /container -->
+
+<!-- /Main -->

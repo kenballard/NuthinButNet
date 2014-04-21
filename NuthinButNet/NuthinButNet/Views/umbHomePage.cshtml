@@ -1,21 +1,20 @@
-@inherits UmbracoTemplatePage
+﻿@inherits UmbracoTemplatePage
 @{
     Layout = "umbLayout.cshtml";
 }
-@{ Html.RenderPartial("umbHomepageBanner"); }
 <!-- Main -->
-<div id="main-wrapper">
-    <div id="main" class="container">
-        <div class="row">
-            <div class="12u">
-                @{ Html.RenderPartial("umbFeatures"); }
-            </div>
-        </div>
-        <div class="row">
-            <div class="12u">
-                @{   Html.RenderPartial("umbNewsOverviewWidget"); }
-            </div>
-        </div>
+@Umbraco.RenderMacro("Carousel")	
+	
+<div class="container" id="quick_links_container">
+    <div class="row">
+        @Umbraco.RenderMacro("CallToAction")
     </div>
 </div>
+
+<div class="container" id="events_container">
+    <div class="row">
+        @Umbraco.RenderMacro("FeaturedEvents")
+    </div>
+</div><!-- /container --> 
+
 <!-- /Main -->

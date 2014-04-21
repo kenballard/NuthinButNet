@@ -1,0 +1,12 @@
+@using Archetype.Umbraco.Models
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@using Archetype.Umbraco.PropertyConverters;
+@using Archetype.Umbraco.Models;
+@using Archetype.Umbraco.Extensions;
+
+@foreach (var fieldset in Model.Content.GetPropertyValue<Archetype>("callToActions").Fieldsets)
+{
+    <div class="span3 quick_links" style="background-image: url(@Umbraco.TypedMedia(int.Parse(fieldset.GetValue("image"))).Url)">
+        <a href="@umbraco.library.NiceUrl(int.Parse(fieldset.GetValue("link")))" class="text-center">@fieldset.GetValue("name")</a>
+    </div>
+}

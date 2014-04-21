@@ -1,0 +1,35 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "umbLayout.cshtml";
+}
+
+<div class="banner" style="background:url(@Umbraco.Media(Umbraco.Field("headerImage").ToString()).Url) #E5E5E5;">
+    <div class="container">
+        <h1>Our Board</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/board">Our Board</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- banner ends -->
+
+<div class="container">
+    @foreach (var role in Model.Content.Children.GroupBy(x => x.GetPropertyValue<int>("role")))
+    {
+        <div>
+            <h2>@umbraco.library.GetPreValueAsString(role.Key)</h2>
+
+            @foreach (var person in role)
+            {
+                <h3>@(person.GetPropertyValue<string>("name"))</h3>
+                if (person.HasValue("image"))
+                {
+                    <img src="@Umbraco.TypedMedia(int.Parse(person.GetPropertyValue<string>("image"))).Url" />
+                }
+                <p>@(person.GetPropertyValue<string>("description"))</p>
+            }
+        </div>
+    }
+</div>

@@ -1,0 +1,63 @@
+﻿@using NuthinButNet.Helpers
+
+@inherits UmbracoTemplatePage
+@{
+    Layout = "umbLayout.cshtml";
+}
+<!-- Main -->
+<div class="banner" style="background: url(@Umbraco.Media(Umbraco.Field("headerImage").ToString()).Url) #E5E5E5 no-repeat center; background-size: cover;">
+    <div class="container">
+        <h1>Parks</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="">Home</a></li>
+                <li><a href="@Model.Content.Url">Our Parks</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- banner ends -->
+
+<div class="container">
+    <div class="row">
+        <div class="span2">
+            <h2>Filters</h2>
+            <div class="btn-group" data-toggle="buttons">
+               @* @foreach (var subProgram in @Model.Content.GetAllSubPrograms())
+                {
+                    <label class="btn btn-primary">
+                        <input type="checkbox" /> @subProgram.GetSubProgramName()
+                    </label>
+                }*@
+            </div>
+        </div>
+        <div class="span9 offset1">
+            <div class="events">
+                <div class="venues-area">
+                    <h2>Our <strong>Parks</strong></h2>
+
+                    <ul class="venues-list">
+              
+                        @Umbraco.RenderMacro("Venues")
+
+                    </ul><!-- venues-list ends -->
+                    @*<div class="pagination">
+                            <ul>
+                                <li class="previous"><a href="#">Prev</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li class="active"><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">6</a></li>
+                                <li><a href="#">...</a></li>
+                                <li><a href="#">22</a></li>
+                                <li class="next"><a href="#">Next</a></li>
+                            </ul>
+                        </div><!-- pagination ends -->*@
+                </div><!-- venues-area ends -->
+            </div><!-- venues end -->
+        </div>
+    </div>
+</div><!-- /container -->
+
+<!-- /Main -->

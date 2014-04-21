@@ -1,0 +1,43 @@
+﻿@inherits UmbracoViewPage<NuthinButNet.ViewModels.BlogLandingViewModel>
+
+<div class="container">
+    <div class="row">
+        <div class="span9">
+            @foreach (var post in Model.BlogPosts)
+            {
+                <section class="blog-box">
+                    <div class="image">
+                        <a href="@post.Url"><img src="@Umbraco.TypedMedia(int.Parse(post.GetPropertyValue<string>("postBanner"))).Url" /></a>
+                    </div>
+                    <div class="blog-info clearfix">
+                        <div class="blog-left">
+                            <p><span class="text-yallow">Ngo</span>, Annual Funding, People</p>
+                        </div>
+                        <div class="blog-details">                            
+                            <h2><a href="@umbraco.library.NiceUrl(post.Id)">@(post.GetPropertyValue<string>("headline"))</a></h2>
+                            <p class="date">@(post.GetPropertyValue<DateTime>("date").ToString("MM-dd-yyyy"))</p>
+                            <p>@post.GetPropertyValue("teaserText")</p>
+                            <a href="@post.Url">Read More</a>
+                        </div>
+                    </div>
+                    <hr />
+                </section>
+            }
+        </div>
+    </div>
+</div>
+
+
+<div class="pagination">
+    <ul>
+        @if (!string.IsNullOrEmpty(Model.PreviousButtonUrl))
+        {
+           <li class="previous"> <a href="@Model.PreviousButtonUrl">Prev</a></li>
+        }
+        @if (!string.IsNullOrEmpty(Model.NextButtonUrl))
+        {
+            <li class="next"><a href="@Model.NextButtonUrl">Next</a></li>
+        }
+    </ul>
+</div> <!-- pagination ends-->
+
