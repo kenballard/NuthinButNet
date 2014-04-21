@@ -3,8 +3,11 @@ using NuthinButNet.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
+using umbraco.cms.businesslogic.web;
 using Umbraco.Web.Mvc;
 
 namespace NuthinButNet.Controllers
@@ -14,6 +17,15 @@ namespace NuthinButNet.Controllers
         public void Submit(CheckoutViewModel checkout)
         {
             var success = Process(checkout);
+            try
+            {
+                EmailConfirmations(checkout);
+            } 
+            catch
+            {
+
+            }
+            
             if (!success)
             {
                 throw new Exception("Processing failed.");
@@ -91,6 +103,73 @@ namespace NuthinButNet.Controllers
                     { "hours", checkout.Time ?? "none" }
                 }
             };
+        }
+
+        private void EmailConfirmations(CheckoutViewModel checkout)
+        {
+            var fromBody = string.Format("from {0} {1} at {2}", checkout.FirstName, checkout.LastName, checkout.Email);
+            var settings = GetEmailSettings();
+            using (
+                var client = new SmtpClient(settings.Server, settings.Port)
+                {
+                    Credentials = new NetworkCredential(settings.Username, settings.Password),
+                    EnableSsl = settings.EnableSsl
+                })
+            {
+                if (!string.IsNullOrEmpty(checkout.Money))
+                {
+                    client.Send(settings.From, settings.Money, "New Money Gift", string.Format("${0} {1}", checkout.Money, fromBody));
+                }
+                if (!string.IsNullOrEmpty(checkout.Time))
+                {
+                    client.Send(settings.From, settings.Time, "New Time Gift", string.Format("{0} hours {1}", checkout.Time, fromBody));
+                }
+                if (!string.IsNullOrEmpty(checkout.Talent))
+                {
+                    client.Send(settings.From, settings.Talent, "New Talent Gift", string.Format("{0} talent {1}", checkout.Talent, fromBody));
+                }
+                if (!string.IsNullOrEmpty(checkout.InKind))
+                {
+                    client.Send(settings.From, settings.Time, "New In Kind Gift", string.Format("{0} in kind {1}", checkout.InKind, fromBody));
+                }
+                client.Send(settings.From, checkout.Email, settings.Subject, settings.Body);
+            }
+        }
+
+        private EmailSettings GetEmailSettings()
+        {
+            var document = Document.GetDocumentsOfDocumentType(1095).First();
+            return new EmailSettings
+            {
+                Server = document.getProperty("server").Value.ToString(),
+                Port = Convert.ToInt32(document.getProperty("port").Value),
+                Username = document.getProperty("username").Value.ToString(),
+                Password = document.getProperty("password").Value.ToString(),
+                EnableSsl = document.getProperty("enableSSL").Value.ToString() == "1",
+                From = document.getProperty("fromEmailAddress").Value.ToString(),
+                Money = document.getProperty("moneyNotificationEmail").Value.ToString(),
+                Time = document.getProperty("timeNotificationEmail").Value.ToString(),
+                Talent = document.getProperty("talentNotificationEmail").Value.ToString(),
+                InKind = document.getProperty("inKindNotificationEmail").Value.ToString(),
+                Subject = document.getProperty("thankYouSubject").Value.ToString(),
+                Body = document.getProperty("thankYouBody").Value.ToString()
+            };
+        }
+
+        private class EmailSettings
+        {
+            public string Server { get; set; }
+            public int Port { get; set; }
+            public string Username { get; set; }
+            public string Password { get; set; }
+            public bool EnableSsl { get; set; }
+            public string From { get; set; }
+            public string Money { get; set; }
+            public string Time { get; set; }
+            public string Talent { get; set; }
+            public string InKind { get; set; }
+            public string Subject { get; set; }
+            public string Body { get; set; }
         }
     }
 }

@@ -127,12 +127,6 @@
     text-indent: -60px;
 }
 
-.error {
-    color: #96C052;
-    font-size: .9em;
-    font-style: italic;
-}
-
 #checkout-form label {
     margin-top: 10px;
 }
