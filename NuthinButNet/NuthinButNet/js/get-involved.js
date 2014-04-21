@@ -6,31 +6,71 @@
     });
 
     $('.open').click(function () {
+        openCatalogItem(this);
+    });
+
+    $('.catalog-item').submit(function () {
+        return false;
+    });
+
+    $('.edit-catalog-item').click(function (e) {
+        e.preventDefault();
+        return false;
+    });
+
+    $('.discard').click(function () {
         var catalogItem = $(this).parents('.catalog-item');
-        catalogItem.children('.cover').hide();
-       catalogItem.children('.catalog-form').show();
+        var open = catalogItem.find('.open')[0];
+        var selectedItem = catalogItem.find('.selected-catalog-items')[0];
+        var edit = catalogItem.find('.edit-catalog-item')[0];
+        $(open).hide();
+        $(selectedItem).text('Not now');
+        $(selectedItem).show();
+        $(edit).show();
+        $(this).hide();
+        return false;
     });
 
     $('.confirm-catalog-item').click(function () {
         var catalogItem = $(this).parents('.catalog-item');
         var form = catalogItem.children('.catalog-form');
-        var selectedItem = catalogItem.children('.selected-catalog-items');
-        var open = catalogItem.children('.open');
-        var edit = catalogItem.children('.edit-catalog-item');
+        var selectedItem = catalogItem.find('.selected-catalog-items')[0];
+        var open = catalogItem.find('.open')[0];
+        var edit = catalogItem.find('.edit-catalog-item')[0];
+        var discard = catalogItem.find('.discard')[0];
         form.validate();
         if (form.valid()) {
+            toggleItem(this);
+        }
+
+        function toggleItem(e) {
             catalogItem.children('.cover').show();
             form.hide();
-            if ($(this).attr('data-single')) {
-                selectedItem = getSingleProduct($(this).attr('data-product-type'));
+            var selectedValues;
+            if ($(e).attr('data-single') == 'True') {
+                selectedValues = getSingleProduct($(e).attr('data-product-type'));
+                var value = $(selectedItem).attr('data-prepender');
+                value += selectedValues;
+                value += $(selectedItem).attr('data-postpender');
+
+                $(selectedItem).text(value);
             } else {
-                selectedItem = getMultiProducts($(this).attr('data-product-type'));
+                selectedValues = getMultiProducts($(e).attr('data-product-type'));
+                $(selectedItem).text(selectedValues);
             }
-            selectedItem.show();
-            open.hide();
-            edit.show();
+            if (selectedValues == null || selectedValues == "") {
+                $(selectedItem).hide();
+                $(open).show();
+                $(edit).hide();
+                $(discard).show();
+            } else {
+                $(selectedItem).show();
+                $(open).hide();
+                $(edit).show();
+                $(discard).hide();
+                $('.add-to-cart').removeAttr('disabled');
+            };
         }
-        return false;
     });
 
 
@@ -46,6 +86,19 @@
         toggleOtherInput(otherInput, isActive);
     });
 
+    $('#editCart').click(function () {
+        $('#catalog').show();
+        $('#checkout').hide();
+        $('#checkout-error').hide();
+        return false;
+    });
+
+    function openCatalogItem(control) {
+        var catalogItem = $(control).parents('.catalog-item');
+        catalogItem.children('.cover').hide();
+        catalogItem.children('.catalog-form').show();
+    }
+
     function toggleOtherInput(otherInput, isActive) {
         if (isActive) {
             otherInput.removeAttr('disabled');
@@ -55,6 +108,24 @@
             otherInput.val('');
             otherInput.removeClass('required');
         }
+    }
+
+    function getSingleProduct(selector, parentSelector, otherSelector) {
+        var sel = $('input[name=' + selector + ']:checked', '#catalog').val();
+        sel = sel == '-1' ? $('#' + selector + 'Other').val() : sel;
+        return sel;
+    }
+
+    function getMultiProducts(selector) {
+        var values = '';
+        $('input[name=' + selector + ']:checked').each(function () {
+            if (values != '')
+                values += ', ';
+            var sel = $(this).val();
+            sel = sel == '-1' ? $('#' + selector + 'Other').val() : sel;
+            values += sel;
+        });
+        return values;
     }
 
     $('.add-to-cart').click(function () {
@@ -82,12 +153,12 @@
             if (show) {
                 $('#payment').show();
                 $('#payment').children().each(function () {
-                    $(this).attr('required', 'required');
+                    $(this).addClass('required');
                 });
             } else {
                 $('#payment').hide();
                 $('#payment').children().each(function () {
-                    $(this).removeAttr('required');
+                    $(this).removeClass('required');
                 });
             }
         }
@@ -96,57 +167,46 @@
         {
             if (value != null && value != '0' && value != '')
             {
-                var formattedValue = prepender + value + postpender;
+                var formattedValue = toTitleCase(selector) + ": " + prepender + value + postpender;
                 $('.' + selector + 'Selected').text(formattedValue);
                 $('#' + selector + 'Product').text(value);
             }
-        }
 
-        function getSingleProduct(selector, parentSelector, otherSelector)
-        {
-            var sel = $('input[name=' + selector + ']:checked', '#catalog').val();
-            sel = sel == '-1' ? $('#' + selector + 'Other').val() : sel;
-            return sel;
-        }
-
-        function getMultiProducts(selector)
-        {
-            var values = '';
-            $('input[name=' + selector + ']:checked').each(function () {
-                if (values != '')
-                    values += ', ';
-                var sel = $(this).val();
-                sel = sel == '-1' ? $('#' + selector + 'Other').val() : sel;
-                values += sel;
-            });
-            return values;
+            function toTitleCase(str) {
+                str = str == 'inKind' ? 'In Kind' : str;
+                return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
+            }
         }
 
         return false;
     });
 
     $('#checkout-form').submit(function (e) {
-        $('#checkout-submit').attr('disabled', 'disabled');
-        $('#checkout-processing').show();
+        $('#checkout-form').validate();
+        if ($('#checkout-form').valid()) {
+            $('#checkout-submit').attr('disabled', 'disabled');
+            $('#checkout-processing').show();
 
-        var data = getCheckout();
-        $.ajax({
-            type: 'POST',
-            url: '/umbraco/surface/GetInvolved/Submit',
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(data),
-            success: function (msg) {
-                $('#checkout').hide();
-                $('#checkout-success').show();
-                $('#checkout-processing').hide();
-            },
-            error: function (msg) {
-                $('#checkout-error').show();
-                $('#checkout-submit').removeAttr('disabled');
-                $('#checkout-processing').hide();
-                window.scrollTo(0, 0);
-            }
-        })
+            var data = getCheckout();
+            $.ajax({
+                type: 'POST',
+                url: '/umbraco/surface/GetInvolved/Submit',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(data),
+                success: function (msg) {
+                    $('#checkout').hide();
+                    $('#checkout-success').show();
+                    $('#checkout-processing').hide();
+                    window.scrollTo(0, 0);
+                },
+                error: function (msg) {
+                    $('#checkout-error').show();
+                    $('#checkout-submit').removeAttr('disabled');
+                    $('#checkout-processing').hide();
+                }
+            });
+        };
+
         return false;
 
         function getCheckout() {
