@@ -14,7 +14,11 @@
                     <h5><a href="@childPage.Url">@childPage.GetPropertyValue("summary")</a></h5>
                     <ul>
                         <li><span><i class="icon-date"></i>@childPage.GetFormattedEventDate()</span><span>@childPage.GetFormattedEventTime()</span></li>
-                        <li><span><i class="icon-location"></i>@UmbracoContext.GetFormattedAddress(childPage)</span></li>
+                        @{
+                            var location = @UmbracoContext.GetAddressFromEvent(childPage);
+                            if (!string.IsNullOrWhiteSpace(location.ToString()))
+                                <li><span><i class="icon-location"></i>@location</span></li>
+                        }
                     </ul>
                 </div>
             

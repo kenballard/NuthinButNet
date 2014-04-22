@@ -21,7 +21,11 @@
                             <h5><a href="@primaryEvent.Url">@primaryEvent.GetPropertyValue("eventTitle")</a></h5>
                             <ul>
                                 <li><span><i class="icon-date"></i>@primaryEvent.GetFormattedEventDate()</span><span>@primaryEvent.GetFormattedEventTime()</span></li>
-                                <li><span><i class="icon-location"></i>@UmbracoContext.GetFormattedAddress(primaryEvent)</span></li>
+                                @{
+                                    var location = @UmbracoContext.GetAddressFromEvent(primaryEvent);
+                                    if (!string.IsNullOrWhiteSpace(location.ToString()))
+                                        <li><span><i class="icon-location"></i>@location</span></li>
+                                }
                             </ul>
                         </div>
                     </div><!-- event-box ends -->
@@ -45,7 +49,11 @@
                         <h5><a href="@e.Url">@e.GetPropertyValue("eventTitle")</a></h5>
                         <ul>
                             <li><span><i class="icon-date"></i>@e.GetFormattedEventDate()</span><span>@e.GetFormattedEventTime()</span></li>
-                            <li><span><i class="icon-location"></i>@UmbracoContext.GetFormattedAddress(e)</span></li>
+                            @{
+                                var eventLocation = @UmbracoContext.GetAddressFromEvent(e);
+                                if (!string.IsNullOrWhiteSpace(eventLocation.ToString()))
+                                    <li><span><i class="icon-location"></i>@eventLocation</span></li>
+                            }
                         </ul>
                     </div>
                 </div><!-- event-box ends -->
