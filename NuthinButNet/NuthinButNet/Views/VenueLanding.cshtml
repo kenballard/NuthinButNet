@@ -37,7 +37,7 @@
 
                     <ul class="venues-list">
               
-                        @Umbraco.RenderMacro("Venues")
+                        @Umbraco.RenderMacro("Venues", new { parkOnly = true })
 
                     </ul><!-- venues-list ends -->
                     @*<div class="pagination">

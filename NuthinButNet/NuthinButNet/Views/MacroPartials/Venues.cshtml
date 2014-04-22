@@ -2,8 +2,18 @@
 
 @inherits Umbraco.Web.Macros.PartialViewMacroPage
 
+@{
+    var parksOnly = Model.MacroParameters.ContainsKey("parkOnly")
+        ? Model.MacroParameters["parkOnly"] == true.ToString()
+        : false;
+    IEnumerable<IPublishedContent> venues = parksOnly
+        ? Model.Content.Children.Where(x => x.IsVisible() && x.GetPropertyValue<bool>("isPark"))
+        : Model.Content.Children.Where(x => x.IsVisible());
+    
+}
+
 <ul class="venues-list">
-    @foreach (var childPage in Model.Content.Children.Where(x => x.IsVisible()))
+    @foreach (var childPage in venues)
     {
         <li>
             <div class="venue-box">
