@@ -31,7 +31,11 @@
                     <ul class="list">
                         @*<li><span><i class="icon-date"></i>@Model.Content.GetFormattedEventDate()</span><span>@Model.Content.GetFormattedEventTime()</span></li>
                         <li><span><i class="icon-location"></i>@UmbracoContext.GetFormattedAddress(Model.Content)</span></li>*@
-                        <li><span><i class="icon-location"></i>@Model.Content.GetPropertyValue("address")</span></li>
+                        @{
+                            var location = @Model.Content.GetAddressFromVenue();
+                            if (!string.IsNullOrWhiteSpace(location.ToString()))
+                                <li><span><i class="icon-location"></i>@location</span></li>
+                        }
                     </ul>
                     @*@Model.Content.GetPropertyValue("description")*@
                 </div><!-- details end -->

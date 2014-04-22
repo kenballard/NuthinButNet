@@ -16,11 +16,6 @@ namespace NuthinButNet.Helpers
         private static readonly string FullSizeFieldName = "fullSizeImage";
         private static readonly string AddressFieldName = "address";
 
-        public static MvcHtmlString GetVenueAddress(this IPublishedContent venueNode)
-        {
-            return MvcHtmlString.Create("");
-        }
-
         public static string GetVenueThumbnailImageUrl(this UmbracoContext context, IPublishedContent venueNode)
         {
             return ImageHelpers.GetImageUrl(context, venueNode, ThumbnailFieldName);
@@ -37,6 +32,12 @@ namespace NuthinButNet.Helpers
             var address = venueNode.GetPropertyValue<string>(AddressFieldName);
             var zoom = 13;
             return MvcHtmlString.Create(string.Format(urlTemplate, address, zoom));
+        }
+
+        public static MvcHtmlString GetAddressFromVenue(this IPublishedContent venueNode)
+        {
+            var streetAddress = venueNode.GetPropertyValue<string>(AddressFieldName);
+            return MvcHtmlString.Create(streetAddress);
         }
     }
 }

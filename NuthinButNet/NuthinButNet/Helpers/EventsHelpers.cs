@@ -19,7 +19,7 @@ namespace NuthinButNet.Helpers
         private static readonly string FeaturedFieldName = "featured";
         private static readonly string ThumbnailFieldName = "thumbnailImage";
         private static readonly string FullSizeFieldName = "fullSizeImage";
-        private static readonly string VenueFieldName = "";
+        private static readonly string VenueFieldName = "venue";
 
         public static IPublishedContent GetRootNode(this IPublishedContent currentNode)
         {
@@ -96,10 +96,18 @@ namespace NuthinButNet.Helpers
             return start.ToShortTimeString();
         }
 
-        public static MvcHtmlString GetFormattedAddress(this UmbracoContext context, IPublishedContent eventNode)
+        public static MvcHtmlString GetAddressFromEvent(this UmbracoContext context, IPublishedContent eventNode)
         {
-            // TODO: Get venue address
-            return MvcHtmlString.Create("Washington, United States");
+            var venueNodeId = eventNode.GetPropertyValue<int?>(VenueFieldName);
+            if (venueNodeId.HasValue && venueNodeId.Value > 0)
+            {
+                var helper = new UmbracoHelper(context);
+                var venueNode = helper.TypedContent(venueNodeId.Value);
+
+                return venueNode.GetAddressFromVenue();
+            }
+
+            return MvcHtmlString.Create("");
         }
     }
 }
