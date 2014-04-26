@@ -22,7 +22,7 @@
             @foreach (var program in Model.Content.Children())
             {
                 <li>
-                    <a style="background: url('@Umbraco.TypedMedia(program.GetPropertyValue("thumbnailImage")).Url') 0 0 no-repeat;" href="@Umbraco.TypedContent(program.Id).Url" data-toggle="tab">
+                    <a style="background: url('@Umbraco.TypedMedia(program.GetPropertyValue("thumbnailImage")).Url') 0 0 no-repeat;" href="#@program.Id" data-toggle="tab">
                         @program.GetProperty("title2").Value
                     </a>
                 </li>
