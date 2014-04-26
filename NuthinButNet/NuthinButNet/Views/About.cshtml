@@ -3,5 +3,22 @@
     Layout = "umbLayout.cshtml";
 }
 <!-- Main -->
-<div>About</div>
-<!-- /Main -->
+<div class="banner" style="background: url(@Umbraco.Media(Umbraco.Field("headerImage").ToString()).Url) #E5E5E5 no-repeat center; background-size: cover;">
+    <div class="container">
+        <h1>About</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- banner ends -->
+<!-- Main -->
+<div class="container">
+    <div class="row">
+        <div class="span9">
+            @Umbraco.Field("body")
+        </div>
+    </div>
+</div>
