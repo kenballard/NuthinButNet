@@ -18,19 +18,16 @@
 
 <div class="container">
     <div id="programs-landing" class="row">
-        <div class="nav program-tabs nav-tabs">
+        <ul class="nav program-tabs nav-tabs">
             @foreach (var program in Model.Content.Children())
             {
-                <div class="span3">
-                    <a href="@Umbraco.TypedContent(program.Id).Url" data-toggle="tab">
-                        <img src="@Umbraco.TypedMedia(program.GetPropertyValue("thumbnailImage")).Url">
-                    </a>
-                    <div>
+                <li>
+                    <a style="background: url('@Umbraco.TypedMedia(program.GetPropertyValue("thumbnailImage")).Url') 0 0 no-repeat;" href="@Umbraco.TypedContent(program.Id).Url" data-toggle="tab">
                         @program.GetProperty("title2").Value
-                    </div>
-                </div>
+                    </a>
+                </li>
             }
-        </div>
+        </ul>
         <!-- Tab panes -->
         <div class="program-content tab-content">
             @foreach (var program in Model.Content.Children())
