@@ -1335,6 +1335,29 @@ width: 100% !important;
     width: 100%;
 }
 
+.program-content {
+    padding-bottom: 20px;
+}
+
+.program-tabs {
+    border: none;
+}
+
+.program-tab {
+    border: 2px #e5e5e5 solid;
+    margin-bottom: 10px;
+}
+
+.program-tab-title {
+    padding: 4px;
+    background: #e5e5e5;
+    width: 97%;
+}
+
+.program-tab-title > h3 {
+    margin: 3px;
+}
+
 /*Staff Template*/
 .staff-member {
     position: relative;
@@ -1370,3 +1393,4 @@ width: 100% !important;
 .partner-links li a{
     text-decoration: underline;
 }
+
