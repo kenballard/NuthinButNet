@@ -22,8 +22,8 @@
             @foreach (var program in Model.Content.Children())
             {
                 <li>
-                    <a style="background: url('@Umbraco.TypedMedia(program.GetPropertyValue("thumbnailImage")).Url') 0 0 no-repeat;" href="#@program.Id" data-toggle="tab">
-                        @program.GetProperty("title2").Value
+                    <a style="background: url('@Umbraco.TypedMedia(program.GetPropertyValue("thumbnailImage")).Url') 0 0 no-repeat; background-size: 100%;" href="#@program.Id" data-toggle="tab">
+                        <span>@program.GetProperty("title2").Value</span>
                     </a>
                 </li>
             }
@@ -35,11 +35,11 @@
                 <div class="tab-pane @(isFirst ? "active" : "")" id="@program.Id">
                     <header>
                         <img src="@Umbraco.TypedMedia(program.GetPropertyValue("image")).Url" />
-                        <h2 id="currentTitle">@program.GetPropertyValue("title2")</h2>
+                        <h2 class="program-title">@program.GetPropertyValue("title2")</h2>
                     </header>
-                    <p>
+                    <div class="wysiwyg-content">
                         @program.GetProperty("description").Value
-                    </p>
+                    </div>
                     <a href="@program.Url">Read More</a>
                 </div>
                 isFirst = false;
