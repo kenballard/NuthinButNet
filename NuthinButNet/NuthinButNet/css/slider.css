@@ -512,7 +512,7 @@ website:   	http://www.themepunch.com
 	-webkit-text-shadow:-1px 1px 0 rgba(0,0,0,0.2);
 }
 .btn-default:hover {
-	color:#fff;
+	color:#284152;
 }
 
  @media only screen and (min-width: 768px) and (max-width: 959px) {
@@ -1008,7 +1008,7 @@ font-size:10px !important;
 }
 .tp-leftarrow.default:hover,
 .tp-rightarrow.default:hover {
-	background-color:#222;
+	background-color:#284152;
 }
 .tp-leftarrow.default {
 	left:-60px !important;
