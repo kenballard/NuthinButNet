@@ -3,17 +3,31 @@
     Layout = "umbLayout.cshtml";
 }
 
-<div>
-    <img src="@Umbraco.TypedMedia(Model.Content.GetPropertyValue("image")).Url" />
-    <div>@Model.Content.GetPropertyValue("title2")</div>
-</div>
-@foreach (var subProgram in Model.Content.Children().Where(x => x.DocumentTypeAlias == "SubProgram"))
-{
-    var imgProperty = subProgram.GetProperty("thumbnailImage");
-    <div>
-        <a href="@subProgram.Url">
-            <img src="@(imgProperty.HasValue ? Umbraco.TypedMedia(imgProperty.Value).Url : "")" />
-        </a>
-        <div><a href="@subProgram.Url">@subProgram.GetPropertyValue("name")</a></div>
+<!-- Main -->
+<div class="banner" style="background: url(@Umbraco.TypedMedia(Model.Content.GetPropertyValue("image")).Url) #E5E5E5 no-repeat center; background-size: cover;">
+    <div class="container">
+        <h1>@Umbraco.Field("title2")</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/programs">Programs</a></li>
+                <li><a href="#">@Umbraco.Field("title2")</a></li>
+            </ul>
+        </div>
     </div>
-}
+</div><!-- banner ends -->
+
+<div class="container">
+    @foreach (var subProgram in Model.Content.Children().Where(x => x.DocumentTypeAlias == "SubProgram"))
+    {
+        var imgProperty = subProgram.GetProperty("thumbnailImage");
+        <div class="row">
+            <div class="span9">
+                <a href="@subProgram.Url">
+                    <img src="@(imgProperty.HasValue ? Umbraco.TypedMedia(imgProperty.Value).Url : "")" />
+                </a>
+                <div><a href="@subProgram.Url">@subProgram.GetPropertyValue("name")</a></div>
+            </div>
+        </div>
+    }
+</div>
