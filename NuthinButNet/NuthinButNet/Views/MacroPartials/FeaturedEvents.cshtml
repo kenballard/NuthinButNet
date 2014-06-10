@@ -23,8 +23,14 @@
                                 <li><span><i class="icon-date"></i>@primaryEvent.GetFormattedEventDate()</span><span>@primaryEvent.GetFormattedEventTime()</span></li>
                                 @{
                                     var location = @UmbracoContext.GetAddressFromEvent(primaryEvent);
-                                    if (!string.IsNullOrWhiteSpace(location.ToString()))
-                                        <li><span><i class="icon-location"></i>@location</span></li>
+                                }
+                                @if (!string.IsNullOrWhiteSpace(location.ToString()))
+                                {
+                                    <li><span><i class="icon-location"></i>@location</span></li>
+                                }
+                                else
+                                {
+                                    <li><span>&nbsp;</span></li>
                                 }
                             </ul>
                         </div>
@@ -51,8 +57,14 @@
                             <li><span><i class="icon-date"></i>@e.GetFormattedEventDate()</span><span>@e.GetFormattedEventTime()</span></li>
                             @{
                                 var eventLocation = @UmbracoContext.GetAddressFromEvent(e);
-                                if (!string.IsNullOrWhiteSpace(eventLocation.ToString()))
-                                    <li><span><i class="icon-location"></i>@eventLocation</span></li>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(eventLocation.ToString()))
+                            {
+                                <li><span><i class="icon-location"></i>@eventLocation</span></li>
+                            }
+                            else
+                            {
+                                <li><span>&nbsp;</span></li>
                             }
                         </ul>
                     </div>

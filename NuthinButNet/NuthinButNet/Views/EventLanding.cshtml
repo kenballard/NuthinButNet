@@ -53,8 +53,14 @@
                                             <li><span><i class="icon-date"></i>@featuredEvent.GetFormattedEventDate()</span><span>@featuredEvent.GetFormattedEventTime()</span></li>
                                             @{
                                                 var location = @UmbracoContext.GetAddressFromEvent(featuredEvent);
-                                                if (!string.IsNullOrWhiteSpace(location.ToString()))
-                                                    <li><span><i class="icon-location"></i>@location</span></li>
+                                            }
+                                            @if (!string.IsNullOrWhiteSpace(location.ToString()))
+                                            {
+                                                <li><span><i class="icon-location"></i>@location</span></li>
+                                            }
+                                            else
+                                            {
+                                                <li><span>&nbsp;</span></li>
                                             }
                                         </ul>
                                     </div>
