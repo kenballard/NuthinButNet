@@ -16,8 +16,14 @@
                         <li><span><i class="icon-date"></i>@childPage.GetFormattedEventDate()</span><span>@childPage.GetFormattedEventTime()</span></li>
                         @{
                             var location = @UmbracoContext.GetAddressFromEvent(childPage);
-                            if (!string.IsNullOrWhiteSpace(location.ToString()))
-                                <li><span><i class="icon-location"></i>@location</span></li>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(location.ToString()))
+                        {
+                            <li><span><i class="icon-location"></i>@location</span></li>
+                        }
+                        else
+                        {
+                            <li><span>&nbsp;</span></li>
                         }
                     </ul>
                 </div>
