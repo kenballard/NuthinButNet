@@ -24,7 +24,7 @@
 
 <body>
     <div class="wrap">
-        <div class="tp-bar">
+        <div class="tp-bar" role=”banner”>
             <div class="container">
                 <div class="logo">
                     <h1>
@@ -65,10 +65,11 @@
                             <span class="tag-line">Improving Chicago's Parks Since 1975</span>
                         </a>
                     </h1>
-                <span class="slogan"> </span> </div>
+                    <span class="slogan"> </span>
+                </div>
                 <!-- logo ends -->
                 <div class="tp-right">
-                   
+
                     <div class="tweets" style="display:none;">
                         <ul id="tweet">
                             <li>Here are 10 quality, affordable Zen Cart Templates, perfect for a wide variety of eCommerce needs. <a href="#">http://enva.to/XiCf5F</a></li>
@@ -79,9 +80,9 @@
                 </div>
             </div>
         </div><!-- tp-bar ends -->
-        <nav class="menu-bar">
+        <nav class="menu-bar" role="navigation" >
             <div class="container">
-                <a href="#" class="tablet-menu"></a>
+                <a href="#" class="tablet-menu" aria-hidden="true"></a>
 					@Umbraco.RenderMacro("MainNavigation")
 					
             </div>
