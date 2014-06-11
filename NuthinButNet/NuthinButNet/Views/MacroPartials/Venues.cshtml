@@ -25,7 +25,7 @@
                     <ul>
                         @{
                             var location = childPage.GetAddressFromVenue();
-                            if (location != null)
+                            if (!string.IsNullOrWhiteSpace(location.ToString()))
                             {
                                 <li><span><i class="icon-location"></i>@location</span></li>
                             }
