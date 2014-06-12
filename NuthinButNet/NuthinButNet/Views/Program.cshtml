@@ -18,16 +18,33 @@
 </div><!-- banner ends -->
 
 <div class="container">
-    @foreach (var subProgram in Model.Content.Children().Where(x => x.DocumentTypeAlias == "SubProgram"))
-    {
-        var imgProperty = subProgram.GetProperty("thumbnailImage");
-        <div class="row">
-            <div class="span9">
+        @{
+            var i = 0;
+            var newRow = false;
+        }
+        @foreach (var subProgram in Model.Content.Children().Where(x => x.DocumentTypeAlias == "SubProgram"))
+        {
+            var imgProperty = subProgram.GetProperty("thumbnailImage");
+            newRow = i % 2 == 0;
+            if (newRow)
+            {
+                @:<div class="row">
+            }
+            <div class="span6">
                 <a href="@subProgram.Url">
                     <img src="@(imgProperty.HasValue ? Umbraco.TypedMedia(imgProperty.Value).Url : "")" />
                 </a>
                 <div><a href="@subProgram.Url">@subProgram.GetPropertyValue("name")</a></div>
             </div>
-        </div>
-    }
+            if (!newRow)
+            {
+                @:</div>
+            }
+            i++;
+        }
+        @if (newRow)
+        {
+            @:</div>
+        }
+    </div>
 </div>
