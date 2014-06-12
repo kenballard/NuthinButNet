@@ -1845,3 +1845,18 @@ input[type="submit"].btn-donate {
 .text-yallow {
 	color:#dea732;
 }
+
+.sub-program-grid-item {
+    width: 300px;
+    border: 2px solid #E5E5E5;
+}
+
+.sub-program-grid-title {
+    background: none repeat scroll 0 0 #E5E5E5;
+    padding: 4px;
+    width: 98%;
+}
+
+.sub-program-grid-title > h3 {
+    margin: 3px;
+}
