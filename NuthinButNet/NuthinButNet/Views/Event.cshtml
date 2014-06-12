@@ -19,21 +19,24 @@
     </div>
 </div><!-- banner ends -->
 
+@{
+    var location = @UmbracoContext.GetAddressFromEvent(Model.Content);
+}
 <div class="container">
     <div class="row">
         <div class="span9">
             <section class="blog-box">
                 <div class="details">
-                    <div class="location-map">
-                        <iframe src="http://maps.google.com/?ie=UTF8&amp;ll=32.7688,-74.355469&amp;spn=41.328535,86.572266&amp;t=m&amp;z=4&amp;output=embed"></iframe>
-                    </div><!-- location-map ends -->
+                    @if (location != null && !string.IsNullOrWhiteSpace(location.ToString()))
+                    {
+                        <div class="location-map">
+                            <iframe src="@UmbracoContext.GetEventVenueMapUrl(Model.Content)"></iframe>
+                        </div><!-- location-map ends -->
+                    }
                     <h4>@Model.Content.GetPropertyValue("summary")</h4>
                     <ul class="list">
                         <li><span><i class="icon-date"></i>@Model.Content.GetFormattedEventDate()</span><span>@Model.Content.GetFormattedEventTime()</span></li>
-                        @{
-                            var location = @UmbracoContext.GetAddressFromEvent(Model.Content);
-                        }
-                        @if (!string.IsNullOrWhiteSpace(location.ToString()))
+                        @if (location != null && !string.IsNullOrWhiteSpace(location.ToString()))
                         {
                             <li><span><i class="icon-location"></i>@location</span></li>
                         }

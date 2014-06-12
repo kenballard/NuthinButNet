@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Umbraco.Core;
 using Umbraco.Core.Models;
 using Umbraco.Web;
-using Umbraco.Web.Media;
 
 namespace NuthinButNet.Helpers
 {
@@ -98,16 +95,33 @@ namespace NuthinButNet.Helpers
 
         public static MvcHtmlString GetAddressFromEvent(this UmbracoContext context, IPublishedContent eventNode)
         {
+            var venue = GetVenueForEvent(context, eventNode);
+            return venue.GetAddressFromVenue() ?? MvcHtmlString.Create("");
+        }
+
+        public static MvcHtmlString GetEventVenueMapUrl(this UmbracoContext context, IPublishedContent eventNode)
+        {
+            var venue = GetVenueForEvent(context, eventNode);
+            if (venue != null)
+            {
+                return venue.GetVenueMapUrl();
+            }
+
+            return MvcHtmlString.Create("");
+        }
+
+        public static IPublishedContent GetVenueForEvent(this UmbracoContext context, IPublishedContent eventNode)
+        {
             var venueNodeId = eventNode.GetPropertyValue<int?>(VenueFieldName);
             if (venueNodeId.HasValue && venueNodeId.Value > 0)
             {
                 var helper = new UmbracoHelper(context);
                 var venueNode = helper.TypedContent(venueNodeId.Value);
 
-                return venueNode.GetAddressFromVenue();
+                return venueNode;
             }
 
-            return MvcHtmlString.Create("");
+            return null;
         }
     }
 }

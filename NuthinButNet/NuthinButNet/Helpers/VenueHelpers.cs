@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Umbraco.Core;
+﻿using System.Web.Mvc;
 using Umbraco.Core.Models;
 using Umbraco.Web;
-using Umbraco.Web.Media;
 
 namespace NuthinButNet.Helpers
 {
@@ -18,12 +12,12 @@ namespace NuthinButNet.Helpers
 
         public static string GetVenueThumbnailImageUrl(this UmbracoContext context, IPublishedContent venueNode)
         {
-            return ImageHelpers.GetImageUrl(context, venueNode, ThumbnailFieldName);
+            return context.GetImageUrl(venueNode, ThumbnailFieldName);
         }
 
         public static string GetVenueFullSizeImageUrl(this UmbracoContext context, IPublishedContent venueNode)
         {
-            return ImageHelpers.GetImageUrl(context, venueNode, FullSizeFieldName);
+            return context.GetImageUrl(venueNode, FullSizeFieldName);
         }
 
         public static MvcHtmlString GetVenueMapUrl(this IPublishedContent venueNode)
