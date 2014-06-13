@@ -6,10 +6,19 @@
     Layout = "umbLayout.cshtml";
 }
 
-<h1>@Model.Content.GetPropertyValue("name")</h1>
+<div class="banner" style="background: url(@Umbraco.TypedMedia(Model.Content.GetPropertyValue<int>("bannerImage")).Url) #E5E5E5 no-repeat center; background-size: cover;">
+    <div class="container">
+        <h1>@Model.Content.GetPropertyValue("name")</h1>
+        <div class="bread-bar clearfix">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">CHANGE ME Program</a></li>
+                <li><a href="#">@Model.Content.GetPropertyValue("name")</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 <div>
-    <img src="@Umbraco.TypedMedia(Model.Content.GetPropertyValue<int>("bannerImage")).Url" />
-    
     @if (@Model.Content.GetProperty("owner") != null)
     {
         var owner = Umbraco.TypedContent(Model.Content.GetPropertyValue<int>("owner"));
