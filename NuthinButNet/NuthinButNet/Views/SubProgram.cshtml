@@ -12,7 +12,7 @@
         <div class="bread-bar clearfix">
             <ul class="breadcrumb">
                 <li><a href="/">Home</a></li>
-                <li><a href="#">CHANGE ME Program</a></li>
+                <li><a href="@Model.Content.Parent.Url">@Model.Content.Parent.GetPropertyValue("title2")</a></li>
                 <li><a href="#">@Model.Content.GetPropertyValue("name")</a></li>
             </ul>
         </div>
