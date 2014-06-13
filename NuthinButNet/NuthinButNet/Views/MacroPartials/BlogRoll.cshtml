@@ -6,5 +6,6 @@
 
 @foreach (var blog in relatedBlogs)
 {
-    <div>@(blog.GetPropertyValue<string>("headline"))</div>
+    <div><a href="@(blog.Url)">@(blog.GetPropertyValue<string>("headline"))</a></div>
+    <div>@(blog.GetPropertyValue<string>("teaserText"))</div>
 }

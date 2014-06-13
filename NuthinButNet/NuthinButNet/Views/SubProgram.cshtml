@@ -18,14 +18,15 @@
         </div>
     </div>
 </div>
-<div>
+
+@*<div>
     @if (@Model.Content.GetProperty("owner") != null)
     {
         var owner = Umbraco.TypedContent(Model.Content.GetPropertyValue<int>("owner"));
         <h2>@owner.Name</h2>
         <p>@Model.Content.GetPropertyValue("ownerDescription")</p>
     }
-</div>
+</div>*@
 
 @Umbraco.RenderMacro("BlogRoll")
 
