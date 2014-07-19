@@ -28,6 +28,9 @@
         }
     </div>*@
 <div class="container">
+    <p>
+        @Model.Content.GetPropertyValue("body")
+    </p>
     <h3 style="padding-top: 50px;">Blog Articles</h3>
     @Umbraco.RenderMacro("BlogRoll")
 
