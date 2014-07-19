@@ -32,6 +32,7 @@
                                 <li><span><i class="icon-location"></i>@location</span></li>
                         }
                     </ul>
+                    @Model.Content.GetPropertyValue("description")
                     <div class="location-map">
                         <iframe src="@Model.Content.GetVenueMapUrl()"></iframe>
                     </div><!-- location-map ends -->
