@@ -259,6 +259,7 @@
     <Content Include="js\script.js" />
     <Content Include="js\skel-panels.min.js" />
     <Content Include="js\skel.min.js" />
+    <Content Include="js\venues.js" />
     <Content Include="masterpages\dummy.txt" />
     <Content Include="media\dummy.txt" />
     <Content Include="scripts\bootstrap.js" />
