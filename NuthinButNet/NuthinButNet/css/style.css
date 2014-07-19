@@ -1402,4 +1402,23 @@ width: 100% !important;
 
 #top-event-navigation .active {
     padding: 0 100px;
+    white-space: nowrap;
+}
+
+#top-venue-navigation {
+    height: 50px;
+    padding-left: 45%;
+}
+
+#top-venue-navigation li {
+    float: left;
+}
+
+#top-venue-navigation .next {
+    padding-left: 50px;
+}
+
+.venues-list li
+{
+    padding: 10px 0;
 }
