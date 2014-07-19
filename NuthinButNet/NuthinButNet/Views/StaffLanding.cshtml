@@ -28,8 +28,7 @@
         @foreach (var child in row)
         {
             <div class="span4 staff-member">  
-              <!-- <img src="@Umbraco.TypedMedia(int.Parse(child.GetPropertyValue<string>("image"))).Url" />-->
-                <img src="http://placehold.it/500x500" />
+               <img src="@Umbraco.TypedMedia(int.Parse(child.GetPropertyValue<string>("image"))).Url" height="370" width="370" />
                 <div class="staff-member-info">
                     <h3>@(child.GetPropertyValue<string>("name"))</h3>
                     <h4><strong>@(child.GetPropertyValue<string>("jobTitle"))</strong></h4>

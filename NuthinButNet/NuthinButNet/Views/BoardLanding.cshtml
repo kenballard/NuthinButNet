@@ -1,6 +1,7 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "umbLayout.cshtml";
+    int index = 0;
 }
 
 <div class="banner" style="background:url(@Umbraco.Media(Umbraco.Field("headerImage").ToString()).Url) #E5E5E5;">
@@ -16,20 +17,77 @@
 </div><!-- banner ends -->
 
 <div class="container">
-    @foreach (var role in Model.Content.Children.GroupBy(x => x.GetPropertyValue<int>("role")))
+    @foreach (var peopleInRole in Model.Content.Children.GroupBy(x => x.GetPropertyValue<int>("role")))
     {
-        <div>
-            <h2>@umbraco.library.GetPreValueAsString(role.Key)</h2>
-
-            @foreach (var person in role)
+        index = 0;
+        if (peopleInRole.Count() == 1)
+        {
+            <div class="row">
+                <div class="span4 staff-member">
+                    @if (peopleInRole.First().HasValue("image"))
+                    {
+                        <img src="@Umbraco.TypedMedia(int.Parse(peopleInRole.First().GetPropertyValue<string>("image"))).Url" height="370" width="370" />
+                    }
+                    <div class="staff-member-info">
+                        <h3>@(peopleInRole.First().GetPropertyValue<string>("name"))</h3>
+                        <h4><strong>@umbraco.library.GetPreValueAsString(peopleInRole.Key)</strong></h4>
+                    </div>
+                </div>
+                <div class="span8">
+                    <p style="height: 312px; width: 100%; background-color: #e5e5e5; padding: 30px;">@(peopleInRole.First().GetPropertyValue<string>("description"))</p>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row">
+                <div class="span12">
+                    <h2>@umbraco.library.GetPreValueAsString(peopleInRole.Key)</h2>
+                </div>
+            </div>
+            foreach (var person in peopleInRole)
             {
-                <h3>@(person.GetPropertyValue<string>("name"))</h3>
+                if (index == 0)
+                {
+                    @:<div class='row'>
+                }
                 if (person.HasValue("image"))
                 {
-                    <img src="@Umbraco.TypedMedia(int.Parse(person.GetPropertyValue<string>("image"))).Url" />
+                    <div class="span4 staff-member">
+
+                        <img src="@Umbraco.TypedMedia(int.Parse(person.GetPropertyValue<string>("image"))).Url" height="370" width="370" />
+                        <div class="staff-member-info">
+                            <h3>@(person.GetPropertyValue<string>("name"))</h3>
+                            <span>@(person.GetPropertyValue<string>("description"))</span>
+                        </div>
+                    </div>
                 }
-                <p>@(person.GetPropertyValue<string>("description"))</p>
+                else
+                {
+                    <div class="span4 staff-member" style="height: 100px;">
+                        <div class="staff-member-info" style="min-height: 95px;">
+                            <h3>@(person.GetPropertyValue<string>("name"))</h3>
+                            <span>@(person.GetPropertyValue<string>("description"))</span>
+                        </div>
+                    </div>
+
+                }
+                if (index == 2)
+                {
+                    index = 0;
+                    @:</div>
+                }
+                else
+                {
+                    index++;
+                }
             }
-        </div>
+            if (index > 0)
+            {
+                @:</div>
+            }
+
+
+        }
     }
 </div>
