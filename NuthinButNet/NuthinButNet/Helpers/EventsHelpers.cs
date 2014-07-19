@@ -17,6 +17,7 @@ namespace NuthinButNet.Helpers
         private static readonly string ThumbnailFieldName = "thumbnailImage";
         private static readonly string FullSizeFieldName = "fullSizeImage";
         private static readonly string VenueFieldName = "venue";
+        private static readonly string VenueNameFieldName = "name";
 
         public static IPublishedContent GetRootNode(this IPublishedContent currentNode)
         {
@@ -53,6 +54,19 @@ namespace NuthinButNet.Helpers
                 .Take(maximum);
 
             return results;
+        }
+
+        public static IEnumerable<IPublishedContent> GetEventsForMonth(this IPublishedContent currentNode, int year, int month)
+        {
+            var results = GetAllEvents(currentNode)
+                .Where(x =>
+                    {
+                        return x.GetPropertyValue<DateTime>(DateTimeStartFieldName).Year == year
+                               && x.GetPropertyValue<DateTime>(DateTimeStartFieldName).Month == month;
+                    })
+                .OrderBy(x => x.GetPropertyValue<DateTime>(DateTimeStartFieldName));
+
+            return results.ToList();
         }
 
         public static string GetEventThumbnailUrl(this UmbracoContext context, IPublishedContent eventNode)
@@ -96,6 +110,12 @@ namespace NuthinButNet.Helpers
         public static MvcHtmlString GetAddressFromEvent(this UmbracoContext context, IPublishedContent eventNode)
         {
             var venue = GetVenueForEvent(context, eventNode);
+            if (venue != null)
+            {
+                var name = venue.GetPropertyValue(VenueNameFieldName);
+                return MvcHtmlString.Create(string.Format("{0}, {1}", name, venue.GetAddressFromVenue()));
+            }
+
             return venue.GetAddressFromVenue() ?? MvcHtmlString.Create("");
         }
 

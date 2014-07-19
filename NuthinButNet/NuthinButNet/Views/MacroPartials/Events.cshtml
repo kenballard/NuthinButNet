@@ -3,7 +3,21 @@
 @inherits Umbraco.Web.Macros.PartialViewMacroPage
 
 <ul class="events-list">
-    @foreach (var childPage in Model.Content.Children.Where(x => x.IsVisible()))
+    @{
+        int year;
+        if (!int.TryParse(Request.QueryString["id"], out year))
+        {
+            year = DateTime.Now.Year;
+        }
+
+        int month;
+        if (!int.TryParse(Request.QueryString["month"], out month))
+        {
+            month = DateTime.Now.Month;
+        }
+    }
+
+    @foreach (var childPage in Model.Content.GetEventsForMonth(year, month))
     {
         <li>
             <div class="event-box">

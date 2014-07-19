@@ -8,7 +8,7 @@
 
 <div class="banner" style="background: url(@Umbraco.Media(Umbraco.Field("headerImage").ToString()).Url) #E5E5E5 no-repeat center; background-size: cover;">
     <div class="container">
-        <h1>@Model.Content.GetPropertyValue("eventTitle")</h1>
+        <h1>@Model.Content.GetPropertyValue("name")</h1>
         <div class="bread-bar clearfix">
             <ul class="breadcrumb">
                 <li><a href="">Home</a></li>
@@ -24,9 +24,6 @@
         <div class="span9">
             <section class="blog-box">
                 <div class="details">
-                    <div class="location-map">
-                        <iframe src="@Model.Content.GetVenueMapUrl()"></iframe>
-                    </div><!-- location-map ends -->
                     <h4>@Model.Content.GetPropertyValue("name")</h4>
                     <ul class="list">
                         @{
@@ -35,6 +32,10 @@
                                 <li><span><i class="icon-location"></i>@location</span></li>
                         }
                     </ul>
+                    @Model.Content.GetPropertyValue("description")
+                    <div class="location-map">
+                        <iframe src="@Model.Content.GetVenueMapUrl()"></iframe>
+                    </div><!-- location-map ends -->
                 </div><!-- details end -->
             </section><!-- blog-box ends -->
         </div>

@@ -27,12 +27,6 @@
         <div class="span9">
             <section class="blog-box">
                 <div class="details">
-                    @if (location != null && !string.IsNullOrWhiteSpace(location.ToString()))
-                    {
-                        <div class="location-map">
-                            <iframe src="@UmbracoContext.GetEventVenueMapUrl(Model.Content)"></iframe>
-                        </div><!-- location-map ends -->
-                    }
                     <h4>@Model.Content.GetPropertyValue("summary")</h4>
                     <ul class="list">
                         <li><span><i class="icon-date"></i>@Model.Content.GetFormattedEventDate()</span><span>@Model.Content.GetFormattedEventTime()</span></li>
@@ -46,6 +40,12 @@
                         }
                     </ul>
                     @Model.Content.GetPropertyValue("description")
+                    @if (location != null && !string.IsNullOrWhiteSpace(location.ToString()))
+                    {
+                        <div class="location-map">
+                            <iframe src="@UmbracoContext.GetEventVenueMapUrl(Model.Content)"></iframe>
+                        </div><!-- location-map ends -->
+                    }
                 </div><!-- details end -->
             </section><!-- blog-box ends -->
         </div>

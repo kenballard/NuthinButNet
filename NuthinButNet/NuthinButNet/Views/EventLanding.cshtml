@@ -7,7 +7,7 @@
 
 <div class="banner" style="background: url(@Umbraco.Media(Umbraco.Field("headerImage").ToString()).Url) #E5E5E5 no-repeat center; background-size: cover;">
     <div class="container">
-        <h1>Upcoming Events</h1>
+        <h1>Events</h1>
         <div class="bread-bar clearfix">
             <ul class="breadcrumb">
                 <li><a href="">Home</a></li>
@@ -19,7 +19,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="span2">
+        @*<div class="span2">
             <h2>Filters</h2>
             <div class="btn-group" data-toggle="buttons">
                 @foreach (var subProgram in @Model.Content.GetAllSubPrograms())
@@ -29,11 +29,31 @@
                     </label>
                 }
             </div>
-        </div>
-        <div class="span9 offset1">
+        </div>*@
+        @{
+            int year;
+            if (!int.TryParse(Request.QueryString["id"], out year))
+            {
+                year = DateTime.Now.Year;
+            }
+
+            int month;
+            if (!int.TryParse(Request.QueryString["month"], out month))
+            {
+                month = DateTime.Now.Month;
+            }
+        }
+        <div class="span11">
             <div class="events">
                 <div class="events-area">
-                    <h2>Upcoming <strong>Events</strong></h2>
+                    <h2><strong>Events</strong></h2>
+                    <div id="top-event-navigation" class="pagination">
+                        <ul>
+                            <li class="previous"><a href="#">Prev</a></li>
+                            <li class="active">@Html.Raw(new DateTime(year, month, 1).ToString("MMMM yyyy"))</li>
+                            <li class="next"><a href="#">Next</a></li>
+                        </ul>
+                    </div><!-- pagination ends -->
                     
                     <ul class="events-list">
                         @{
@@ -93,3 +113,19 @@
 </div><!-- /container -->
 
 <!-- /Main -->
+
+@section Scripts
+{
+    <script type="text/javascript">
+        var year = @year;
+        var month = @month;
+        jQuery(document).ready(function() {
+            var topEventNav = new FOTP.Events.Navigation({
+                id: 'top-event-navigation',
+                year: year,
+                month: month
+            });
+        });
+    </script>
+    <script src="/js/events.js"></script>
+}
