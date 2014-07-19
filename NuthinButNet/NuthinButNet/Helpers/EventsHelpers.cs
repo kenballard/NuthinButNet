@@ -56,6 +56,19 @@ namespace NuthinButNet.Helpers
             return results;
         }
 
+        public static IEnumerable<IPublishedContent> GetEventsForMonth(this IPublishedContent currentNode, int year, int month)
+        {
+            var results = GetAllEvents(currentNode)
+                .Where(x =>
+                    {
+                        return x.GetPropertyValue<DateTime>(DateTimeStartFieldName).Year == year
+                               && x.GetPropertyValue<DateTime>(DateTimeStartFieldName).Month == month;
+                    })
+                .OrderBy(x => x.GetPropertyValue<DateTime>(DateTimeStartFieldName));
+
+            return results.ToList();
+        }
+
         public static string GetEventThumbnailUrl(this UmbracoContext context, IPublishedContent eventNode)
         {
             return ImageHelpers.GetImageUrl(context, eventNode, ThumbnailFieldName);

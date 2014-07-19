@@ -30,10 +30,30 @@
                 }
             </div>
         </div>*@
+        @{
+            int year;
+            if (!int.TryParse(Request.QueryString["id"], out year))
+            {
+                year = DateTime.Now.Year;
+            }
+
+            int month;
+            if (!int.TryParse(Request.QueryString["month"], out month))
+            {
+                month = DateTime.Now.Month;
+            }
+        }
         <div class="span11">
             <div class="events">
                 <div class="events-area">
                     <h2><strong>Events</strong></h2>
+                    <div id="top-event-navigation" class="pagination">
+                        <ul>
+                            <li class="previous"><a href="#">Prev</a></li>
+                            <li class="active">@Html.Raw(new DateTime(year, month, 1).ToString("MMMM yyyy"))</li>
+                            <li class="next"><a href="#">Next</a></li>
+                        </ul>
+                    </div><!-- pagination ends -->
                     
                     <ul class="events-list">
                         @{
@@ -93,3 +113,19 @@
 </div><!-- /container -->
 
 <!-- /Main -->
+
+@section Scripts
+{
+    <script type="text/javascript">
+        var year = @year;
+        var month = @month;
+        jQuery(document).ready(function() {
+            var topEventNav = new FOTP.Events.Navigation({
+                id: 'top-event-navigation',
+                year: year,
+                month: month
+            });
+        });
+    </script>
+    <script src="/js/events.js"></script>
+}
