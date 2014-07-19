@@ -39,14 +39,18 @@ namespace NuthinButNet.Helpers
             return MvcHtmlString.Create(streetAddress);
         }
 
-        public static IEnumerable<IPublishedContent> GetVenues(this IPublishedContent currentNode, int page, int pageSize, bool parksOnly)
+        public static IEnumerable<IPublishedContent> GetVenues(this IPublishedContent currentNode, bool parksOnly)
         {
             var root = currentNode.AncestorOrSelf(1);
             var venueRoot = root.Siblings()
                 .Where(x => x.DocumentTypeAlias == VenueRootAlias && x.IsVisible()).SingleOrDefault();
 
-            var venues = venueRoot.Children(x => x.DocumentTypeAlias == VenueAlias && x.IsVisible());
+            return venueRoot.Children(x => x.DocumentTypeAlias == VenueAlias && x.IsVisible());
+        }
 
+        public static IEnumerable<IPublishedContent> GetVenues(this IPublishedContent currentNode, int page, int pageSize, bool parksOnly)
+        {
+            var venues = GetVenues(currentNode, parksOnly);
             return venues.Skip(page * pageSize).Take(pageSize);
         }
     }
