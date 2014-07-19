@@ -17,6 +17,7 @@ namespace NuthinButNet.Helpers
         private static readonly string ThumbnailFieldName = "thumbnailImage";
         private static readonly string FullSizeFieldName = "fullSizeImage";
         private static readonly string VenueFieldName = "venue";
+        private static readonly string VenueNameFieldName = "name";
 
         public static IPublishedContent GetRootNode(this IPublishedContent currentNode)
         {
@@ -96,6 +97,12 @@ namespace NuthinButNet.Helpers
         public static MvcHtmlString GetAddressFromEvent(this UmbracoContext context, IPublishedContent eventNode)
         {
             var venue = GetVenueForEvent(context, eventNode);
+            if (venue != null)
+            {
+                var name = venue.GetPropertyValue(VenueNameFieldName);
+                return MvcHtmlString.Create(string.Format("{0}, {1}", name, venue.GetAddressFromVenue()));
+            }
+
             return venue.GetAddressFromVenue() ?? MvcHtmlString.Create("");
         }
 
