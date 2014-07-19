@@ -11,22 +11,30 @@ FOTP.Venues.Navigation = function (opts) {
     }, opts);
 
     self._init = function () {
-        jQuery('#' + self.opts.id + ' li.previous a').on('click', self._prevHandler);
-        jQuery('#' + self.opts.id + ' li.next a').on('click', self._nextHandler);
+        var prev = jQuery('#' + self.opts.id + ' li.previous a');
+        var next = jQuery('#' + self.opts.id + ' li.next a');
+
+        if (self.opts.page <= 0) {
+            prev.attr('disabled', 'disabled');
+        } else {
+            prev.on('click', self._prevHandler);
+        }
+
+        var numPages = Math.ceil(self.opts.totalVenues / pageSize) - 1;
+        if (self.opts.page < numPages) {
+            next.on('click', self._nextHandler);
+        } else {
+            next.attr('disabled', 'disabled');
+        }
     };
 
     self._prevHandler = function () {
-        if (self.opts.page > 0) {
-            window.location.href = self._getQueryStringForPrev();
-        }
+        window.location.href = self._getQueryStringForPrev();
         return false;
     };
 
     self._nextHandler = function () {
-        var numPages = Math.ceil(self.opts.totalVenues / pageSize);
-        if (self.opts.page < numPages) {
-            window.location.href = self._getQueryStringForNext();
-        }
+        window.location.href = self._getQueryStringForNext();
         return false;
     };
 

@@ -47,7 +47,7 @@
             <div class="events">
                 <div class="venues-area">
                     <h2>Our <strong>Parks</strong></h2>
-                    <div id="top-venue-navigation" class="pagination">
+                    <div id="top-venue-navigation">
                         <ul>
                             <li class="previous"><a href="#">Prev</a></li>
                             <li class="next"><a href="#">Next</a></li>
@@ -85,13 +85,13 @@
     <script type="text/javascript">
         var page = @page;
         var pageSize = @pageSize;
-        var totalEvents = 5;
+        var totalVenues = @Model.Content.GetVenues(true).Count();
         jQuery(document).ready(function() {
             var topVenueNav = new FOTP.Venues.Navigation({
                 id: 'top-venue-navigation',
                 page: page,
                 pageSize: pageSize,
-                totalEvents: totalEvents
+                totalVenues: totalVenues
             });
         });
     </script>
