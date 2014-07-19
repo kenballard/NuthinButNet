@@ -1,4 +1,4 @@
-﻿FOTP = {};
+﻿FOTP = FOTP || {};
 FOTP.Events = {};
 
 FOTP.Events.Navigation = function (opts) {
