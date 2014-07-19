@@ -7,7 +7,7 @@ FOTP.Venues.Navigation = function (opts) {
     self.opts = jQuery.extend({
         baseUrl: '/parks/',
         page: 0,
-        pageSize: 2
+        pageSize: 20
     }, opts);
 
     self._init = function () {

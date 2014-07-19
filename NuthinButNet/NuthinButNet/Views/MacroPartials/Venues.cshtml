@@ -12,7 +12,7 @@
     int pageSize;
     if (!int.TryParse(Request.QueryString["pageSize"], out pageSize))
     {
-        pageSize = 2;
+        pageSize = 20;
     }
     
     var parksOnly = Model.MacroParameters.ContainsKey("parkOnly")
