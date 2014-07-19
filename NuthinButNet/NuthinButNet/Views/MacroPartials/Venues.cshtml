@@ -3,12 +3,22 @@
 @inherits Umbraco.Web.Macros.PartialViewMacroPage
 
 @{
+    int page;
+    if (!int.TryParse(Request.QueryString["page"], out page))
+    {
+        page = 0;
+    }
+
+    int pageSize;
+    if (!int.TryParse(Request.QueryString["pageSize"], out pageSize))
+    {
+        pageSize = 2;
+    }
+    
     var parksOnly = Model.MacroParameters.ContainsKey("parkOnly")
         ? Model.MacroParameters["parkOnly"] == true.ToString()
         : false;
-    IEnumerable<IPublishedContent> venues = parksOnly
-        ? Model.Content.Children.Where(x => x.IsVisible() && x.GetPropertyValue<bool>("isPark"))
-        : Model.Content.Children.Where(x => x.IsVisible());
+    IEnumerable<IPublishedContent> venues = Model.Content.GetVenues(page, pageSize, parksOnly);
     
 }
 

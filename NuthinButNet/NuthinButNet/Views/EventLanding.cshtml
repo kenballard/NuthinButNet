@@ -32,7 +32,7 @@
             </div>*@
         @{
             int year;
-            if (!int.TryParse(Request.QueryString["id"], out year))
+            if (!int.TryParse(Request.QueryString["year"], out year))
             {
                 year = DateTime.Now.Year;
             }

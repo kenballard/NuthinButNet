@@ -30,10 +30,29 @@
                 }
             </div>
         </div>*@
+        @{
+            int page;
+            if (!int.TryParse(Request.QueryString["page"], out page))
+            {
+                page = 0;
+            }
+
+            int pageSize;
+            if (!int.TryParse(Request.QueryString["pageSize"], out pageSize))
+            {
+                pageSize = 2;
+            }
+        }
         <div class="span11">
             <div class="events">
                 <div class="venues-area">
                     <h2>Our <strong>Parks</strong></h2>
+                    <div id="top-venue-navigation" class="pagination">
+                        <ul>
+                            <li class="previous"><a href="#">Prev</a></li>
+                            <li class="next"><a href="#">Next</a></li>
+                        </ul>
+                    </div><!-- pagination ends -->
 
                     <ul class="venues-list">
                         @Umbraco.RenderMacro("Venues", new { parkOnly = true })
@@ -59,3 +78,21 @@
 </div><!-- /container -->
 
 <!-- /Main -->
+
+@section Scripts
+{
+    <script src="/js/venues.js"></script>
+    <script type="text/javascript">
+        var page = @page;
+        var pageSize = @pageSize;
+        var totalEvents = 5;
+        jQuery(document).ready(function() {
+            var topVenueNav = new FOTP.Venues.Navigation({
+                id: 'top-venue-navigation',
+                page: page,
+                pageSize: pageSize,
+                totalEvents: totalEvents
+            });
+        });
+    </script>
+}
