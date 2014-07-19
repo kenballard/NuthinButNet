@@ -18,6 +18,26 @@
     font-size: 6em;
 }
 
+.cta-bar {
+    background-color: #3F3F3F;
+    padding: 9px 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Droid Sans',sans-serif;
+}
+
+.cta-bar a {
+    font-family: 'Droid Sans', sans-serif; 
+    color: white;
+    margin-top: -5px;
+    font-size: 1.2em;
+}
+
+.coverglyph-small {
+    font-size: 1em;
+    color: white;
+}
+
 .coverglyph-money:before {
     content: "\e005";
 }
@@ -109,9 +129,9 @@
     padding: 30px;
 }
 
-    #checkout .span3 {
-        padding: 20px;
-    }
+#checkout .span3 {
+    padding: 20px;
+}
 
 .your-information {
     border-left: #8f8f8f 1px solid;

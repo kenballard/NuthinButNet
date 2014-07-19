@@ -425,6 +425,7 @@ body {
 	margin-left:40px;
 }
 .tablet-menu {
+    top: 50px;
 	display:inline-block;
 }
 .menu-bar .container:before,
@@ -449,6 +450,7 @@ body {
 .menu li > a,
 .menu-bar li li {
 	display:block;
+    color: white;
 }
 .menu > li > a,
 .menu li li a {
@@ -1056,7 +1058,7 @@ textarea[class*="span"],
 	top:0px;
 }
 .tablet-menu {
-	top:11px;
+	top:49px;
 }
 
 

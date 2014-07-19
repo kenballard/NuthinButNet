@@ -1381,8 +1381,11 @@ width: 100% !important;
     line-height: 140%;
     padding: 5px;
     background: #e5e5e5;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
+    min-height: 100px;
+    vertical-align: middle;
+    display: block;
 }
 
 .partner-links ul {
@@ -1390,6 +1393,6 @@ width: 100% !important;
 }
 
 .partner-links li a{
-    text-decoration: underline;
+    font-weight: bold;
 }
 
