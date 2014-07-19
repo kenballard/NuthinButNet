@@ -7,8 +7,7 @@ FOTP.Venues.Navigation = function (opts) {
     self.opts = jQuery.extend({
         baseUrl: '/parks/',
         page: 0,
-        pageSize: 2,
-        totalVenues: 5
+        pageSize: 2
     }, opts);
 
     self._init = function () {
@@ -17,7 +16,6 @@ FOTP.Venues.Navigation = function (opts) {
     };
 
     self._prevHandler = function () {
-        console.log('prev');
         if (self.opts.page > 0) {
             window.location.href = self._getQueryStringForPrev();
         }
@@ -25,7 +23,6 @@ FOTP.Venues.Navigation = function (opts) {
     };
 
     self._nextHandler = function () {
-        console.log('next');
         var numPages = Math.ceil(self.opts.totalVenues / pageSize);
         if (self.opts.page < numPages) {
             window.location.href = self._getQueryStringForNext();
@@ -42,8 +39,6 @@ FOTP.Venues.Navigation = function (opts) {
         var nextPage = self.opts.page + 1;
         return '?page=' + (nextPage).toString() + '&pageSize=' + (self.opts.pageSize).toString();
     };
-
-    console.log('venue nav', self.opts);
 
     self._init();
 };
