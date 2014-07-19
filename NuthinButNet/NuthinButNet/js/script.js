@@ -208,27 +208,27 @@ jQuery(document).ready(function ($) {
 
 
 	/*** convert pagination into select **/
-	$("<select />", {
-		"class":"pagination-select"
-	}).appendTo(".events-area");
+	//$("<select />", {
+	//	"class":"pagination-select"
+	//}).appendTo(".events-area");
 	
-	$("<option />", {
-		"selected":"selected",
-		"value":"",
-		"text":"Pagination"
-		}).appendTo(".events-area select");
+	//$("<option />", {
+	//	"selected":"selected",
+	//	"value":"",
+	//	"text":"Pagination"
+	//	}).appendTo(".events-area select");
 	
-	$(".pagination ul > li > a, .pagination ul > li > span").each(function() {
-		var el = $(this);
-		$("<option />", {
-			"value":el.attr("href"),
-			"text":el.text()
-			}).appendTo(".events-area select");
-	});
+	//$(".pagination ul > li > a, .pagination ul > li > span").each(function() {
+	//	var el = $(this);
+	//	$("<option />", {
+	//		"value":el.attr("href"),
+	//		"text":el.text()
+	//		}).appendTo(".events-area select");
+	//});
 	
-	$(".events-area select").change(function() {
-		window.location = $(this).find("option:selected").val();
-	});
+	//$(".events-area select").change(function() {
+	//	window.location = $(this).find("option:selected").val();
+	//});
 		
 
 

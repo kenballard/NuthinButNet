@@ -647,6 +647,7 @@ span.points {
 }
 
 .bottom {
+    margin-top: 50px;
 	padding:33px 0;
 	font-size:12px;
 	color:#fff;
@@ -1387,3 +1388,18 @@ width: 100% !important;
     font-weight: bold;
 }
 
+#top-event-navigation {
+    height: 50px;
+}
+
+#top-event-navigation {
+    padding-left: 33%;
+}
+
+#top-event-navigation li {
+     float: left;
+}
+
+#top-event-navigation .active {
+    padding: 0 100px;
+}

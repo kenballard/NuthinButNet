@@ -20,36 +20,42 @@
 </div>
 
 @*<div>
-    @if (@Model.Content.GetProperty("owner") != null)
+        @if (@Model.Content.GetProperty("owner") != null)
+        {
+            var owner = Umbraco.TypedContent(Model.Content.GetPropertyValue<int>("owner"));
+            <h2>@owner.Name</h2>
+            <p>@Model.Content.GetPropertyValue("ownerDescription")</p>
+        }
+    </div>*@
+<div class="container">
+    <h3 style="padding-top: 50px;">Blog Articles</h3>
+    @Umbraco.RenderMacro("BlogRoll")
+
+    @if (Model.Content.GetProperty("mediaReel") != null)
     {
-        var owner = Umbraco.TypedContent(Model.Content.GetPropertyValue<int>("owner"));
-        <h2>@owner.Name</h2>
-        <p>@Model.Content.GetPropertyValue("ownerDescription")</p>
+        <h3 style="padding-top: 50px;">Media</h3>
+        <div>
+            @if (!string.IsNullOrEmpty(Model.Content.GetPropertyValue<string>("mediaReel")))
+            {
+                foreach (var imageId in Model.Content.GetPropertyValue<string>("mediaReel").Split(','))
+                {
+                    <img src="@Umbraco.TypedMedia(int.Parse(imageId)).Url" />
+                }
+            }
+        </div>
     }
-</div>*@
 
-@Umbraco.RenderMacro("BlogRoll")
+    @if (!string.IsNullOrEmpty(Model.Content.GetPropertyValue<Archetype>("resources").Fieldsets.FirstOrDefault().GetValue("link")))
+    {
+        <h3 style="padding-top: 50px;">Resources</h3>
+        <ul>
+            @foreach (var resource in Model.Content.GetPropertyValue<Archetype>("resources").Fieldsets)
+            {
+                <li>
+                    <a href="@resource.GetValue("link")" target="_blank">@resource.GetValue("title")</a>
+                </li>
+            }
 
-@if (Model.Content.GetProperty("mediaReel") != null)
-{
-    <div>
-        @foreach (var imageId in Model.Content.GetPropertyValue<string>("mediaReel").Split(','))
-        {
-            <img src="@Umbraco.TypedMedia(int.Parse(imageId)).Url" />
-        }
-    </div>
-}
-
-@if (!string.IsNullOrEmpty(Model.Content.GetPropertyValue<Archetype>("resources").Fieldsets.FirstOrDefault().GetValue("link")))
-{
-    <h2>Resources</h2>
-    <ul>
-        @foreach (var resource in Model.Content.GetPropertyValue<Archetype>("resources").Fieldsets)
-        {
-            <li>
-                <a href="@resource.GetValue("link")" target="_blank">@resource.GetValue("title")</a>
-            </li>
-        }
-
-    </ul>
-}
+        </ul>
+    }
+</div>

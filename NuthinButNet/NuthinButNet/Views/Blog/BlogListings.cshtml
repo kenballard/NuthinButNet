@@ -25,19 +25,16 @@
             }
         </div>
     </div>
+    <div>
+        <ul>
+            @if (!string.IsNullOrEmpty(Model.PreviousButtonUrl))
+            {
+                <li class=""> <a class="btn" href="@Model.PreviousButtonUrl">Prev</a></li>
+            }
+            @if (!string.IsNullOrEmpty(Model.NextButtonUrl))
+            {
+                <li class=""><a class="btn" href="@Model.NextButtonUrl">Next</a></li>
+            }
+        </ul>
+    </div> <!-- pagination ends-->
 </div>
-
-
-<div class="pagination">
-    <ul>
-        @if (!string.IsNullOrEmpty(Model.PreviousButtonUrl))
-        {
-           <li class="previous"> <a href="@Model.PreviousButtonUrl">Prev</a></li>
-        }
-        @if (!string.IsNullOrEmpty(Model.NextButtonUrl))
-        {
-            <li class="next"><a href="@Model.NextButtonUrl">Next</a></li>
-        }
-    </ul>
-</div> <!-- pagination ends-->
-

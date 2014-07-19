@@ -20,16 +20,16 @@
 <div class="container">
     <div class="row">
         @*<div class="span2">
-            <h2>Filters</h2>
-            <div class="btn-group" data-toggle="buttons">
-                @foreach (var subProgram in @Model.Content.GetAllSubPrograms())
-                {
-                    <label class="btn btn-primary">
-                        <input type="checkbox" /> @subProgram.GetSubProgramName()
-                    </label>
-                }
-            </div>
-        </div>*@
+                <h2>Filters</h2>
+                <div class="btn-group" data-toggle="buttons">
+                    @foreach (var subProgram in @Model.Content.GetAllSubPrograms())
+                    {
+                        <label class="btn btn-primary">
+                            <input type="checkbox" /> @subProgram.GetSubProgramName()
+                        </label>
+                    }
+                </div>
+            </div>*@
         @{
             int year;
             if (!int.TryParse(Request.QueryString["id"], out year))
@@ -47,14 +47,14 @@
             <div class="events">
                 <div class="events-area">
                     <h2><strong>Events</strong></h2>
-                    <div id="top-event-navigation" class="pagination">
+                    <div id="top-event-navigation">
                         <ul>
-                            <li class="previous"><a href="#">Prev</a></li>
-                            <li class="active">@Html.Raw(new DateTime(year, month, 1).ToString("MMMM yyyy"))</li>
-                            <li class="next"><a href="#">Next</a></li>
+                            <li class="previous"><a class="btn" href="#">Prev</a></li>
+                            <li class="active"><h3>@Html.Raw(new DateTime(year, month, 1).ToString("MMMM yyyy"))</h3></li>
+                            <li class="next"><a class="btn" href="#">Next</a></li>
                         </ul>
                     </div><!-- pagination ends -->
-                    
+
                     <ul class="events-list">
                         @{
                             var featuredEvent = Model.Content.GetFeaturedEvents(1).FirstOrDefault();
@@ -89,31 +89,28 @@
                         }
 
                         @Umbraco.RenderMacro("Events")
-                        
+
                     </ul><!-- events-list ends -->
-                    
                     @*<div class="pagination">
-                        <ul>
-                            <li class="previous"><a href="#">Prev</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li class="active"><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">...</a></li>
-                            <li><a href="#">22</a></li>
-                            <li class="next"><a href="#">Next</a></li>
-                        </ul>
-                    </div><!-- pagination ends -->*@
+                            <ul>
+                                <li class="previous"><a href="#">Prev</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li class="active"><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">6</a></li>
+                                <li><a href="#">...</a></li>
+                                <li><a href="#">22</a></li>
+                                <li class="next"><a href="#">Next</a></li>
+                            </ul>
+                        </div><!-- pagination ends -->*@
                 </div><!-- events-area ends -->
             </div><!-- events end -->
         </div>
     </div>
 </div><!-- /container -->
-
 <!-- /Main -->
-
 @section Scripts
 {
     <script type="text/javascript">
