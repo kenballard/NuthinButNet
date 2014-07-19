@@ -125,7 +125,10 @@
     <script src="/js/get-involved.js"></script>
     <script src="/js/jquery.validate.min.js"></script>
  
-    @RenderSection("Scripts")
+    @if (IsSectionDefined("Scripts"))
+    {
+        @RenderSection("Scripts")
+    }
 
 </body>
 </html>
