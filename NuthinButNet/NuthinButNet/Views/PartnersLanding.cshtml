@@ -22,7 +22,7 @@
             <li class="span2">
                 @if (partner.HasValue("link"))
                 {
-                    <a href="http://@(partner.GetPropertyValue<string>("link"))" target="_blank">@(partner.GetPropertyValue<string>("name"))</a>
+                    <a href="@(partner.GetPropertyValue<string>("link"))" target="_blank">@(partner.GetPropertyValue<string>("name"))</a>
                 }
                 else
                 {
