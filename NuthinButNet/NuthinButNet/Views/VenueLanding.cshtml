@@ -20,16 +20,16 @@
 <div class="container">
     <div class="row">
         @*<div class="span2">
-            <h2>Filters</h2>
-            <div class="btn-group" data-toggle="buttons">
-                @foreach (var subProgram in @Model.Content.GetAllSubPrograms())
-                {
-                    <label class="btn btn-primary">
-                        <input type="checkbox" /> @subProgram.GetSubProgramName()
-                    </label>
-                }
-            </div>
-        </div>*@
+                <h2>Filters</h2>
+                <div class="btn-group" data-toggle="buttons">
+                    @foreach (var subProgram in @Model.Content.GetAllSubPrograms())
+                    {
+                        <label class="btn btn-primary">
+                            <input type="checkbox" /> @subProgram.GetSubProgramName()
+                        </label>
+                    }
+                </div>
+            </div>*@
         @{
             int page;
             if (!int.TryParse(Request.QueryString["page"], out page))
@@ -43,7 +43,7 @@
                 pageSize = 20;
             }
         }
-        <div class="span11">
+        <div class="span7">
             <div class="events">
                 <div class="venues-area">
                     <h2>Our <strong>Parks</strong></h2>
@@ -74,11 +74,17 @@
                 </div><!-- venues-area ends -->
             </div><!-- venues end -->
         </div>
+        <div class="span4">
+            <aside style="background-color: #61b0e4; padding: 40px 10px 40px 10px; height: 100%; text-align: center; ">
+                <a href="http://www.chicagoparkdistrict.com/parks/search/" target="_blank">
+                    <h3>Keep exploring our parks on the Chicago Park District Website</h3>
+                </a>
+                <a href="http://www.chicagoparkdistrict.com/parks/search/" target="_blank"><img src="/css/images/park-district.png" alt="Chicago Park District" style="padding-top: 20px;" /></a>
+            </aside>
+        </div>
     </div>
 </div><!-- /container -->
-
 <!-- /Main -->
-
 @section Scripts
 {
     <script src="/js/venues.js"></script>
