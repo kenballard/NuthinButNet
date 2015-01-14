@@ -59,8 +59,12 @@ namespace NuthinButNet.Controllers
                     var request = GetTransaction(checkout);
                     request.Customer.CustomFields = null;
                     var result = gateway.Transaction.Sale(request);
-                    return result.IsSuccess();
-
+                    if (result.IsSuccess())
+                    {
+                        var settlementResult = gateway.Transaction.SubmitForSettlement(result.Target.Id);
+                        return settlementResult.IsSuccess();
+                    }
+                    return false;
                 }
                 //if we made it here, the customer request failed...spit back fail...sorry for teh mess...we're running out of time.
                 return false;
